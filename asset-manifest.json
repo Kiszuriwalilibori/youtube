@@ -1,0 +1,43 @@
+{
+  "files": {
+    "main.css": "/youtube/static/css/main.48f18549.css",
+    "main.js": "/youtube/static/js/main.93489e5e.js",
+    "static/js/547.3e53b483.chunk.js": "/youtube/static/js/547.3e53b483.chunk.js",
+    "static/media/youtube.svg": "/youtube/static/media/youtube.e08d4c50a05694d0aef8f3f864898922.svg",
+    "static/media/settings.svg": "/youtube/static/media/settings.f84494afe4ecfc5f6e59edd0641daaed.svg",
+    "static/media/send.svg": "/youtube/static/media/send.869ec500ac53183c628dc6da78f9397b.svg",
+    "static/media/keyboard.svg": "/youtube/static/media/keyboard.5b0f1df47d95bf378f18e543a4f29242.svg",
+    "static/media/phone.svg": "/youtube/static/media/phone.598814fa2fd78705cf27e7f336f533b4.svg",
+    "static/media/twitter.svg": "/youtube/static/media/twitter.16ec4858233faaff5a62f7f7a40333c6.svg",
+    "static/media/chat.svg": "/youtube/static/media/chat.d7af317ebda10a80bc9707b8c0e5b4ef.svg",
+    "static/media/files.svg": "/youtube/static/media/files.48088cf7d4265667c9f6435aa025f5f7.svg",
+    "static/media/edit.svg": "/youtube/static/media/edit.78db9808c3c096aa937b79e0a3bd3633.svg",
+    "static/media/home.svg": "/youtube/static/media/home.09352e4bb891e040479b9f05881e52d3.svg",
+    "static/media/linkedin.svg": "/youtube/static/media/linkedin.14f38c07d38be5bddee02d700bf0fc2d.svg",
+    "static/media/microphone.svg": "/youtube/static/media/microphone.97231c569f41cd85fe2ce15349c903bf.svg",
+    "static/media/facebook.svg": "/youtube/static/media/facebook.f51db061afd1b76fff7ddfd786e4e06c.svg",
+    "static/media/smile.svg": "/youtube/static/media/smile.b4271ac5ca99baead79b3e97705e5590.svg",
+    "index.html": "/youtube/index.html",
+    "static/media/search.svg": "/youtube/static/media/search.193f9dee811609e860a320edd8f945a8.svg",
+    "static/media/star.svg": "/youtube/static/media/star.fc487797b89c598baceb5568ae917e20.svg",
+    "static/media/attach.svg": "/youtube/static/media/attach.9339571f3789dd283b67f47966db6d4e.svg",
+    "static/media/bell.svg": "/youtube/static/media/bell.ad49523b1a0d9b3c521279cc777cceb5.svg",
+    "static/media/camera.svg": "/youtube/static/media/camera.f81df7db873116103936c63a769bce2a.svg",
+    "static/media/clear.svg": "/youtube/static/media/clear.676bc622f368a92ab656775a5d489543.svg",
+    "static/media/cards.svg": "/youtube/static/media/cards.0bf6a302b0143804421a9d7542124d6a.svg",
+    "static/media/arrowLeft.svg": "/youtube/static/media/arrowLeft.ca83797e662de580ae8798db7b16a364.svg",
+    "static/media/right.svg": "/youtube/static/media/right.a86ba3af01ead2ed08b7e3e81369645b.svg",
+    "static/media/left.svg": "/youtube/static/media/left.ec4fffba45daba17835eb294170d5a65.svg",
+    "static/media/person.svg": "/youtube/static/media/person.423fa0bb0fa241ff6f5a45369f822045.svg",
+    "static/media/information.svg": "/youtube/static/media/information.522971a05f65decdf323796073f3c027.svg",
+    "static/media/cameraplus.svg": "/youtube/static/media/cameraplus.649584831832962b65761afd6448a58a.svg",
+    "static/media/hamburger.svg": "/youtube/static/media/hamburger.519bcbb5a43c3cde4f2aa5af5da7d864.svg",
+    "main.48f18549.css.map": "/youtube/static/css/main.48f18549.css.map",
+    "main.93489e5e.js.map": "/youtube/static/js/main.93489e5e.js.map",
+    "547.3e53b483.chunk.js.map": "/youtube/static/js/547.3e53b483.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.48f18549.css",
+    "static/js/main.93489e5e.js"
+  ]
+}
