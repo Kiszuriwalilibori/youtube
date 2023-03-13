@@ -1,0 +1,156 @@
+.btn {
+    cursor: pointer;
+    &:disabled {
+        cursor: default;
+    }
+}
+
+.rotated {
+    transform: rotateZ(-90deg);
+}
+.button--login {
+    @extend .btn;
+    min-width: 120px;
+    height: 40px;
+    border: none;
+    box-shadow: 1px 1px 5px -1px rgba(66, 68, 90, 1);
+    &[type="submit"] {
+        background-color: var(--ytd-searchbox-active-color);
+    }
+    &[type="reset"] {
+        background-color: var(--ytd-alarm-color);
+    }
+}
+
+.button--round {
+    @extend .btn;
+    border: none;
+    border-radius: var(--ytd-search-height);
+    height: var(--ytd-search-height);
+    width: var(--ytd-search-height);
+    margin: 0;
+}
+
+.button--left {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    @include largeScreen {
+        bottom: 0;
+        left: 120px;
+    }
+}
+
+.button--right {
+    position: absolute;
+    top: 40px;
+    right: 0;
+    @include largeScreen {
+        top: 0;
+        left: 120px;
+    }
+}
+
+.button--upwards {
+    @extend .button--right;
+    @extend .rotated;
+}
+
+.button--downwards {
+    @extend .button--left;
+    @extend .rotated;
+    top: 50px;
+}
+
+.button--sidebar {
+    @extend .btn;
+    border: none;
+    border-radius: var(--ytd-search-height);
+    cursor: pointer;
+    height: 40px;
+    height: var(--ytd-search-height);
+    width: 40px;
+    width: var(--ytd-search-height);
+    margin: 5px;
+    background-color: var(--ytd-alarm-color);
+    z-index: 10;
+    &:disabled {
+        background-color: var(--yt-spec-touch-response);
+    }
+}
+
+.button--reverted {
+    @extend .flexbox-row-centered;
+    @extend .button--round;
+    @extend .darkening;
+    @include svg--larger;
+    background-color: var(--ytd-searchbox-background);
+
+    & svg {
+        fill: var(--yt-spec-text-primary);
+    }
+}
+
+.button--neutral {
+    @extend .btn;
+    border: none;
+    background-color: initial;
+    text-align: inherit;
+    & svg {
+        width: var(--svg-width);
+    }
+}
+
+.button--alarm {
+    @extend .btn;
+    @extend .flexbox-row-centered;
+    border: 2px solid var(--ytd-alarm-color);
+    border-radius: var(--ytd-search-height);
+    height: var(--ytd-search-height);
+    width: var(--ytd-search-height);
+}
+
+.button {
+    @extend .btn;
+    border: none;
+    background-color: initial;
+    text-align: inherit;
+    &.smaller {
+        & svg {
+            width: var(--svg-smaller) !important;
+            height: var(--svg-smaller) !important;
+        }
+    }
+}
+
+.button--microphone {
+    @include xsmall {
+        display: none;
+    }
+    @extend .flexbox-row-centered;
+    @extend .button--round;
+    @extend .darkening;
+    background-color: var(--ytd-searchbox-legacy-button-color);
+    margin-left: 4px;
+
+    & svg {
+        width: var(--svg-middle);
+        height: var(--svg-middle);
+        fill: var(--yt-spec-text-primary);
+    }
+}
+
+.button--search {
+    @extend .btn;
+    @extend .flexbox-row-centered;
+    border: 1px solid var(--ytd-searchbox-legacy-button-border-color);
+    background-color: var(--ytd-searchbox-legacy-button-color);
+    border-radius: 0 var(--ytd-search-height) var(--ytd-search-height) 0;
+    height: 40px;
+    width: 64px;
+    margin: 0;
+    & svg {
+        color: var(--yt-spec-text-primary);
+        width: var(--svg-width);
+    }
+}

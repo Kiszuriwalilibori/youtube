@@ -1,0 +1,85 @@
+.login-page {
+    @extend .full-page;
+    @extend .flexbox-row-centered;
+
+    & .login {
+        display: grid;
+        grid-column: 1fr;
+        row-gap: 20px;
+        margin: 0 auto;
+        width: 300px;
+        & .invalid-credentials {
+            @extend .shout-text--small;
+            visibility: hidden;
+            &.visible {
+                visibility: visible;
+            }
+        }
+        & h1 {
+            font-weight: 500;
+            font-size: 24px;
+            text-align: center;
+        }
+        & h2 {
+            font-weight: 500;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        & .form {
+            display: grid;
+            row-gap: 20px;
+            & > * {
+                margin: 0 auto;
+            }
+            & .search {
+                @extend .flexbox-row-v-centered;
+                position: relative;
+                justify-content: space-between;
+                width: 100%;
+                flex-grow: 1;
+                height: var(--ytd-search-height);
+                border-radius: var(--ytd-search-height);
+                caret-color: var(--yt-spec-text-primary);
+                padding: 0px 4px 0px 16px;
+                position: relative;
+                background-color: var(--ytd-searchbox-background);
+                border: 1px solid var(--ytd-searchbox-legacy-border-color);
+                box-shadow: inset 0 1px 2px var(--ytd-searchbox-legacy-border-shadow-color);
+                color: var(--ytd-searchbox-text-color);
+                margin-bottom: 20px;
+
+                &:has(:focus) {
+                    border: 1px solid var(--ytd-searchbox-active-color);
+                    padding-left: 10px;
+                    & .hidden {
+                        display: block;
+                    }
+                }
+                & .search__label {
+                    position: absolute;
+                    top: -20px;
+                    left: 0;
+                    font-size: 12px;
+                }
+                & .search__input {
+                    border: medium none;
+                    padding: 0px;
+                    margin: 0px;
+                    height: auto;
+                    width: 100%;
+                    outline: none;
+                    color: var(--ytd-searchbox-text-color);
+                }
+                & .search__hint {
+                    position: absolute;
+                    bottom: 16px;
+                    right: -100px;
+                    color: var(--ytd-alarm-color);
+                    font-size: x-small;
+                    font-style: italic;
+                }
+            }
+        }
+    }
+}

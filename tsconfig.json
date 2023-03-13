@@ -1,0 +1,34 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "lib": ["dom", "dom.iterable", "webworker", "esnext"],
+        "allowJs": true,
+        "skipLibCheck": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "strict": true,
+        "forceConsistentCasingInFileNames": true,
+        "module": "esnext",
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "isolatedModules": false,
+        "noEmit": true,
+        "jsx": "react-jsx",
+        "noFallthroughCasesInSwitch": true,
+        "baseUrl": "src",
+        "paths": {
+            "types/*": ["types/*"],
+            "hooks/*": ["hooks/*"],
+            "models/*": ["models/*"],
+            "components/*": ["components/*"],
+            "js/*": ["js/*"],
+            "pages/*": ["pages/*"],
+            "HOCs/*": ["HOCs/*"],
+            "functions/*": ["functions/*"],
+            "routing/*": ["routing/*"],
+            "Pages/*": ["Pages/*"],
+            "reduxware/*": ["reduxware/*"]
+        }
+    },
+    "include": ["src"]
+}

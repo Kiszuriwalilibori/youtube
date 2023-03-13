@@ -1,0 +1,9 @@
+.player {
+    flex-grow: 1;
+    & > .youtube {
+        aspect-ratio: 16 / 9;
+    }
+    p {
+        margin: 10px 5px;
+    }
+}
