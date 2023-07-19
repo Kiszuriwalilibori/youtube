@@ -43,18 +43,6 @@
         @include mobile {
             min-width: unset;
         }
-
-        & > .buttons {
-            display: grid;
-            grid-column-gap: 20px;
-            grid-template-columns: repeat(2, 1fr);
-            & > .button-reverted {
-                & > svg {
-                    width: var(--svg-larger);
-                    height: var(--svg-larger);
-                }
-            }
-        }
     }
     &__center {
         @extend .flexbox-row-v-centered;

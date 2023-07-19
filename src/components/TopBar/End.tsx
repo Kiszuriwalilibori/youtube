@@ -1,17 +1,21 @@
-import { BasicButton } from "components";
+import { IconButton, Stack } from "@mui/material";
 import Icons from "icons";
 
 const End = () => {
     return (
         <div className="TopBar__end">
-            <div className="buttons">
-                <BasicButton className="button--reverted">
+            <Stack direction="row" spacing={2.5}>
+                <IconButton aria-label="Create a content" title="camera">
                     <Icons.CameraPlus />
-                </BasicButton>
-                <BasicButton className="button--reverted hiddenxsmall">
+                </IconButton>
+                <IconButton
+                    className="hiddenxsmall"
+                    aria-label="Turn on notifications for the channel"
+                    title="notifications"
+                >
                     <Icons.Bell />
-                </BasicButton>
-            </div>
+                </IconButton>
+            </Stack>
         </div>
     );
 };
