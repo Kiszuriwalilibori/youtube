@@ -1,13 +1,15 @@
+import IconButton from "@mui/material/IconButton";
 import { BasicButton } from "components";
 import Icons from "icons";
 
 const Start = () => {
     return (
         <div className="TopBar__start visible">
-            <BasicButton className="button--reverted">
+            <IconButton aria-label="Guide">
                 <Icons.Hamburger />
-            </BasicButton>
-            <BasicButton className="button--youtube">
+            </IconButton>
+
+            <BasicButton className="button--youtube" title=" YouTube main page">
                 <Icons.YouTube />
             </BasicButton>
         </div>

@@ -1,6 +1,7 @@
 import thunk from "redux-thunk";
 import React, { ReactNode } from "react";
-
+import { Theme } from "@mui/material/styles";
+import { ThemeProvider, StyledEngineProvider } from "@mui/material";
 import { combineReducers } from "redux";
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
@@ -12,13 +13,17 @@ import logReducer from "reduxware/reducers/logReducer";
 
 import { ViewportProvider } from "contexts/ViewPortProvider";
 import App from "components/App";
+import theme from "themes/theme";
 
 const rootReducer = combineReducers({
     fetch: fetchReducer,
     movies: moviesReducer,
     log: logReducer,
 });
-
+// declare module "@mui/styles/defaultTheme" {
+//     // eslint-disable-next-line @typescript-eslint/no-empty-interface
+//     interface DefaultTheme extends Theme {}
+// }
 export const store = configureStore({
     reducer: rootReducer,
     middleware: getDefaultMiddleware => getDefaultMiddleware().concat(thunk),
@@ -27,9 +32,13 @@ const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
     return (
         <ViewportProvider>
             <Provider store={store}>
-                <Router>
-                    <App />
-                </Router>
+                <StyledEngineProvider injectFirst>
+                    <ThemeProvider theme={theme}>
+                        <Router>
+                            <App />
+                        </Router>
+                    </ThemeProvider>
+                </StyledEngineProvider>
             </Provider>
         </ViewportProvider>
     );

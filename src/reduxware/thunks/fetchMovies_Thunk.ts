@@ -8,7 +8,7 @@ const thunkFetchMovies = (URL: string): ThunkAction<void, RootStateType, unknown
     return async (dispatch, getState) => {
         const path = URL;
         dispatch(startLoading());
-
+        console.log(path);
         fetch(path)
             .then(res => res.json())
             .then(json => {

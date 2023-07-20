@@ -1,6 +1,6 @@
 import { useState, useEffect, createContext, useContext, FC, ReactNode } from "react";
 import throttle from "lodash/throttle";
-import debounce from "lodash/debounce";
+
 type desktopSizes = "mobile" | "phablet" | "tablet" | "desktop" | "desktopHD";
 
 type Orientation = "vertical" | "horizontal";

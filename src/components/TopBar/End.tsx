@@ -1,10 +1,10 @@
-import { IconButton, Stack } from "@mui/material";
+import { IconButton, Stack, useMediaQuery } from "@mui/material";
 import Icons from "icons";
 
 const End = () => {
     return (
         <div className="TopBar__end">
-            <Stack direction="row" spacing={2.5}>
+            <Stack direction="row" spacing={useMediaQuery("(min-width:750px)") ? 2.5 : 0}>
                 <IconButton aria-label="Create a content" title="camera">
                     <Icons.CameraPlus />
                 </IconButton>

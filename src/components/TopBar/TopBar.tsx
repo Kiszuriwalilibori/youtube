@@ -10,7 +10,9 @@ import { useBoolean } from "hooks";
 import { AnyAction } from "redux";
 import { ThunkAction } from "redux-thunk";
 import { RootStateType } from "types/types";
-import useDispatchAction from "hooks/useDispatchAction";
+import Tooltip from "@mui/material/Tooltip";
+import IconButton from "@mui/material/IconButton";
+import { MicrophoneButton } from "styles/styled";
 
 const prefix = " https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=";
 const postfix = "&key=";
@@ -23,7 +25,6 @@ interface Props {
 }
 const TopBar = (props: Props) => {
     const { thunkFetchMovies } = props;
-    const { showError } = useDispatchAction();
     const { point: viewportType, orientation } = useBreakpoints();
 
     const previousSize = useRef<LastSize>(undefined);
@@ -82,12 +83,11 @@ const TopBar = (props: Props) => {
     useEffect(() => {
         if (textContent) {
             const URL = `${prefix}${textContent}type=video${postfix}${process.env.REACT_APP_API_KEY}`;
-
             thunkFetchMovies(URL);
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [textContent]);
-
+    console.log(textContent);
     return (
         <header className="TopBar">
             {isStartVisible && <Start />}
@@ -129,9 +129,9 @@ const TopBar = (props: Props) => {
                 >
                     <Icons.Search />
                 </BasicButton>
-                <BasicButton className="button--microphone with-tooltip" data-tooltip="Wyszukuj głosowo">
+                <MicrophoneButton className="with-tooltip" data-tooltip="Wyszukuj głosowo">
                     <Icons.Microphone />
-                </BasicButton>
+                </MicrophoneButton>
             </div>
             <End />
         </header>

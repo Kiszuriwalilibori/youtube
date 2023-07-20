@@ -8,7 +8,7 @@ import ButtonPrevious from "./ButtonPrevious";
 import ButtonNext from "./ButtonNext";
 
 import { useBreakpoints } from "contexts/ViewPortProvider";
-import { Video, SliderOrientation } from "types";
+import { SliderOrientation } from "types";
 import { useThumbnails, useSelectVideo } from "hooks";
 
 const movieHeight = 200;
@@ -51,7 +51,7 @@ const Slider = () => {
         count && setMoviesNumber(count);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [width, height, sliderOrientation]);
-
+    console.log(visibleVideoThumbnails); // todo tutaj jeżeli kliknie się na pierwszy albo ostatni element powinno pobrac nowy zasób
     return (
         <aside className={sliderClass} ref={sliderRef}>
             <ButtonPrevious
