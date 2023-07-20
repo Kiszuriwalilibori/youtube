@@ -10,6 +10,7 @@ import { HashRouter as Router } from "react-router-dom";
 import fetchReducer from "reduxware/reducers/fetchReducer";
 import moviesReducer from "reduxware/reducers/moviesReducer";
 import logReducer from "reduxware/reducers/logReducer";
+import pageTokenReducer from "reduxware/reducers/pageTokenReducer";
 
 import { ViewportProvider } from "contexts/ViewPortProvider";
 import App from "components/App";
@@ -19,6 +20,7 @@ const rootReducer = combineReducers({
     fetch: fetchReducer,
     movies: moviesReducer,
     log: logReducer,
+    pageToken: pageTokenReducer,
 });
 // declare module "@mui/styles/defaultTheme" {
 //     // eslint-disable-next-line @typescript-eslint/no-empty-interface

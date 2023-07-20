@@ -87,7 +87,7 @@ const TopBar = (props: Props) => {
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [textContent]);
-    console.log(textContent);
+
     return (
         <header className="TopBar">
             {isStartVisible && <Start />}

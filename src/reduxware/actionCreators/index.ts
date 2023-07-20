@@ -1,5 +1,5 @@
 import { createAction } from "@reduxjs/toolkit";
-import { Video, Videos } from "types/types";
+import { PageToken, Video, Videos } from "types/types";
 
 interface ShowError {
     isError: boolean;
@@ -15,3 +15,5 @@ export const setSelectedMovie = createAction<Video>("SELECTED_MOVIE_SET");
 export const logUser = createAction("USER_LOGIN");
 export const logOutUser = createAction("USER_LOGOUT");
 export const clearMovies = createAction("MOVIES_CLEAR");
+export const setPageToken = createAction<PageToken>("PAGE_TOKEN_SET");
+export const resetPageToken = createAction("PAGE_TOKEN_RESET");

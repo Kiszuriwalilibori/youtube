@@ -1,14 +1,13 @@
 import { AnyAction } from "redux";
 import { ThunkAction } from "redux-thunk";
 
-import { startLoading, completeLoading, showError, storeMovies } from "../actionCreators";
+import { startLoading, completeLoading, showError, storeMovies, setPageToken } from "../actionCreators";
 import { RootStateType } from "types/types";
 
 const thunkFetchMovies = (URL: string): ThunkAction<void, RootStateType, unknown, AnyAction> => {
     return async (dispatch, getState) => {
         const path = URL;
         dispatch(startLoading());
-        console.log(path);
         fetch(path)
             .then(res => res.json())
             .then(json => {
@@ -24,6 +23,11 @@ const thunkFetchMovies = (URL: string): ThunkAction<void, RootStateType, unknown
                             );
                         } else {
                             if (json.items && json.items.length) {
+                                const pageToken = {
+                                    next: json.nextPageToken || "",
+                                    prev: json.prevPageToken || "",
+                                };
+                                dispatch(setPageToken(pageToken));
                                 dispatch(storeMovies([...json.items]));
                             } else {
                                 dispatch(

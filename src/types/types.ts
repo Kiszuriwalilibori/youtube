@@ -10,4 +10,10 @@ interface Video {
 type Videos = Video[];
 
 type SliderOrientation = "vertical" | "horizontal";
-export type { RootStateType, Video, SliderOrientation, Videos };
+
+interface PageToken {
+    next: string | undefined;
+    prev: string | undefined;
+}
+
+export type { RootStateType, Video, SliderOrientation, Videos, PageToken };
