@@ -3,16 +3,12 @@ import isEqual from "lodash/isEqual";
 
 import { useEffect, useRef, useState } from "react";
 import { useSelector, shallowEqual } from "react-redux";
+
 import { getQuery } from "reduxware/reducers/queryReducer";
-
-import VideoThumbnail from "./VideoThumbnail";
-import ButtonPrevious from "./ButtonPrevious";
-import ButtonNext from "./ButtonNext";
-
 import { useBreakpoints } from "contexts/ViewPortProvider";
 import { SliderOrientation } from "types";
 import { useThumbnails, useSelectVideo } from "hooks";
-import { getLoginStatus } from "reduxware/reducers/logReducer";
+import { ButtonPrevious, VideoThumbnail, ButtonNext } from "./components";
 
 const movieHeight = 200;
 const movieWidth = 180;
@@ -58,7 +54,7 @@ const Slider = () => {
     } = useThumbnails({
         moviesNumber,
     });
-    console.log(visibleVideoThumbnails, isNextDisabled, isPreviousDisabled, firstMovie);
+    // console.log(visibleVideoThumbnails, isNextDisabled, isPreviousDisabled, firstMovie);
     useEffect(() => {
         const count = calculateNumberOfVideos(sliderOrientation!, width, height);
         count && setMoviesNumber(count);

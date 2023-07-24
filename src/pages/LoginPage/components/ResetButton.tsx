@@ -7,7 +7,7 @@ interface Props {
 export const ResetButton = (props: Props) => {
     const { onClick } = props;
     return (
-        <BasicButton className="button--login" type="reset" onClick={onClick}>
+        <BasicButton className="button--login" type="reset" aria-label="Reset form" onClick={onClick}>
             Reset
         </BasicButton>
     );

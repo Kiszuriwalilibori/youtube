@@ -1,6 +1,5 @@
-import { Slider, Player, LoadingIndicator, Message } from "components";
 import { useDispatchAction, useCheckApiKey } from "hooks";
-import TopBar from "./components/TopBar";
+import { TopBar, Message, LoadingIndicator, Player, Slider } from "./components";
 
 interface Props {
     isLogged: Boolean;

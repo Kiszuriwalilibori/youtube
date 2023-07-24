@@ -14,6 +14,7 @@ const ButtonPrevious = (props: Props) => {
     return (
         <BasicButton
             id="previous"
+            aria-label="show previous thumb"
             className={
                 sliderOrientation === "horizontal"
                     ? "button--sidebar button--left"

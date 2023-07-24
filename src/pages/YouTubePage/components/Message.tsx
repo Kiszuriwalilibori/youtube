@@ -1,7 +1,7 @@
+import ReactDOM from "react-dom";
 import Icons from "icons";
 
 import { BasicButton } from "components";
-import ReactDOM from "react-dom";
 
 interface Props {
     message: string;
