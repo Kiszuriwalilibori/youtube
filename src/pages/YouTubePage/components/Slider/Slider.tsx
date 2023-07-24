@@ -6,33 +6,9 @@ import { useSelector, shallowEqual } from "react-redux";
 
 import { getQuery } from "reduxware/reducers/queryReducer";
 import { useBreakpoints } from "contexts/ViewPortProvider";
-import { SliderOrientation } from "types";
 import { useThumbnails, useSelectVideo } from "hooks";
 import { ButtonPrevious, VideoThumbnail, ButtonNext } from "./components";
-
-const movieHeight = 200;
-const movieWidth = 180;
-
-function calculateMoviesNumber(window: number, movieSize: number) {
-    return Math.floor(window / movieSize);
-}
-
-function calculateNumberOfVideos(orientation: SliderOrientation, width: number, height: number) {
-    let count = 0;
-
-    switch (orientation) {
-        case "horizontal":
-            if (width) count = calculateMoviesNumber(width - 40, movieWidth);
-            break;
-        case "vertical":
-            if (height) count = calculateMoviesNumber(height as number, movieHeight);
-            break;
-        default:
-            break;
-    }
-
-    return count;
-}
+import { calculateNumberOfVideos } from "./utils";
 
 const Slider = () => {
     const query = useSelector(getQuery, shallowEqual);
