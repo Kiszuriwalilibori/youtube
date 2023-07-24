@@ -10,8 +10,6 @@ import { useBoolean } from "hooks";
 import { AnyAction } from "redux";
 import { ThunkAction } from "redux-thunk";
 import { RootStateType } from "types/types";
-import Tooltip from "@mui/material/Tooltip";
-import IconButton from "@mui/material/IconButton";
 import { MicrophoneButton } from "styles/styled";
 
 const prefix = " https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=";

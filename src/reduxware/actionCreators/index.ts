@@ -17,3 +17,5 @@ export const logOutUser = createAction("USER_LOGOUT");
 export const clearMovies = createAction("MOVIES_CLEAR");
 export const setPageToken = createAction<PageToken>("PAGE_TOKEN_SET");
 export const resetPageToken = createAction("PAGE_TOKEN_RESET");
+export const setQuery = createAction("QUERY_SET");
+export const resetQuery = createAction("QUERY_RESET");

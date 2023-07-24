@@ -11,6 +11,7 @@ import fetchReducer from "reduxware/reducers/fetchReducer";
 import moviesReducer from "reduxware/reducers/moviesReducer";
 import logReducer from "reduxware/reducers/logReducer";
 import pageTokenReducer from "reduxware/reducers/pageTokenReducer";
+import queryReducer from "reduxware/reducers/queryReducer";
 
 import { ViewportProvider } from "contexts/ViewPortProvider";
 import App from "components/App";
@@ -21,6 +22,7 @@ const rootReducer = combineReducers({
     movies: moviesReducer,
     log: logReducer,
     pageToken: pageTokenReducer,
+    query: queryReducer,
 });
 // declare module "@mui/styles/defaultTheme" {
 //     // eslint-disable-next-line @typescript-eslint/no-empty-interface

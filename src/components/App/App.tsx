@@ -1,8 +1,11 @@
+import loadable from "@loadable/component";
+
 import { Route } from "react-router-dom";
 import { Routes } from "react-router-dom";
-import loadable from "@loadable/component";
+
 import Paths from "routing";
 import ProtectedRoute from "components/ProtectedRoute";
+
 import { LoginPage } from "pages/index";
 
 const YouTubePage = loadable(() => import("pages/YouTubePage"));

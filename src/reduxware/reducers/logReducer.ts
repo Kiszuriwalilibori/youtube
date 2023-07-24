@@ -7,7 +7,7 @@ const initialState = {
     isLogged: false,
 };
 
-const moviesReducer = createReducer(initialState, builder => {
+const logReducer = createReducer(initialState, builder => {
     builder.addCase(logUser, state => {
         state.isLogged = true;
     });
@@ -16,6 +16,6 @@ const moviesReducer = createReducer(initialState, builder => {
     });
 });
 
-export default moviesReducer;
+export default logReducer;
 
 export const getLoginStatus = (state: RootStateType) => state.log.isLogged;

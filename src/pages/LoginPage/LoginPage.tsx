@@ -1,42 +1,13 @@
 import { useCallback, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { RegisterOptions, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 
 import paths from "routing";
 import useDispatchAction from "hooks/useDispatchAction";
 
 import { useBoolean } from "hooks";
-import { BasicButton } from "components";
-
-type Messages = { [key in keyof RegisterOptions]?: string };
-
-const messages: Messages = {
-    minLength: "Minimal length not reached, should be at least ",
-    maxLength: "Max length exceeded ",
-    required: "This field is required ",
-    pattern: "Not a valid e-mail",
-};
-
-type Fields = "firstName" | "surName" | "password" | "email" | "dob" | "address" | "city" | "state" | "zip";
-
-type Validator = { [key in keyof RegisterOptions]?: any };
-type Validators = {
-    [key in Fields]?: Validator;
-};
-const crits = {
-    password: {
-        required: true,
-    },
-    email: {
-        required: true,
-        pattern:
-            /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/,
-    },
-};
-const validators: Validators = {
-    password: { ...crits.password },
-    email: { ...crits.email },
-};
+import { Error, LogInPrompt, ResetButton, SubmitButton, Welcome } from "./components";
+import { crits, messages, validators } from "./utils/utils";
 
 const Login = () => {
     const { logUser, logOutUser, clearMovies } = useDispatchAction();
@@ -65,7 +36,7 @@ const Login = () => {
 
     const { ref, ...rest } = register("password", validators.password);
 
-    const clearAll = useCallback(() => {
+    const clearAllErrors = useCallback(() => {
         clearErrors();
         clearError();
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -80,11 +51,9 @@ const Login = () => {
     return (
         <section className="login-page">
             <div className="login">
-                <p className={isError ? "invalid-credentials visible" : "invalid-credentials"}>
-                    - - - Invalid credentials - - -
-                </p>
-                <h1>Witamy w YouTube</h1>
-                <h2>Please log in</h2>
+                <Error isError={isError} />
+                <Welcome />
+                <LogInPrompt />
 
                 <form className="form" onSubmit={handleSubmit(onFormSubmit)}>
                     <label className="search">
@@ -108,7 +77,7 @@ const Login = () => {
                     </label>
 
                     <label className="search">
-                        <p className="search__label">Password</p>
+                        <p className="search__label">password</p>
                         <input
                             className="search__input"
                             tabIndex={0}
@@ -127,16 +96,12 @@ const Login = () => {
                             </span>
                         )}
                     </label>
-                    <BasicButton className="button--login" type="submit">
-                        Submit
-                    </BasicButton>
-                    <BasicButton className="button--login" type="reset" onClick={clearAll}>
-                        Reset
-                    </BasicButton>
+                    <SubmitButton />
+                    <ResetButton onClick={clearAllErrors} />
                 </form>
             </div>
         </section>
     );
 };
-//export default withRouter(Login);
+
 export default Login;

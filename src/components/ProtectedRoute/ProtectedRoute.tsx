@@ -1,7 +1,7 @@
 import { shallowEqual, useSelector } from "react-redux";
 import { ReactNode } from "react";
 
-import NotLogged from "components/NotLogged";
+import NotLogged from "./components/NotLogged";
 
 import { getLoginStatus } from "reduxware/reducers/logReducer";
 

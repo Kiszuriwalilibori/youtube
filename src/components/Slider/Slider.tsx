@@ -2,6 +2,8 @@ import uuid from "react-uuid";
 import isEqual from "lodash/isEqual";
 
 import { useEffect, useRef, useState } from "react";
+import { useSelector, shallowEqual } from "react-redux";
+import { getQuery } from "reduxware/reducers/queryReducer";
 
 import VideoThumbnail from "./VideoThumbnail";
 import ButtonPrevious from "./ButtonPrevious";
@@ -10,6 +12,7 @@ import ButtonNext from "./ButtonNext";
 import { useBreakpoints } from "contexts/ViewPortProvider";
 import { SliderOrientation } from "types";
 import { useThumbnails, useSelectVideo } from "hooks";
+import { getLoginStatus } from "reduxware/reducers/logReducer";
 
 const movieHeight = 200;
 const movieWidth = 180;
@@ -36,22 +39,33 @@ function calculateNumberOfVideos(orientation: SliderOrientation, width: number, 
 }
 
 const Slider = () => {
+    const query = useSelector(getQuery, shallowEqual);
     const { width, height, orientation: sliderOrientation, sliderClass } = useBreakpoints();
     const [moviesNumber, setMoviesNumber] = useState<number>(0);
 
     const sliderRef = useRef<HTMLBaseElement>(null);
     const { selectedVideo, selectVideo } = useSelectVideo();
 
-    const { showNext, showPrevious, visibleVideoThumbnails, isNextDisabled, isPreviousDisabled } = useThumbnails({
+    const {
+        isFirst,
+        isLast,
+        showNext,
+        showPrevious,
+        visibleVideoThumbnails,
+        isNextDisabled,
+        isPreviousDisabled,
+        firstMovie,
+    } = useThumbnails({
         moviesNumber,
     });
-
+    console.log(visibleVideoThumbnails, isNextDisabled, isPreviousDisabled, firstMovie);
     useEffect(() => {
         const count = calculateNumberOfVideos(sliderOrientation!, width, height);
         count && setMoviesNumber(count);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [width, height, sliderOrientation]);
-    console.log(visibleVideoThumbnails); // todo tutaj jeżeli kliknie się na pierwszy albo ostatni element powinno pobrac nowy zasób
+
+    console.log(moviesNumber, visibleVideoThumbnails.length); // todo tutaj jeżeli kliknie się na pierwszy albo ostatni element powinno pobrac nowy zasób. Czyli nie ma aktywny nieaktywny, ale zróżnicowanie akcji - na "stary aktywny przesuwa, na nowy aktywny robi fetcha"
     return (
         <aside className={sliderClass} ref={sliderRef}>
             <ButtonPrevious
