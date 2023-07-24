@@ -6,7 +6,7 @@ import paths from "routing";
 import useDispatchAction from "hooks/useDispatchAction";
 
 import { useBoolean } from "hooks";
-import { Error, LogInPrompt, ResetButton, SubmitButton, Welcome } from "./components";
+import { Error, LogInForm, LogInPrompt, ResetButton, SubmitButton, Welcome } from "./components";
 import { crits, messages, validators } from "./utils/utils";
 
 const Login = () => {
@@ -54,8 +54,8 @@ const Login = () => {
                 <Error isError={isError} />
                 <Welcome />
                 <LogInPrompt />
-
-                <form className="form" onSubmit={handleSubmit(onFormSubmit)}>
+                <LogInForm setError={setError} clearError={clearError} />
+                {/* <form className="form" onSubmit={handleSubmit(onFormSubmit)}>
                     <label className="search">
                         <p className="search__label">email</p>
                         <input
@@ -98,7 +98,7 @@ const Login = () => {
                     </label>
                     <SubmitButton />
                     <ResetButton onClick={clearAllErrors} />
-                </form>
+                </form> */}
             </div>
         </section>
     );
