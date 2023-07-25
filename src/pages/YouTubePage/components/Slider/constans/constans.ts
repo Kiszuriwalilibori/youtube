@@ -1,2 +1,4 @@
-export const movieHeight = 200;
-export const movieWidth = 180;
+export const thumbnailSize = {
+    height: 200,
+    width: 180,
+};

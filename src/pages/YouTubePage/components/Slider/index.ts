@@ -9,3 +9,4 @@ const mapStateToProps = (state: RootStateType) => ({
 });
 
 export default connect(mapStateToProps, {})(renderConditionally(Slider));
+// todo lepiej by wziąć przez selector
