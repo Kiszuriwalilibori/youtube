@@ -38,7 +38,8 @@ const Slider = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [width, height, sliderOrientation]);
 
-    console.log(numberOfVideos, visibleVideoThumbnails.length); // todo tutaj jeżeli kliknie się na pierwszy albo ostatni element powinno pobrac nowy zasób. Czyli nie ma aktywny nieaktywny, ale zróżnicowanie akcji - na "stary aktywny przesuwa, na nowy aktywny robi fetcha"
+    // console.log(numberOfVideos, visibleVideoThumbnails.length);
+    // todo tutaj jeżeli kliknie się na pierwszy albo ostatni element powinno pobrac nowy zasób. Czyli nie ma aktywny nieaktywny, ale zróżnicowanie akcji - na "stary aktywny przesuwa, na nowy aktywny robi fetcha"
     return (
         <aside className={sliderClass} ref={sliderRef}>
             <ButtonPrevious
@@ -64,3 +65,4 @@ const Slider = () => {
 };
 
 export default Slider;
+// todo sprawdzić button next i previous bo dziwnie w nich wygląda, tak jakby nieudane kopie samych siebie

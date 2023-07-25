@@ -53,6 +53,12 @@ Simplified dependencies
 Version number in <head>
 new favicon
 
+### 1.0.3
+
+Folder structure modified
+Many files and variables renamed
+Generally, getting ready to apply TanstackQuery
+
 ### Important
 
 The password is set to "MISIO"

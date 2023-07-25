@@ -13,8 +13,8 @@ const useThumbnails = (props: Props) => {
     const videos = useSelector((state: RootStateType) => state.movies.movies, shallowEqual);
     const nextPageToken = useSelector((state: RootStateType) => state.pageToken.next, shallowEqual);
     const prevPageToken = useSelector((state: RootStateType) => state.pageToken.prev, shallowEqual);
-    console.log(nextPageToken, "next");
-    console.log(prevPageToken, "prev");
+    // console.log(nextPageToken, "next");
+    // console.log(prevPageToken, "prev");
     const showNext = useCallback(() => {
         if (firstVideo <= videos.length - 2 - numberOfVideos) setFirstVideo(firstVideo => firstVideo + 1);
         else {
