@@ -9,6 +9,7 @@ import { useBreakpoints } from "contexts/ViewPortProvider";
 import { useThumbnails, useSelectVideo } from "hooks";
 import { ButtonPrevious, VideoThumbnail, ButtonNext } from "./components";
 import { calculateNumberOfVideos } from "./utils";
+import { Video } from "types/index";
 
 const Slider = () => {
     const query = useSelector(getQuery, shallowEqual);
@@ -46,12 +47,12 @@ const Slider = () => {
                 disabled={isPreviousDisabled}
             />
 
-            {visibleVideoThumbnails.map(video => {
+            {visibleVideoThumbnails.map((video: Video) => {
                 return (
                     <VideoThumbnail
                         key={uuid()}
                         clickHandler={selectVideo}
-                        movie={video}
+                        video={video}
                         isSelected={isEqual(video, selectedVideo)}
                     />
                 );

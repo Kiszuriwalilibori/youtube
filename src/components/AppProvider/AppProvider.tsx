@@ -8,7 +8,7 @@ import { Provider } from "react-redux";
 import { HashRouter as Router } from "react-router-dom";
 
 import fetchReducer from "reduxware/reducers/fetchReducer";
-import moviesReducer from "reduxware/reducers/moviesReducer";
+import videosReducer from "reduxware/reducers/videosReducer";
 import logReducer from "reduxware/reducers/logReducer";
 import pageTokenReducer from "reduxware/reducers/pageTokenReducer";
 import queryReducer from "reduxware/reducers/queryReducer";
@@ -19,7 +19,7 @@ import theme from "themes/theme";
 
 const rootReducer = combineReducers({
     fetch: fetchReducer,
-    movies: moviesReducer,
+    movies: videosReducer,
     log: logReducer,
     pageToken: pageTokenReducer,
     query: queryReducer,

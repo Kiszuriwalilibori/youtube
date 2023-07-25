@@ -1,6 +1,6 @@
 import { createReducer } from "@reduxjs/toolkit";
 
-import { storeMovies, setSelectedMovie, clearMovies } from "../actionCreators";
+import { storeVideos, setSelectedVideo, clearVideos, clearSelectedVideo } from "../actionCreators";
 import { RootStateType } from "types/types";
 import { Videos } from "types/types";
 
@@ -11,18 +11,21 @@ const initialState = {
 
 const moviesReducer = createReducer(initialState, builder => {
     builder
-        .addCase(storeMovies, (state, action) => {
+        .addCase(storeVideos, (state, action) => {
             if (action.payload) {
                 state.movies = action.payload;
             }
         })
-        .addCase(setSelectedMovie, (state, action) => {
+        .addCase(setSelectedVideo, (state, action) => {
             if (action.payload) {
                 if (action.payload.id) state.videoId = action.payload.id.videoId;
             }
         })
-        .addCase(clearMovies, state => {
+        .addCase(clearVideos, state => {
             state.movies = initialState.movies;
+            state.videoId = initialState.videoId;
+        })
+        .addCase(clearSelectedVideo, state => {
             state.videoId = initialState.videoId;
         });
 });

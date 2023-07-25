@@ -19,10 +19,10 @@ const placeHolder = "Szukaj";
 type LastSize = "large" | "small" | undefined;
 
 interface Props {
-    thunkFetchMovies: (URL: string) => ThunkAction<void, RootStateType, unknown, AnyAction>;
+    thunkFetchVideos: (URL: string) => ThunkAction<void, RootStateType, unknown, AnyAction>;
 }
 const TopBar = (props: Props) => {
-    const { thunkFetchMovies } = props;
+    const { thunkFetchVideos } = props;
     const { point: viewportType, orientation } = useBreakpoints();
 
     const previousSize = useRef<LastSize>(undefined);
@@ -81,7 +81,7 @@ const TopBar = (props: Props) => {
     useEffect(() => {
         if (textContent) {
             const URL = `${prefix}${textContent}type=video${postfix}${process.env.REACT_APP_API_KEY}`;
-            thunkFetchMovies(URL);
+            thunkFetchVideos(URL);
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [textContent]);

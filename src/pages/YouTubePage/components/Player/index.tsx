@@ -5,33 +5,22 @@ import { useSelector } from "react-redux";
 
 import useDispatchAction from "hooks/useDispatchAction";
 
-import { selectMovie } from "reduxware/selectors";
-
-const options = {
-    width: "100%",
-    height: "100%",
-    playerVars: {
-        controls: 1,
-        autoplay: 1,
-        hl: "pl",
-        modestbranding: 1,
-    },
-};
-
-const error = {
-    isError: true,
-    errorMessage: "Video caused error",
-};
+import { selectVideo } from "reduxware/selectors";
+import { options } from "./config";
 
 export const Player = () => {
-    const { videoId, title, description } = useSelector(selectMovie);
-    const { showError } = useDispatchAction();
+    const { videoId, title, description } = useSelector(selectVideo);
+    const { showError, clearSelectedVideo } = useDispatchAction();
     const dispatchError = useCallback(() => {
-        showError(error);
+        showError({
+            isError: true,
+            errorMessage: "Requested video caused error and can not be displayed",
+        });
+        clearSelectedVideo();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    if (!videoId) return null;
+    if (!videoId) return null; // lepsza jakaś grafika z przekreślonym ekranem albo cokolwiek podobnego
 
     return (
         <section className="player" id="player-id">

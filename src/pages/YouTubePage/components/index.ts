@@ -1,7 +1,8 @@
-import LoadingIndicator from "./LoadingIndicator";
-import TopBar from "./TopBar";
+import ContentWrapper from "./ContentWrapper";
+import Loader from "./Loader";
 import Message from "./Message";
 import Player from "./Player";
 import Slider from "./Slider";
+import TopBar from "./TopBar";
 
-export { LoadingIndicator, Message, Player, Slider, TopBar };
+export { ContentWrapper, Loader, Message, Player, Slider, TopBar };

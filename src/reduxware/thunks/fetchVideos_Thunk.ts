@@ -1,10 +1,10 @@
 import { AnyAction } from "redux";
 import { ThunkAction } from "redux-thunk";
 
-import { startLoading, completeLoading, showError, storeMovies, setPageToken } from "../actionCreators";
+import { startLoading, completeLoading, showError, storeVideos, setPageToken } from "../actionCreators";
 import { RootStateType } from "types/types";
 
-const thunkFetchMovies = (URL: string): ThunkAction<void, RootStateType, unknown, AnyAction> => {
+const thunkFetchVideos = (URL: string): ThunkAction<void, RootStateType, unknown, AnyAction> => {
     return async (dispatch, getState) => {
         const path = URL;
         dispatch(startLoading());
@@ -28,12 +28,12 @@ const thunkFetchMovies = (URL: string): ThunkAction<void, RootStateType, unknown
                                     prev: json.prevPageToken || "",
                                 };
                                 dispatch(setPageToken(pageToken));
-                                dispatch(storeMovies([...json.items]));
+                                dispatch(storeVideos([...json.items]));
                             } else {
                                 dispatch(
                                     showError({
                                         isError: true,
-                                        errorMessage: "No movies found",
+                                        errorMessage: "No videos found",
                                     })
                                 );
                             }
@@ -65,4 +65,4 @@ const thunkFetchMovies = (URL: string): ThunkAction<void, RootStateType, unknown
     };
 };
 
-export default thunkFetchMovies;
+export default thunkFetchVideos;

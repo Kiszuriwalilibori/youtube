@@ -1,5 +1,5 @@
 import { useDispatchAction, useCheckApiKey } from "hooks";
-import { TopBar, Message, LoadingIndicator, Player, Slider } from "./components";
+import { TopBar, Message, Loader, Player, Slider, ContentWrapper } from "./components";
 
 interface Props {
     isLogged: Boolean;
@@ -12,17 +12,16 @@ const YouTubePage = (props: Props) => {
     const { clearError } = useDispatchAction();
     const isAPIKeyAvailable = useCheckApiKey();
 
-    if (isLoading) return <LoadingIndicator />;
-    if (!isAPIKeyAvailable) return <Message message={errorMessage ? errorMessage : ""} />;
-    if (isError) return <Message message={errorMessage ? errorMessage : ""} handleClear={() => clearError()} />;
-
     return (
         <div>
             <TopBar />
-            <main className="main">
+            <ContentWrapper>
                 <Slider />
                 <Player />
-            </main>
+            </ContentWrapper>
+            {isLoading && <Loader />}
+            {isError && <Message message={errorMessage ? errorMessage : ""} handleClear={() => clearError()} />}
+            {!isAPIKeyAvailable && <Message message={errorMessage ? errorMessage : ""} />}
         </div>
     );
 };

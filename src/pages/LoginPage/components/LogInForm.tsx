@@ -15,7 +15,7 @@ interface Props {
 
 export const LogInForm = (props: Props) => {
     const { setError, clearError } = props;
-    const { logUser, clearMovies } = useDispatchAction();
+    const { logUser, clearVideos } = useDispatchAction();
     const refPassword = useRef<HTMLInputElement | null>(null);
     const history = useNavigate();
 
@@ -23,7 +23,7 @@ export const LogInForm = (props: Props) => {
         const password = refPassword.current!.value;
         if (password === process.env.REACT_APP_PASSWORD) {
             logUser();
-            clearMovies();
+            clearVideos();
             history(paths.youtube);
         } else {
             setError();
