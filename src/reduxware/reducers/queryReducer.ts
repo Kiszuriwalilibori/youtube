@@ -3,7 +3,7 @@ import { setQuery, resetQuery } from "../actionCreators";
 import { RootStateType } from "types/types";
 
 const initialState = {
-    query: undefined,
+    query: "",
 };
 
 const queryReducer = createReducer(initialState, builder => {
@@ -17,4 +17,4 @@ const queryReducer = createReducer(initialState, builder => {
 
 export default queryReducer;
 
-export const getQuery = (state: RootStateType) => state.query;
+export const getQuery = (state: RootStateType) => state.query.query;

@@ -1,6 +1,8 @@
 import uuid from "react-uuid";
 import isEqual from "lodash/isEqual";
 
+import { AnyAction } from "redux";
+import { ThunkAction } from "redux-thunk";
 import { useEffect, useRef, useState } from "react";
 import { useSelector, shallowEqual } from "react-redux";
 
@@ -9,15 +11,25 @@ import { useBreakpoints } from "contexts/ViewPortProvider";
 import { useThumbnails, useSelectVideo } from "hooks";
 import { ButtonPrevious, VideoThumbnail, ButtonNext } from "./components";
 import { calculateNumberOfVideos } from "./utils";
-import { Video } from "types/index";
+import { RootStateType, Video } from "types";
 
-const Slider = () => {
+interface Props {
+    thunkFetchVideos: (URL: string) => ThunkAction<void, RootStateType, unknown, AnyAction>;
+}
+
+const Slider = (props: Props) => {
     const query = useSelector(getQuery, shallowEqual);
+    const { thunkFetchVideos } = props;
     const { width, height, orientation: sliderOrientation, sliderClass } = useBreakpoints();
     const [numberOfVideos, setNumberOfVideos] = useState<number>(0);
 
     const sliderRef = useRef<HTMLBaseElement>(null);
     const { selectedVideo, selectVideo } = useSelectVideo();
+    useEffect(() => {
+        if (query) {
+            thunkFetchVideos(query);
+        }
+    }, [query, thunkFetchVideos]);
 
     const {
         isFirst,

@@ -3,5 +3,6 @@ import useDispatchAction from "./useDispatchAction";
 import useThumbnails from "./useThumbnails";
 import useSelectVideo from "./useSelectVideo";
 import useCheckApiKey from "./useCheckApiKey";
+import useQueryClient from "./useQueryClient";
 
-export { useBoolean, useDispatchAction, useThumbnails, useSelectVideo, useCheckApiKey };
+export { useBoolean, useCheckApiKey, useDispatchAction, useThumbnails, useQueryClient, useSelectVideo };

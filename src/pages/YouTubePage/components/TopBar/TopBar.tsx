@@ -1,29 +1,24 @@
 import React, { SyntheticEvent, useCallback, useEffect, useRef, useState } from "react";
+import { AnyAction } from "redux";
+import { ThunkAction } from "redux-thunk";
 
 import BasicButton from "components/BasicButton";
-import Start from "./Start";
-import End from "./End";
 import Icons from "icons";
 
 import { useBreakpoints } from "contexts/ViewPortProvider";
-import { useBoolean } from "hooks";
-import { AnyAction } from "redux";
-import { ThunkAction } from "redux-thunk";
-import { RootStateType } from "types/types";
+import { useBoolean, useDispatchAction } from "hooks";
+import { RootStateType } from "types";
 import { MicrophoneButton } from "styles/styled";
+import { createURL } from "functions/createURL";
+import { Start, End } from "./components";
 
-const prefix = " https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=";
-const postfix = "&key=";
 const placeHolder = "Szukaj";
 
 type LastSize = "large" | "small" | undefined;
 
-interface Props {
-    thunkFetchVideos: (URL: string) => ThunkAction<void, RootStateType, unknown, AnyAction>;
-}
-const TopBar = (props: Props) => {
-    const { thunkFetchVideos } = props;
+const TopBar = () => {
     const { point: viewportType, orientation } = useBreakpoints();
+    const { setQuery } = useDispatchAction();
 
     const previousSize = useRef<LastSize>(undefined);
     const inputRef = useRef<HTMLInputElement>(null);
@@ -80,8 +75,8 @@ const TopBar = (props: Props) => {
     }, [viewportType]);
     useEffect(() => {
         if (textContent) {
-            const URL = `${prefix}${textContent}type=video${postfix}${process.env.REACT_APP_API_KEY}`;
-            thunkFetchVideos(URL);
+            const url = createURL(textContent);
+            setQuery(url);
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [textContent]);

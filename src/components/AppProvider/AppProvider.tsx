@@ -1,5 +1,6 @@
 import thunk from "redux-thunk";
 import React, { ReactNode } from "react";
+
 import { Theme } from "@mui/material/styles";
 import { ThemeProvider, StyledEngineProvider } from "@mui/material";
 import { combineReducers } from "redux";
@@ -32,6 +33,7 @@ export const store = configureStore({
     reducer: rootReducer,
     middleware: getDefaultMiddleware => getDefaultMiddleware().concat(thunk),
 });
+
 const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
     return (
         <ViewportProvider>

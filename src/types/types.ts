@@ -16,4 +16,6 @@ interface PageToken {
     prev: string | undefined;
 }
 
-export type { RootStateType, Video, SliderOrientation, Videos, PageToken };
+type LastSize = "large" | "small" | undefined;
+
+export type { LastSize, RootStateType, Video, SliderOrientation, Videos, PageToken };

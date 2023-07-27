@@ -1,3 +1,6 @@
 import BasicButton from "./BasicButton";
+import TanstackQueryProvider from "./TanstackQueryProvider";
+import App from "./App";
+import AppProvider from "./AppProvider/AppProvider";
 
-export { BasicButton };
+export { App, AppProvider, BasicButton, TanstackQueryProvider };
