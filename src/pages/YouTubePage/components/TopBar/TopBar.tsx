@@ -1,15 +1,12 @@
-import React, { SyntheticEvent, useCallback, useEffect, useRef, useState } from "react";
-import { AnyAction } from "redux";
-import { ThunkAction } from "redux-thunk";
+import { useCallback, useEffect, useRef } from "react";
 
 import BasicButton from "components/BasicButton";
 import Icons from "icons";
 
 import { useBreakpoints } from "contexts/ViewPortProvider";
-import { useBoolean, useDispatchAction } from "hooks";
-import { RootStateType } from "types";
+import { useBoolean, useManageInput } from "hooks";
 import { MicrophoneButton } from "styles/styled";
-import { createURL } from "functions/createURL";
+import { SliderOrientation } from "types";
 import { Start, End } from "./components";
 
 const placeHolder = "Szukaj";
@@ -18,34 +15,22 @@ type LastSize = "large" | "small" | undefined;
 
 const TopBar = () => {
     const { point: viewportType, orientation } = useBreakpoints();
-    const { setQuery } = useDispatchAction();
-
     const previousSize = useRef<LastSize>(undefined);
-    const inputRef = useRef<HTMLInputElement>(null);
-
     const [isFolded, fold, unfold] = useBoolean(true);
     const [isStartVisible, showStart, hideStart] = useBoolean(true);
     const [isKeyboardButtonVisible, showKeyboard, ,] = useBoolean(false);
     const [isLeftArrowButtonVisible, showLeftArrowButton, hideLeftArrowButton] = useBoolean(false);
 
-    const [textContent, setTextContent] = useState<string>("");
+    const horizontalSearchHandleHelper = useCallback(() => {
+        unfold();
+        hideStart();
+        showLeftArrowButton();
+    }, [hideStart, showLeftArrowButton, unfold]);
 
-    const inputClickHandler = useCallback((event: { key: string }) => {
-        if (event.key === "Enter") {
-            inputRef.current && inputRef.current!.value && setTextContent(inputRef.current!.value);
-        }
-    }, []);
-
-    const searchHandler = (e: SyntheticEvent) => {
-        e.preventDefault();
-        inputRef.current && inputRef.current!.value && setTextContent(inputRef.current!.value);
-        if (orientation === "horizontal") {
-            unfold();
-            hideStart();
-            showLeftArrowButton();
-        }
-    };
-
+    const { inputClickHandler, searchHandler, inputRef } = useManageInput(
+        orientation as SliderOrientation,
+        horizontalSearchHandleHelper
+    );
     const arrowLeftClickHandler = useCallback((e: { stopPropagation: () => void }) => {
         e.stopPropagation();
         showStart();
@@ -73,13 +58,6 @@ const TopBar = () => {
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [viewportType]);
-    useEffect(() => {
-        if (textContent) {
-            const url = createURL(textContent);
-            setQuery(url);
-        }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [textContent]);
 
     return (
         <header className="TopBar">

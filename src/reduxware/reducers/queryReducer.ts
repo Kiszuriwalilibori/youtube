@@ -8,6 +8,7 @@ const initialState = {
 
 const queryReducer = createReducer(initialState, builder => {
     builder.addCase(setQuery, (state, action) => {
+        console.log(action.payload, "reduce");
         if (action.payload) state.query = action.payload;
     });
     builder.addCase(resetQuery, state => {
