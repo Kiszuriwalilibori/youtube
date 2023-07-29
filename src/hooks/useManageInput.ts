@@ -28,12 +28,15 @@ export const useManageInput = (orientation: SliderOrientation, helper: any) => {
 
     useEffect(() => {
         if (textContent) {
-            console.log("textcont use", textContent);
             const url = createURL(textContent);
-            console.log(url);
-            setQuery(url);
+
+            const payload = { query: url, rawQuery: textContent };
+            // setQuery(url);
+            setQuery(payload);
         }
     }, [setQuery, textContent]);
 
     return { searchHandler, inputClickHandler, inputRef };
 };
+
+export default useManageInput;

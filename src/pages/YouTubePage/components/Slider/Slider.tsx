@@ -3,12 +3,12 @@ import isEqual from "lodash/isEqual";
 
 import { AnyAction } from "redux";
 import { ThunkAction } from "redux-thunk";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useSelector, shallowEqual } from "react-redux";
 
-import { getQuery } from "reduxware/reducers/queryReducer";
+import { getQuery, getRawQuery } from "reduxware/reducers/queryReducer";
 import { useBreakpoints } from "contexts/ViewPortProvider";
-import { useThumbnails, useSelectVideo } from "hooks";
+import { useFetchThumbnails, useManageThumbnails, useSelectVideo } from "hooks";
 import { ButtonPrevious, VideoThumbnail, ButtonNext } from "./components";
 import { calculateNumberOfVideos } from "./utils";
 import { RootStateType, Video } from "types";
@@ -19,12 +19,16 @@ interface Props {
 
 const Slider = (props: Props) => {
     const query = useSelector(getQuery, shallowEqual);
+    const rawQuery = useSelector(getRawQuery, shallowEqual);
     const { thunkFetchVideos } = props;
-    const { width, height, orientation: sliderOrientation, sliderClass } = useBreakpoints();
+    const { width, height, orientation: sliderOrientation, sliderClass } = useBreakpoints(); // todo wyprostować slider orientation/orientation
     const [numberOfVideos, setNumberOfVideos] = useState<number>(0);
 
     const sliderRef = useRef<HTMLBaseElement>(null);
     const { selectedVideo, selectVideo } = useSelectVideo();
+    // const { setToken, pageTokens } = useFetchThumbnails(rawQuery);
+
+    // console.log("pageTokens", pageTokens);
     useEffect(() => {
         if (query) {
             thunkFetchVideos(query);
@@ -40,10 +44,11 @@ const Slider = (props: Props) => {
         isNextDisabled,
         isPreviousDisabled,
         firstVideo,
-    } = useThumbnails({
+        // resetFirstVideo,
+    } = useManageThumbnails({
         numberOfVideos,
     });
-
+    console.log("firstVideo", firstVideo);
     useEffect(() => {
         const count = calculateNumberOfVideos(sliderOrientation!, width, height);
         count && setNumberOfVideos(count);
@@ -52,12 +57,25 @@ const Slider = (props: Props) => {
 
     // console.log(numberOfVideos, visibleVideoThumbnails.length);
     // todo tutaj jeżeli kliknie się na pierwszy albo ostatni element powinno pobrac nowy zasób. Czyli nie ma aktywny nieaktywny, ale zróżnicowanie akcji - na "stary aktywny przesuwa, na nowy aktywny robi fetcha"
+
+    // const buttonNextClickHandler = useCallback(() => {
+    //     // console.log("isLast from button", isLast);
+    //     if (!isLast) {
+    //         showNext();
+    //     } else {
+    //         // console.log("token from handler", pageTokens.next);
+    //         pageTokens.next && setToken(pageTokens.next);
+    //         // resetFirstVideo();
+    //     }
+    // }, [isLast, pageTokens.next, setToken, showNext]);
+
     return (
         <aside className={sliderClass} ref={sliderRef}>
             <ButtonPrevious
                 sliderOrientation={sliderOrientation}
                 clickHandler={showPrevious}
                 disabled={isPreviousDisabled}
+                // disabled={isFirst && !pageTokens.prev}
             />
 
             {visibleVideoThumbnails.map((video: Video) => {
@@ -71,10 +89,17 @@ const Slider = (props: Props) => {
                 );
             })}
 
-            <ButtonNext sliderOrientation={sliderOrientation} clickHandler={showNext} disabled={isNextDisabled} />
+            <ButtonNext
+                sliderOrientation={sliderOrientation}
+                clickHandler={showNext}
+                // clickHandler={buttonNextClickHandler}
+                disabled={isNextDisabled}
+                // disabled={isLast && !pageTokens.next}
+            />
         </aside>
     );
 };
 
 export default Slider;
 // todo sprawdzić button next i previous bo dziwnie w nich wygląda, tak jakby nieudane kopie samych siebie
+// todo problem sprawia brak resetu firstVideo. Próbuję to naprawić

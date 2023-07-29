@@ -3,10 +3,11 @@ import { AxiosError } from "axios";
 import useDispatchAction from "./useDispatchAction";
 
 const useQueryClient = () => {
-    const { showError } = useDispatchAction();
+    const { showError, completeLoading } = useDispatchAction();
 
     const queryErrorHandler = (err: unknown): void => {
         const axiosError = err as AxiosError;
+        completeLoading();
         showError({ isError: true, errorMessage: axiosError.message });
     };
 

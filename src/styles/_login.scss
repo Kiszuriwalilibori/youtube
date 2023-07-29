@@ -4,16 +4,12 @@
 
     & .login {
         display: grid;
-        grid-column: 1fr;
+        grid-template-columns: 1fr;
         row-gap: 20px;
         margin: 0 auto;
         width: 300px;
         & .invalid-credentials {
             @extend .shout-text--small;
-            visibility: hidden;
-            &.visible {
-                visibility: visible;
-            }
         }
         & h1 {
             font-weight: 500;

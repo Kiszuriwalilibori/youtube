@@ -1,4 +1,5 @@
 import breakWhenInternetExplorer from "./breakWhenInternetExplorer";
 import createURL from "./createURL";
+import createTanstackURL from "./createTanstackURL";
 
-export { breakWhenInternetExplorer, createURL };
+export { breakWhenInternetExplorer, createURL, createTanstackURL };

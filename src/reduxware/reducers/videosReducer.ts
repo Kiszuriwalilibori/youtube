@@ -13,6 +13,7 @@ const moviesReducer = createReducer(initialState, builder => {
     builder
         .addCase(storeVideos, (state, action) => {
             if (action.payload) {
+                console.log("payload of storevideos", action.payload);
                 state.movies = action.payload;
             }
         })

@@ -6,9 +6,12 @@ import { RootStateType } from "types";
 interface Props {
     numberOfVideos: number;
 }
-const useThumbnails = (props: Props) => {
+const useManageThumbnails = (props: Props) => {
     const { numberOfVideos } = props;
     const [firstVideo, setFirstVideo] = useState<number>(0);
+    // const resetFirstVideo = useCallback(() => {
+    //     setFirstVideo(0);
+    // }, [setFirstVideo]);
 
     const videos = useSelector((state: RootStateType) => state.movies.movies, shallowEqual);
     const nextPageToken = useSelector((state: RootStateType) => state.pageToken.next, shallowEqual);
@@ -40,6 +43,7 @@ const useThumbnails = (props: Props) => {
         isLast,
         isFirst,
         firstVideo,
+        // resetFirstVideo,
         showNext,
         showPrevious,
         isNextDisabled,
@@ -48,4 +52,4 @@ const useThumbnails = (props: Props) => {
     };
 };
 
-export default useThumbnails;
+export default useManageThumbnails;

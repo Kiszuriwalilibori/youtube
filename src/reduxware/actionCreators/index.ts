@@ -18,5 +18,5 @@ export const logOutUser = createAction("USER_LOGOUT");
 export const clearVideos = createAction("VIDEOS_CLEAR");
 export const setPageToken = createAction<PageToken>("PAGE_TOKEN_SET");
 export const resetPageToken = createAction("PAGE_TOKEN_RESET");
-export const setQuery = createAction<string>("QUERY_SET");
+export const setQuery = createAction<{ query: string; rawQuery: string }>("QUERY_SET");
 export const resetQuery = createAction("QUERY_RESET");

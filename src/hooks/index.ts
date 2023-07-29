@@ -1,9 +1,19 @@
 import useBoolean from "./useBoolean";
 import useDispatchAction from "./useDispatchAction";
-import useThumbnails from "./useThumbnails";
+import useManageThumbnails from "./useManageThumbnails";
 import useSelectVideo from "./useSelectVideo";
 import useCheckApiKey from "./useCheckApiKey";
 import useQueryClient from "./useQueryClient";
-import { useManageInput } from "./useManageInput";
+import useManageInput from "./useManageInput";
+import useFetchThumbnails from "./useFetchThumbnails";
 
-export { useBoolean, useCheckApiKey, useDispatchAction, useManageInput, useThumbnails, useQueryClient, useSelectVideo };
+export {
+    useBoolean,
+    useCheckApiKey,
+    useDispatchAction,
+    useFetchThumbnails,
+    useManageInput,
+    useManageThumbnails,
+    useQueryClient,
+    useSelectVideo,
+};

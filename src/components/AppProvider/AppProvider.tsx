@@ -15,7 +15,7 @@ import pageTokenReducer from "reduxware/reducers/pageTokenReducer";
 import queryReducer from "reduxware/reducers/queryReducer";
 
 import { ViewportProvider } from "contexts/ViewPortProvider";
-import App from "components/App";
+
 import theme from "themes/theme";
 
 const rootReducer = combineReducers({
@@ -40,9 +40,7 @@ const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
             <Provider store={store}>
                 <StyledEngineProvider injectFirst>
                     <ThemeProvider theme={theme}>
-                        <Router>
-                            <App />
-                        </Router>
+                        <Router>{children}</Router>
                     </ThemeProvider>
                 </StyledEngineProvider>
             </Provider>
