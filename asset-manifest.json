@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/youtube/static/css/main.4e0a0828.css",
-    "main.js": "/youtube/static/js/main.8a1e1991.js",
+    "main.css": "/youtube/static/css/main.2683b640.css",
+    "main.js": "/youtube/static/js/main.4db96f62.js",
     "static/js/547.3e53b483.chunk.js": "/youtube/static/js/547.3e53b483.chunk.js",
     "static/media/youtube.svg": "/youtube/static/media/youtube.e08d4c50a05694d0aef8f3f864898922.svg",
     "static/media/settings.svg": "/youtube/static/media/settings.f84494afe4ecfc5f6e59edd0641daaed.svg",
@@ -14,7 +14,7 @@
     "static/media/edit.svg": "/youtube/static/media/edit.78db9808c3c096aa937b79e0a3bd3633.svg",
     "static/media/home.svg": "/youtube/static/media/home.09352e4bb891e040479b9f05881e52d3.svg",
     "static/media/linkedin.svg": "/youtube/static/media/linkedin.14f38c07d38be5bddee02d700bf0fc2d.svg",
-    "static/media/microphone.svg": "/youtube/static/media/microphone.97231c569f41cd85fe2ce15349c903bf.svg",
+    "static/media/microphone.svg": "/youtube/static/media/microphone.98c17d2983c0788574cc95f00aed2cd1.svg",
     "static/media/facebook.svg": "/youtube/static/media/facebook.f51db061afd1b76fff7ddfd786e4e06c.svg",
     "static/media/smile.svg": "/youtube/static/media/smile.b4271ac5ca99baead79b3e97705e5590.svg",
     "index.html": "/youtube/index.html",
@@ -31,13 +31,13 @@
     "static/media/left.svg": "/youtube/static/media/left.ec4fffba45daba17835eb294170d5a65.svg",
     "static/media/person.svg": "/youtube/static/media/person.423fa0bb0fa241ff6f5a45369f822045.svg",
     "static/media/information.svg": "/youtube/static/media/information.522971a05f65decdf323796073f3c027.svg",
-    "static/media/hamburger.svg": "/youtube/static/media/hamburger.519bcbb5a43c3cde4f2aa5af5da7d864.svg",
-    "main.4e0a0828.css.map": "/youtube/static/css/main.4e0a0828.css.map",
-    "main.8a1e1991.js.map": "/youtube/static/js/main.8a1e1991.js.map",
+    "static/media/hamburger.svg": "/youtube/static/media/hamburger.dee697bdafd287bc1ba802d5ac87ef29.svg",
+    "main.2683b640.css.map": "/youtube/static/css/main.2683b640.css.map",
+    "main.4db96f62.js.map": "/youtube/static/js/main.4db96f62.js.map",
     "547.3e53b483.chunk.js.map": "/youtube/static/js/547.3e53b483.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.4e0a0828.css",
-    "static/js/main.8a1e1991.js"
+    "static/css/main.2683b640.css",
+    "static/js/main.4db96f62.js"
   ]
 }
