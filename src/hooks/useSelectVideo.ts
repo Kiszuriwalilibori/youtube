@@ -20,4 +20,4 @@ const useSelectVideo = () => {
 
 export default useSelectVideo;
 
-// todo lepiej jak thumb aktywny będzie miał czerwoną obwódkę. rozwayć komponent card
+// todo lepiej jak thumb aktywny będzie miał czerwoną obwódkę. rozważyć komponent card

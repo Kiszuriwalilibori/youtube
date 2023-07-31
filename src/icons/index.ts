@@ -27,6 +27,7 @@ import { ReactComponent as Clear } from "icons/clear.svg";
 import { ReactComponent as ArrowLeft } from "icons/arrowLeft.svg";
 import { ReactComponent as Right } from "icons/right.svg";
 import { ReactComponent as Left } from "icons/left.svg";
+import Tia from "icons/keyboard.png";
 
 const Icons = {
     ArrowLeft,
@@ -58,6 +59,7 @@ const Icons = {
     Clear,
     Right,
     Left,
+    Tia,
 };
 
 export default Icons;

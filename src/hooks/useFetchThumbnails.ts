@@ -7,15 +7,8 @@ import { createTanstackURL } from "functions";
 function useFetchThumbnails(query: string) {
     const [token, setToken] = React.useState("");
     const { startLoading, completeLoading, storeVideos } = useDispatchAction();
-    // console.log("token z usefetchthumbnails", token);
-    // const createURL = (pageToken: string) =>
-    //     `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25${
-    //         pageToken ? `&pageToken=${pageToken}` : ""
-    //     }&q=dogstype=video&key=AIzaSyBIyuKpGCSTL2QpVJKCq2vAcMX1sPsxlC0`;
     const url = createTanstackURL(query, token);
     const fetchThumbnails = async (token: string) => {
-        // const url = createURL(token);
-
         const res = await fetch(url);
         return res.json();
     };
@@ -25,11 +18,6 @@ function useFetchThumbnails(query: string) {
         queryFn: () => fetchThumbnails(url),
         enabled: false,
     });
-
-    // console.log("isLoading, data, isError, query, url", isLoading, data, isError, query, url);
-    // if (isLoading && query) {
-    //     startLoading();
-    // }
 
     useEffect(() => {
         if (data) {
@@ -54,10 +42,6 @@ function useFetchThumbnails(query: string) {
         }
     }, [data]);
 
-    // const pageTokens = {
-    //     next: data?.nextPageToken || "",
-    //     prev: data?.prevPageToken || "",
-    // };
     const pageTokens = useMemo(() => {
         const tokens = { next: data?.nextPageToken || "", prev: data?.prevPageToken || "" };
         return tokens;
@@ -69,7 +53,8 @@ function useFetchThumbnails(query: string) {
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [query, token]);
-    return { setToken, pageTokens };
+    const lengthOfVideosArray = data ? data.items.length : undefined;
+    return { setToken, pageTokens, lengthOfVideosArray };
 }
 
 export default useFetchThumbnails;

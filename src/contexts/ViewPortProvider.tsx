@@ -18,7 +18,7 @@ interface viewportContextInterface {
     point?: desktopSizes;
     width: number;
     height: number;
-    orientation?: Orientation;
+    sliderOrientation?: Orientation;
     sliderClass?: string;
 }
 
@@ -42,16 +42,19 @@ const ViewportProvider: FC<{ children: ReactNode }> = ({ children }) => {
     const [point, setPoint] = useState(() => getDeviceConfig(window.innerWidth));
     const [width, setWidth] = useState(window.innerWidth);
     const [height, setHeight] = useState(window.innerHeight);
-    const [orientation, setOrientation] = useState(() => getSliderOrientation(getDeviceConfig(window.innerWidth)));
-    const sliderClass = orientation === "horizontal" ? "sidebar sidebar--horizontal" : "sidebar sidebar--vertical";
+    const [sliderOrientation, setSliderOrientation] = useState(() =>
+        getSliderOrientation(getDeviceConfig(window.innerWidth))
+    );
+    const sliderClass =
+        sliderOrientation === "horizontal" ? "sidebar sidebar--horizontal" : "sidebar sidebar--vertical";
 
     useEffect(() => {
         const calcInnerWidth = throttle(function () {
             setPoint(getDeviceConfig(window.innerWidth));
             setWidth(window.innerWidth);
             const newOrientation = getSliderOrientation(getDeviceConfig(window.innerWidth));
-            if (newOrientation !== orientation) setOrientation(newOrientation);
-            setOrientation(getSliderOrientation(getDeviceConfig(window.innerWidth)));
+            if (newOrientation !== sliderOrientation) setSliderOrientation(newOrientation);
+            setSliderOrientation(getSliderOrientation(getDeviceConfig(window.innerWidth)));
         }, 200);
 
         const calcInnerHeight = throttle(function () {
@@ -72,7 +75,13 @@ const ViewportProvider: FC<{ children: ReactNode }> = ({ children }) => {
 
     return (
         <viewportContext.Provider
-            value={{ point: point, width: width, height: height, orientation: orientation, sliderClass: sliderClass }}
+            value={{
+                point: point,
+                width: width,
+                height: height,
+                sliderOrientation: sliderOrientation,
+                sliderClass: sliderClass,
+            }}
         >
             {children}
         </viewportContext.Provider>
@@ -80,8 +89,8 @@ const ViewportProvider: FC<{ children: ReactNode }> = ({ children }) => {
 };
 
 const useBreakpoints = () => {
-    const { point, width, height, orientation, sliderClass } = useContext(viewportContext);
-    return { point, width, height, orientation, sliderClass };
+    const { point, width, height, sliderOrientation, sliderClass } = useContext(viewportContext);
+    return { point, width, height, sliderOrientation, sliderClass };
 };
 
 export { ViewportProvider, useBreakpoints };

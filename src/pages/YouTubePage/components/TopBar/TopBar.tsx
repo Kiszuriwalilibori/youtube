@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef } from "react";
 
 import BasicButton from "components/BasicButton";
 import Icons from "icons";
+import keyb from "icons/keyboard.png";
 
 import { useBreakpoints } from "contexts/ViewPortProvider";
 import { useBoolean, useManageInput } from "hooks";
@@ -14,7 +15,7 @@ const placeHolder = "Szukaj";
 type LastSize = "large" | "small" | undefined;
 
 const TopBar = () => {
-    const { point: viewportType, orientation } = useBreakpoints();
+    const { point: viewportType, sliderOrientation } = useBreakpoints();
     const previousSize = useRef<LastSize>(undefined);
     const [isFolded, fold, unfold] = useBoolean(true);
     const [isStartVisible, showStart, hideStart] = useBoolean(true);
@@ -28,7 +29,7 @@ const TopBar = () => {
     }, [hideStart, showLeftArrowButton, unfold]);
 
     const { inputClickHandler, searchHandler, inputRef } = useManageInput(
-        orientation as SliderOrientation,
+        sliderOrientation as SliderOrientation,
         horizontalSearchHandleHelper
     );
     const arrowLeftClickHandler = useCallback((e: { stopPropagation: () => void }) => {
@@ -40,14 +41,14 @@ const TopBar = () => {
     }, []);
 
     useEffect(() => {
-        if (orientation === "horizontal") {
+        if (sliderOrientation === "horizontal") {
             //przejście do mniejszych
             if (!(previousSize.current === "small")) {
                 previousSize.current = "small";
                 fold();
             }
         }
-        if (orientation === "vertical") {
+        if (sliderOrientation === "vertical") {
             // przejście do większych
             if (!(previousSize.current === "large")) {
                 previousSize.current = "large";
@@ -87,7 +88,7 @@ const TopBar = () => {
                         ></input>
                         {isKeyboardButtonVisible && (
                             <BasicButton className="button button--keyboard">
-                                <img src="//www.gstatic.com/inputtools/images/tia.png" alt="keyboard"></img>
+                                <img src={keyb} alt="keyboard"></img>
                             </BasicButton>
                         )}
                     </div>

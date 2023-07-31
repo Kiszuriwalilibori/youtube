@@ -8,7 +8,7 @@ interface Props {
     sliderOrientation: SliderOrientation | undefined;
 }
 
-const ButtonPrevious = (props: Props) => {
+const ButtonNext = (props: Props) => {
     const { clickHandler, disabled, sliderOrientation } = props;
 
     return (
@@ -26,4 +26,4 @@ const ButtonPrevious = (props: Props) => {
     );
 };
 
-export default ButtonPrevious;
+export default ButtonNext;

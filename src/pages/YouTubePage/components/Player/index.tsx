@@ -31,5 +31,3 @@ export const Player = () => {
     );
 };
 export default Player;
-
-//todo uważać na głupie style .title i description. poprawiony błąd bo fontsweight był podany w px co nie było właściwe

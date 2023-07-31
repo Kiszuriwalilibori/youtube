@@ -8,10 +8,10 @@ interface Props {
 }
 const useManageThumbnails = (props: Props) => {
     const { numberOfVideos } = props;
-    const [firstVideo, setFirstVideo] = useState<number>(0);
-    // const resetFirstVideo = useCallback(() => {
-    //     setFirstVideo(0);
-    // }, [setFirstVideo]);
+    const [firstVisibleThumbnailIndex, setFirstVisibleThumbnailIndex] = useState<number>(0);
+    const resetFirstVisibleThumbnailIndex = useCallback(() => {
+        setFirstVisibleThumbnailIndex(0);
+    }, [setFirstVisibleThumbnailIndex]);
 
     const videos = useSelector((state: RootStateType) => state.movies.movies, shallowEqual);
     const nextPageToken = useSelector((state: RootStateType) => state.pageToken.next, shallowEqual);
@@ -19,31 +19,36 @@ const useManageThumbnails = (props: Props) => {
     // console.log(nextPageToken, "next");
     // console.log(prevPageToken, "prev");
     const showNext = useCallback(() => {
-        if (firstVideo <= videos.length - 2 - numberOfVideos) setFirstVideo(firstVideo => firstVideo + 1);
+        if (firstVisibleThumbnailIndex <= videos.length - 2 - numberOfVideos)
+            setFirstVisibleThumbnailIndex(firstVideo => firstVideo + 1);
         else {
-            setFirstVideo(0);
+            setFirstVisibleThumbnailIndex(0);
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [firstVideo, numberOfVideos, videos]);
+    }, [firstVisibleThumbnailIndex, numberOfVideos, videos]);
 
     const showPrevious = useCallback(() => {
-        if (firstVideo !== 0) setFirstVideo(firstVideo - 1);
+        if (firstVisibleThumbnailIndex !== 0) setFirstVisibleThumbnailIndex(firstVisibleThumbnailIndex - 1);
         else {
-            setFirstVideo(videos.length - 1);
+            setFirstVisibleThumbnailIndex(videos.length - 1);
         }
-    }, [firstVideo, videos]);
+    }, [firstVisibleThumbnailIndex, videos]);
 
-    const visibleVideoThumbnails = videos.slice(firstVideo, numberOfVideos + firstVideo);
-    const isPreviousDisabled = Boolean(firstVideo <= numberOfVideos - 1);
-    const isFirst = Boolean(firstVideo <= numberOfVideos - 1);
-    const isNextDisabled = Boolean(firstVideo >= videos.length - 2 - numberOfVideos);
-    const isLast = Boolean(firstVideo >= videos.length - 2 - numberOfVideos);
+    const visibleVideoThumbnails = videos.slice(
+        firstVisibleThumbnailIndex,
+        numberOfVideos + firstVisibleThumbnailIndex
+    );
+    const isPreviousDisabled = Boolean(firstVisibleThumbnailIndex <= numberOfVideos - 1);
+    const isFirst = Boolean(firstVisibleThumbnailIndex <= numberOfVideos - 1);
+    const isNextDisabled = Boolean(firstVisibleThumbnailIndex >= videos.length - 2 - numberOfVideos);
+    const isLast = Boolean(firstVisibleThumbnailIndex >= videos.length - 2 - numberOfVideos);
 
     return {
         isLast,
         isFirst,
-        firstVideo,
-        // resetFirstVideo,
+        firstVisibleThumbnailIndex,
+        resetFirstVisibleThumbnailIndex,
+        setFirstVisibleThumbnailIndex,
         showNext,
         showPrevious,
         isNextDisabled,
