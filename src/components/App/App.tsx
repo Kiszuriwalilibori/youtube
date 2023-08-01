@@ -7,11 +7,13 @@ import Paths from "routing";
 import ProtectedRoute from "components/ProtectedRoute";
 
 import { LoginPage } from "pages/index";
+import useHandleConnectionStatus from "hooks/useHandleConnectionStatus";
 
 const YouTubePage = loadable(() => import("pages/YouTubePage"));
 const NoPage = loadable(() => import("pages/NoPage"));
 
 const App = () => {
+    useHandleConnectionStatus();
     return (
         <Routes>
             <Route path={Paths.landing} element={<LoginPage />} />

@@ -3,7 +3,6 @@ import { useState, useRef, useCallback, SyntheticEvent, useEffect } from "react"
 import useDispatchAction from "./useDispatchAction";
 
 import { SliderOrientation } from "types";
-import { createURL } from "functions";
 
 export const useManageInput = (orientation: SliderOrientation, helper: any) => {
     const [textContent, setTextContent] = useState<string>("");
@@ -28,11 +27,7 @@ export const useManageInput = (orientation: SliderOrientation, helper: any) => {
 
     useEffect(() => {
         if (textContent) {
-            const url = createURL(textContent);
-
-            const payload = { query: url, rawQuery: textContent };
-            // setQuery(url);
-            setQuery(payload);
+            setQuery(textContent);
         }
     }, [setQuery, textContent]);
 

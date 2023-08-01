@@ -6,13 +6,19 @@ const initialSelectedVideo = {} as Video;
 
 const useSelectVideo = () => {
     const [selectedVideo, setSelected] = useState<Video>(initialSelectedVideo);
-    const { setSelectedVideo } = useDispatchAction();
+    const { setPlayerFeed } = useDispatchAction();
 
     const selectVideo = useCallback((video: Video) => {
         setSelected(video);
     }, []);
     useEffect(() => {
-        selectedVideo && selectedVideo !== initialSelectedVideo && setSelectedVideo(selectedVideo); // todo czy tozawsze uzywa właściwego initial?
+        selectedVideo &&
+            selectedVideo !== initialSelectedVideo &&
+            setPlayerFeed({
+                videoId: selectedVideo?.id.videoId,
+                title: selectedVideo?.snippet.title,
+                description: selectedVideo?.snippet.description,
+            });
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [selectedVideo]);
     return { selectedVideo, selectVideo };
@@ -20,4 +26,4 @@ const useSelectVideo = () => {
 
 export default useSelectVideo;
 
-// todo lepiej jak thumb aktywny będzie miał czerwoną obwódkę. rozważyć komponent card
+// todo rozważyć komponent card

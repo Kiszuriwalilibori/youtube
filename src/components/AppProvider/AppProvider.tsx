@@ -9,7 +9,7 @@ import { Provider } from "react-redux";
 import { HashRouter as Router } from "react-router-dom";
 
 import fetchReducer from "reduxware/reducers/fetchReducer";
-import videosReducer from "reduxware/reducers/videosReducer";
+import videosReducer from "reduxware/reducers/playerReducer";
 import logReducer from "reduxware/reducers/logReducer";
 import pageTokenReducer from "reduxware/reducers/pageTokenReducer";
 import queryReducer from "reduxware/reducers/queryReducer";
@@ -17,6 +17,7 @@ import queryReducer from "reduxware/reducers/queryReducer";
 import { ViewportProvider } from "contexts/ViewPortProvider";
 
 import theme from "themes/theme";
+import { SnackbarProvider } from "notistack";
 
 const rootReducer = combineReducers({
     fetch: fetchReducer,
@@ -38,11 +39,19 @@ const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
     return (
         <ViewportProvider>
             <Provider store={store}>
-                <StyledEngineProvider injectFirst>
-                    <ThemeProvider theme={theme}>
-                        <Router>{children}</Router>
-                    </ThemeProvider>
-                </StyledEngineProvider>
+                <SnackbarProvider
+                    maxSnack={3}
+                    anchorOrigin={{
+                        vertical: "bottom",
+                        horizontal: "center",
+                    }}
+                >
+                    <StyledEngineProvider injectFirst>
+                        <ThemeProvider theme={theme}>
+                            <Router>{children}</Router>
+                        </ThemeProvider>
+                    </StyledEngineProvider>
+                </SnackbarProvider>
             </Provider>
         </ViewportProvider>
     );

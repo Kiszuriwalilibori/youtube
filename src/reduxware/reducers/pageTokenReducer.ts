@@ -1,6 +1,6 @@
 import { createReducer } from "@reduxjs/toolkit";
 
-import { setPageToken, resetPageToken } from "../actionCreators";
+import { setPageToken, clearPageToken } from "../actionCreators";
 import { PageToken } from "types/types";
 
 const initialState: PageToken = {
@@ -13,7 +13,7 @@ const pageTokenReducer = createReducer(initialState, builder => {
         if (action.payload.prev) state.prev = action.payload.prev;
         if (action.payload.next) state.next = action.payload.next;
     });
-    builder.addCase(resetPageToken, state => {
+    builder.addCase(clearPageToken, state => {
         state = initialState;
     });
 });

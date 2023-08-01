@@ -64,3 +64,7 @@ Generally, getting ready to apply TanstackQuery
 The password is set to "MISIO"
 
 ### TODO
+
+Jezęli nie znaleziono wideo niech wyświetla sie jakaś grafika z przekreślonym projektorem a nie tylko błąd
+
+isFetching zwraca true zawsze kiedy jest enable false, trzeba to objeść

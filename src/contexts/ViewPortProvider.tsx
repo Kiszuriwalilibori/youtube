@@ -1,5 +1,6 @@
 import { useState, useEffect, createContext, useContext, FC, ReactNode } from "react";
 import throttle from "lodash/throttle";
+import { ViewportSize } from "types";
 
 type desktopSizes = "mobile" | "phablet" | "tablet" | "desktop" | "desktopHD";
 
@@ -16,10 +17,9 @@ const getSliderOrientation = (desktopSize: desktopSizes): Orientation => {
 
 interface viewportContextInterface {
     point?: desktopSizes;
-    width: number;
-    height: number;
-    sliderOrientation?: Orientation;
+    sliderOrientation: Orientation;
     sliderClass?: string;
+    viewportSize: ViewportSize;
 }
 
 const viewportContext = createContext({} as viewportContextInterface);
@@ -77,10 +77,9 @@ const ViewportProvider: FC<{ children: ReactNode }> = ({ children }) => {
         <viewportContext.Provider
             value={{
                 point: point,
-                width: width,
-                height: height,
                 sliderOrientation: sliderOrientation,
                 sliderClass: sliderClass,
+                viewportSize: { width: width, height: height },
             }}
         >
             {children}
@@ -89,8 +88,8 @@ const ViewportProvider: FC<{ children: ReactNode }> = ({ children }) => {
 };
 
 const useBreakpoints = () => {
-    const { point, width, height, sliderOrientation, sliderClass } = useContext(viewportContext);
-    return { point, width, height, sliderOrientation, sliderClass };
+    const { point, sliderOrientation, sliderClass, viewportSize } = useContext(viewportContext);
+    return { point, sliderOrientation, sliderClass, viewportSize };
 };
 
 export { ViewportProvider, useBreakpoints };

@@ -1,2 +1,2 @@
-import calculateNumberOfVideos from "./CalculateNumberOfVideos";
-export { calculateNumberOfVideos };
+import { calculateSliderCapacity } from "./CalculateSliderCapacity";
+export { calculateSliderCapacity };

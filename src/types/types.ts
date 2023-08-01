@@ -6,10 +6,19 @@ interface Video {
     id: { videoId: string };
     snippet: { title: string; description: string; thumbnails: { medium: { url: string } } };
 }
-
+interface PlayerFeed {
+    title: string;
+    description: string;
+    videoId: string;
+}
 type Videos = Video[];
 
 type SliderOrientation = "vertical" | "horizontal";
+
+interface ViewportSize {
+    width: number;
+    height: number;
+}
 
 interface PageToken {
     next: string | undefined;
@@ -18,4 +27,4 @@ interface PageToken {
 
 type LastSize = "large" | "small" | undefined;
 
-export type { LastSize, RootStateType, Video, SliderOrientation, Videos, PageToken };
+export type { LastSize, RootStateType, Video, SliderOrientation, Videos, PageToken, PlayerFeed, ViewportSize };
