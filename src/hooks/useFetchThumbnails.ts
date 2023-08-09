@@ -43,7 +43,7 @@ function useFetchThumbnails(query: string) {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [query, token]);
     const lengthOfVideosArray = data ? data.items.length : undefined;
-    const fetchedVideos = data && data.items ? data.items : undefined;
+    const fetchedVideos = data && data.items ? (data.items as []) : undefined;
     return { setToken, pageTokens, lengthOfVideosArray, fetchedVideos };
 }
 

@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react";
 interface Props {
     sliderCapacity: number;
-    fetchedVideos: any;
+    fetchedVideos: [] | undefined;
 }
 const useManageThumbnails = (props: Props) => {
     const { sliderCapacity, fetchedVideos } = props;

@@ -1,4 +1,3 @@
-// import styled from "@emotion/styled";
 import { styled } from "@mui/material/styles";
 import { IconButton } from "@mui/material";
 
@@ -7,3 +6,5 @@ export const MicrophoneButton = styled(IconButton)(({ theme }) => ({
     marginLeft: theme.spacing(0.5),
     "@media(max-width: 430px)": { display: "none" },
 }));
+
+export default MicrophoneButton;

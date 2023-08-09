@@ -4,7 +4,7 @@ import useDispatchAction from "./useDispatchAction";
 
 import { SliderOrientation } from "types";
 
-export const useManageInput = (orientation: SliderOrientation, helper: any) => {
+export const useManageInput = (orientation: SliderOrientation, helper: Function) => {
     const [textContent, setTextContent] = useState<string>("");
     const inputRef = useRef<HTMLInputElement>(null);
     const { setQuery } = useDispatchAction();

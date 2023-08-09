@@ -6,9 +6,8 @@ import keyb from "icons/keyboard.png";
 
 import { useBreakpoints } from "contexts/ViewPortProvider";
 import { useBoolean, useManageInput } from "hooks";
-import { MicrophoneButton } from "styles/styled";
 import { SliderOrientation } from "types";
-import { Start, End } from "./components";
+import { Start, End, MicrophoneButton } from "./components";
 
 const placeHolder = "Szukaj";
 
