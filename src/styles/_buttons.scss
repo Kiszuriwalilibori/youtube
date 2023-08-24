@@ -17,9 +17,21 @@
     color: var(--main-bg-color);
     &[type="submit"] {
         background-color: var(--ytd-searchbox-active-color);
+        &:hover {
+            background-color: var(--ytd-searchbox-active-color-hover);
+        }
+        &:focus {
+            background-color: var(--ytd-searchbox-active-color-hover);
+        }
     }
     &[type="reset"] {
-        background-color: var(--ytd-alarm-color);
+        background-color: var(--ytd-contrast-red-color);
+        &:hover {
+            background-color: var(--ytd-contrast-red-color-hover);
+        }
+        &:focus {
+            background-color: var(--ytd-contrast-red-color-hover);
+        }
     }
 }
 

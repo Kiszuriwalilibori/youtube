@@ -52,6 +52,7 @@ export const LogInForm = (props: Props) => {
                 <p className="search__label">email</p>
                 <input
                     className="search__input"
+                    autoComplete="email"
                     type="text"
                     tabIndex={0}
                     placeholder="Type your e-mail here..."
@@ -72,6 +73,7 @@ export const LogInForm = (props: Props) => {
                 <p className="search__label">password</p>
                 <input
                     className="search__input"
+                    autoComplete="current-password"
                     tabIndex={0}
                     ref={e => {
                         ref(e);
