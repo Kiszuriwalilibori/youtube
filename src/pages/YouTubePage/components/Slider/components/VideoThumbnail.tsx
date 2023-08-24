@@ -15,6 +15,8 @@ const VideoThumbnail = (props: Props) => {
     return (
         <div
             className={isSelected ? "movie selected" : "movie"}
+            role="button"
+            tabIndex={0}
             onClick={e => {
                 e.stopPropagation();
                 clickHandler(video);
