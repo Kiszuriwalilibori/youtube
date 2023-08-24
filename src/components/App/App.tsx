@@ -15,18 +15,20 @@ const NoPage = loadable(() => import("pages/NoPage"));
 const App = () => {
     useHandleConnectionStatus();
     return (
-        <Routes>
-            <Route path={Paths.landing} element={<LoginPage />} />
-            <Route
-                path={Paths.youtube}
-                element={
-                    <ProtectedRoute>
-                        <YouTubePage />
-                    </ProtectedRoute>
-                }
-            />
-            <Route path={Paths.nopage} element={<NoPage />} />
-        </Routes>
+        <main>
+            <Routes>
+                <Route path={Paths.landing} element={<LoginPage />} />
+                <Route
+                    path={Paths.youtube}
+                    element={
+                        <ProtectedRoute>
+                            <YouTubePage />
+                        </ProtectedRoute>
+                    }
+                />
+                <Route path={Paths.nopage} element={<NoPage />} />
+            </Routes>
+        </main>
     );
 };
 

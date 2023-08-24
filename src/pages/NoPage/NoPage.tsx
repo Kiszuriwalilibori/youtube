@@ -11,6 +11,7 @@ const NoPage = () => {
     }, []);
     return (
         <div className="NoPage">
+            <h1 className="invisible"> No Page</h1>
             <h2>Ojejku! Strony o adresie "{decodeURIComponent(window.location.href)}" po prostu nie ma &#128549;</h2>;
         </div>
     );

@@ -97,10 +97,11 @@ const TopBar = () => {
                     className={isFolded ? "button--neutral" : "button--search"}
                     type="submit"
                     onClick={searchHandler}
+                    aria-label="Search"
                 >
                     <Icons.Search />
                 </BasicButton>
-                <MicrophoneButton className="with-tooltip" data-tooltip="Wyszukuj głosowo">
+                <MicrophoneButton className="with-tooltip" data-tooltip="Wyszukuj głosowo" aria-label="Search by voice">
                     <Icons.Microphone />
                 </MicrophoneButton>
             </div>

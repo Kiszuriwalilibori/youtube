@@ -14,6 +14,7 @@ const YouTubePage = (props: Props) => {
 
     return (
         <div>
+            <h1 className="invisible"> You tube</h1>
             <TopBar />
             <ContentWrapper>
                 <Slider />
