@@ -1,6 +1,7 @@
 {
     "short_name": "You Tube",
     "name": "You Tube on my own",
+    "description": "Simple You Tube player allowing choice of movie subject.Sidebar/topbar contains miniatures the number of which is also responsive.",
     "icons": [
         {
             "src": "favicon.ico",
@@ -8,7 +9,13 @@
             "type": "image/x-icon"
         },
         {
-            "src": "logo192.png",
+            "src": "maskable_icon.png",
+            "sizes": "144x144",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "youtube192.png",
             "type": "image/png",
             "sizes": "192x192"
         },
@@ -20,6 +27,6 @@
     ],
     "start_url": ".",
     "display": "standalone",
-    "theme_color": "#000000",
-    "background_color": "#ffffff"
+    "theme_color": "#F4BD42",
+    "background_color": "#2B2929"
 }
