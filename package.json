@@ -51,7 +51,8 @@
         "test:watch": "jest --watchAll",
         "eject": "react-scripts eject",
         "predeploy": "npm run build",
-        "deploy": "gh-pages -d build"
+        "deploy": "gh-pages -d build",
+        "webp": "simple-webp-converter"
     },
     "devDependencies": {
         "@babel/preset-env": "^7.20.2",
