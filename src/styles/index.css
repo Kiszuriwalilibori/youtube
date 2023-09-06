@@ -371,6 +371,15 @@ textarea {
   }
 }
 
+.sr-only {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
 .TopBar {
   height: var(--ytd-topbar-height);
   padding: 0 16px;

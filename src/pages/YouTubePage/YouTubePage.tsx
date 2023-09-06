@@ -1,5 +1,6 @@
 import { useDispatchAction, useCheckApiKey } from "hooks";
 import { TopBar, Message, Loader, Player, Slider, ContentWrapper } from "./components";
+import { FakeHeader } from "components";
 
 interface Props {
     isLogged: Boolean;
@@ -14,7 +15,7 @@ const YouTubePage = (props: Props) => {
 
     return (
         <div>
-            <h1 className="invisible"> You Tube</h1>
+            <FakeHeader text="Videos" />
             <TopBar />
             <ContentWrapper>
                 <Slider />

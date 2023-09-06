@@ -81,6 +81,7 @@ const TopBar = () => {
                             onMouseEnter={showKeyboard}
                             onKeyDown={inputClickHandler}
                             placeholder={placeHolder}
+                            aria-label="Szukaj"
                             type="text"
                             tabIndex={0}
                             ref={inputRef}

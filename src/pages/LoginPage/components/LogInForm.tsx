@@ -53,6 +53,8 @@ export const LogInForm = (props: Props) => {
                 <input
                     className="search__input"
                     autoComplete="email"
+                    autoCorrect="off"
+                    autoFocus
                     type="text"
                     tabIndex={0}
                     placeholder="Type your e-mail here..."
