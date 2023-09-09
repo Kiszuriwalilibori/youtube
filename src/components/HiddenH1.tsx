@@ -4,7 +4,7 @@ interface Props {
     text: string;
 }
 
-export const ResultsPageHeader = (props: Props) => {
+const Header = (props: Props) => {
     const { text } = props;
     return (
         <header>
@@ -13,4 +13,4 @@ export const ResultsPageHeader = (props: Props) => {
     );
 };
 
-export default React.memo(ResultsPageHeader);
+export default React.memo(Header);

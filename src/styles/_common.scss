@@ -102,3 +102,9 @@ textarea {
     height: 1px;
     overflow: hidden;
 }
+
+*:focus {
+    outline: 2px ridge #0ca4f6;
+    outline-offset: 1px;
+    z-index: 2000;
+}

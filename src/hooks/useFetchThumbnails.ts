@@ -12,7 +12,8 @@ function useFetchThumbnails(query: string) {
     const { isLoading, data, refetch, isFetching, isPreviousData } = useQuery({
         queryKey: ["users", url],
         queryFn: () => fetchThumbnails(url),
-        enabled: false,
+        // enabled: false,
+        enabled: Boolean(url),
         keepPreviousData: true,
     });
 
