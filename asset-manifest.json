@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/youtube/static/css/main.e58f5b12.css",
-    "main.js": "/youtube/static/js/main.09a9ebdb.js",
-    "static/js/547.ef5410fd.chunk.js": "/youtube/static/js/547.ef5410fd.chunk.js",
+    "main.js": "/youtube/static/js/main.ab4335af.js",
+    "static/js/547.bb90a2b8.chunk.js": "/youtube/static/js/547.bb90a2b8.chunk.js",
     "service-worker.js": "/youtube/service-worker.js",
     "static/media/youtube.svg": "/youtube/static/media/youtube.e08d4c50a05694d0aef8f3f864898922.svg",
     "static/media/settings.svg": "/youtube/static/media/settings.19869c72fee0e585dd51895db9f633fa.svg",
@@ -34,11 +34,11 @@
     "static/media/information.svg": "/youtube/static/media/information.522971a05f65decdf323796073f3c027.svg",
     "static/media/hamburger.svg": "/youtube/static/media/hamburger.dee697bdafd287bc1ba802d5ac87ef29.svg",
     "main.e58f5b12.css.map": "/youtube/static/css/main.e58f5b12.css.map",
-    "main.09a9ebdb.js.map": "/youtube/static/js/main.09a9ebdb.js.map",
-    "547.ef5410fd.chunk.js.map": "/youtube/static/js/547.ef5410fd.chunk.js.map"
+    "main.ab4335af.js.map": "/youtube/static/js/main.ab4335af.js.map",
+    "547.bb90a2b8.chunk.js.map": "/youtube/static/js/547.bb90a2b8.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e58f5b12.css",
-    "static/js/main.09a9ebdb.js"
+    "static/js/main.ab4335af.js"
   ]
 }
