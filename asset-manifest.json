@@ -1,8 +1,9 @@
 {
   "files": {
-    "main.css": "/youtube/static/css/main.067162b5.css",
-    "main.js": "/youtube/static/js/main.58f53f43.js",
-    "static/js/547.bb90a2b8.chunk.js": "/youtube/static/js/547.bb90a2b8.chunk.js",
+    "main.css": "/youtube/static/css/main.ee464045.css",
+    "main.js": "/youtube/static/js/main.51350590.js",
+    "static/js/547.8dc29b5f.chunk.js": "/youtube/static/js/547.8dc29b5f.chunk.js",
+    "static/media/nomovies.jpg": "/youtube/static/media/nomovies.4d853e961ce3b863b1c1.jpg",
     "service-worker.js": "/youtube/service-worker.js",
     "static/media/youtube.svg": "/youtube/static/media/youtube.e08d4c50a05694d0aef8f3f864898922.svg",
     "static/media/settings.svg": "/youtube/static/media/settings.19869c72fee0e585dd51895db9f633fa.svg",
@@ -26,19 +27,19 @@
     "static/media/camera.svg": "/youtube/static/media/camera.f81df7db873116103936c63a769bce2a.svg",
     "static/media/clear.svg": "/youtube/static/media/clear.676bc622f368a92ab656775a5d489543.svg",
     "static/media/cards.svg": "/youtube/static/media/cards.0bf6a302b0143804421a9d7542124d6a.svg",
-    "static/media/arrowLeft.svg": "/youtube/static/media/arrowLeft.ca83797e662de580ae8798db7b16a364.svg",
+    "static/media/arrowLeft.svg": "/youtube/static/media/arrowLeft.2a8c8ffaa95178fb3b973fe6cda0f46e.svg",
     "static/media/cameraplus.svg": "/youtube/static/media/cameraplus.17007ae25a2a531c0ed58f774521014b.svg",
     "static/media/right.svg": "/youtube/static/media/right.a86ba3af01ead2ed08b7e3e81369645b.svg",
     "static/media/left.svg": "/youtube/static/media/left.ec4fffba45daba17835eb294170d5a65.svg",
     "static/media/person.svg": "/youtube/static/media/person.423fa0bb0fa241ff6f5a45369f822045.svg",
     "static/media/information.svg": "/youtube/static/media/information.522971a05f65decdf323796073f3c027.svg",
     "static/media/hamburger.svg": "/youtube/static/media/hamburger.dee697bdafd287bc1ba802d5ac87ef29.svg",
-    "main.067162b5.css.map": "/youtube/static/css/main.067162b5.css.map",
-    "main.58f53f43.js.map": "/youtube/static/js/main.58f53f43.js.map",
-    "547.bb90a2b8.chunk.js.map": "/youtube/static/js/547.bb90a2b8.chunk.js.map"
+    "main.ee464045.css.map": "/youtube/static/css/main.ee464045.css.map",
+    "main.51350590.js.map": "/youtube/static/js/main.51350590.js.map",
+    "547.8dc29b5f.chunk.js.map": "/youtube/static/js/547.8dc29b5f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.067162b5.css",
-    "static/js/main.58f53f43.js"
+    "static/css/main.ee464045.css",
+    "static/js/main.51350590.js"
   ]
 }
