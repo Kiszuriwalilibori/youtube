@@ -1,2 +1,2 @@
-import { calculateSliderCapacity } from "./CalculateSliderCapacity";
-export { calculateSliderCapacity };
+import { getSliderCapacity } from "./getSliderCapacity";
+export { getSliderCapacity };

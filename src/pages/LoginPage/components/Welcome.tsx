@@ -1,4 +1,6 @@
+import { memo } from "react";
+
 export const Welcome = () => {
-    return <h1>Witamy w YouTube</h1>;
+    return <h1 className="login__welcome">Witamy w YouTube</h1>;
 };
-export default Welcome;
+export default memo(Welcome);

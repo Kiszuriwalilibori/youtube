@@ -103,6 +103,10 @@ textarea {
     overflow: hidden;
 }
 
+.rotated {
+    transform: rotateZ(-90deg);
+}
+
 *:focus {
     outline: 2px ridge #0ca4f6;
     outline-offset: 1px;

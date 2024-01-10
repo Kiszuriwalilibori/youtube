@@ -3,9 +3,13 @@ interface Props {
     sliderCapacity: number;
     fetchedVideos: [] | undefined;
 }
+const initialFirstVisibleThumbnailIndex = 0;
+
 const useManageThumbnails = (props: Props) => {
     const { sliderCapacity, fetchedVideos } = props;
-    const [firstVisibleThumbnailIndex, setFirstVisibleThumbnailIndex] = useState<number>(0);
+    const [firstVisibleThumbnailIndex, setFirstVisibleThumbnailIndex] = useState<number>(
+        initialFirstVisibleThumbnailIndex
+    );
     const resetFirstVisibleThumbnailIndex = useCallback(() => {
         setFirstVisibleThumbnailIndex(0);
     }, [setFirstVisibleThumbnailIndex]);
@@ -15,7 +19,7 @@ const useManageThumbnails = (props: Props) => {
             if (firstVisibleThumbnailIndex <= fetchedVideos.length - 2 - sliderCapacity)
                 setFirstVisibleThumbnailIndex(index => index + 1);
             else {
-                setFirstVisibleThumbnailIndex(0);
+                setFirstVisibleThumbnailIndex(initialFirstVisibleThumbnailIndex);
             }
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps

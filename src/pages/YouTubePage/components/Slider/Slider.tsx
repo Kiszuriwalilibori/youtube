@@ -1,15 +1,17 @@
 import uuid from "react-uuid";
 import isEqual from "lodash/isEqual";
 
-import { useCallback, useMemo, useRef } from "react";
+import { SyntheticEvent, useCallback, useMemo, useRef } from "react";
 import { useSelector, shallowEqual } from "react-redux";
 
 import { getQuery } from "reduxware/reducers/queryReducer";
 import { useBreakpoints } from "contexts/ViewPortProvider";
 import { useFetchThumbnails, useManageThumbnails, useSelectVideo } from "hooks";
 import { ButtonPrevious, VideoThumbnail, ButtonNext } from "./components";
-import { calculateSliderCapacity } from "./utils";
+import { getSliderCapacity } from "./utils";
 import { Video } from "types";
+import { SliderButton } from "../../styled";
+import Icons from "icons";
 
 const Slider = () => {
     const query = useSelector(getQuery, shallowEqual);
@@ -19,7 +21,7 @@ const Slider = () => {
     const { setToken, pageTokens, lengthOfVideosArray, fetchedVideos } = useFetchThumbnails(query); //
 
     const sliderCapacity = useMemo(
-        () => calculateSliderCapacity(sliderOrientation, viewportSize),
+        () => getSliderCapacity(sliderOrientation, viewportSize),
         [sliderOrientation, viewportSize]
     );
 
@@ -36,31 +38,39 @@ const Slider = () => {
         fetchedVideos,
     });
 
-    const buttonNextClickHandler = useCallback(() => {
-        if (!isLast) {
-            showNext();
-        } else {
-            pageTokens.next && setToken(pageTokens.next);
-            resetFirstVisibleThumbnailIndex();
-        }
-    }, [isLast, pageTokens.next, resetFirstVisibleThumbnailIndex, setToken, showNext]);
+    const handleClickNext = useCallback(
+        (e: SyntheticEvent) => {
+            e.stopPropagation();
+            if (!isLast) {
+                showNext();
+            } else {
+                pageTokens.next && setToken(pageTokens.next);
+                resetFirstVisibleThumbnailIndex();
+            }
+        },
+        [isLast, pageTokens.next, resetFirstVisibleThumbnailIndex, setToken, showNext]
+    );
 
-    const buttonPreviousClickHandler = useCallback(() => {
-        if (!isFirst) {
-            showPrevious();
-        } else {
-            pageTokens.prev && setToken(pageTokens.prev);
-            setFirstVisibleThumbnailIndex(lengthOfVideosArray - sliderCapacity);
-        }
-    }, [
-        isFirst,
-        showPrevious,
-        pageTokens.prev,
-        setToken,
-        setFirstVisibleThumbnailIndex,
-        lengthOfVideosArray,
-        sliderCapacity,
-    ]);
+    const handleClickPrevious = useCallback(
+        (e: SyntheticEvent) => {
+            e.stopPropagation();
+            if (!isFirst) {
+                showPrevious();
+            } else {
+                pageTokens.prev && setToken(pageTokens.prev);
+                setFirstVisibleThumbnailIndex(lengthOfVideosArray - sliderCapacity);
+            }
+        },
+        [
+            isFirst,
+            showPrevious,
+            pageTokens.prev,
+            setToken,
+            setFirstVisibleThumbnailIndex,
+            lengthOfVideosArray,
+            sliderCapacity,
+        ]
+    );
 
     if (!visibleVideoThumbnails) return null;
 
@@ -68,9 +78,18 @@ const Slider = () => {
         <aside className={sliderClass} ref={sliderRef}>
             <ButtonPrevious
                 sliderOrientation={sliderOrientation}
-                clickHandler={buttonPreviousClickHandler}
+                handleClick={handleClickPrevious}
                 disabled={isFirst && !pageTokens.prev} //
             />
+            {/* <SliderButton
+                id="previous"
+                variant="previous"
+                orientation={sliderOrientation}
+                onClick={onClickPrevious}
+                disabled={isFirst && !pageTokens.prev}
+            >
+                <Icons.Right />
+            </SliderButton> */}
 
             {visibleVideoThumbnails.map((video: Video) => {
                 return (
@@ -85,9 +104,18 @@ const Slider = () => {
 
             <ButtonNext
                 sliderOrientation={sliderOrientation}
-                clickHandler={buttonNextClickHandler}
+                handleClick={handleClickNext}
                 disabled={isLast && !pageTokens.next}
             />
+            {/* <SliderButton
+                id="next"
+                variant="next"
+                orientation={sliderOrientation}
+                onClick={onClickNext}
+                disabled={isLast && !pageTokens.next}
+            >
+                <Icons.Right />
+            </SliderButton> */}
         </aside>
     );
 };

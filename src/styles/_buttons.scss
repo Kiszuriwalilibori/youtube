@@ -2,12 +2,10 @@
     cursor: pointer;
     &:disabled {
         cursor: default;
+        opacity: 0.7;
     }
 }
 
-.rotated {
-    transform: rotateZ(-90deg);
-}
 .button--login {
     @extend .btn;
     min-width: 120px;
@@ -33,15 +31,6 @@
             background-color: var(--ytd-contrast-red-color-hover);
         }
     }
-}
-
-.button--round {
-    @extend .btn;
-    border: none;
-    border-radius: var(--ytd-search-height);
-    height: var(--ytd-search-height);
-    width: var(--ytd-search-height);
-    margin: 0;
 }
 
 .button--left {
@@ -75,7 +64,7 @@
     top: 50px;
 }
 
-.button--sidebar {
+.button--slider {
     @extend .btn;
     border: none;
     border-radius: var(--ytd-search-height);
@@ -89,18 +78,6 @@
     z-index: 10;
     &:disabled {
         background-color: var(--yt-spec-touch-response);
-    }
-}
-
-.button--reverted {
-    @extend .flexbox-row-centered;
-    @extend .button--round;
-    @extend .darkening;
-    @include svg--larger;
-    background-color: var(--ytd-searchbox-background);
-
-    & svg {
-        fill: var(--yt-spec-text-primary);
     }
 }
 
@@ -128,28 +105,19 @@
     border: none;
     background-color: initial;
     text-align: inherit;
+    &:disabled {
+        cursor: default !important;
+        opacity: 0.7 !important;
+    }
     &.smaller {
+        &:disabled {
+            cursor: default;
+            opacity: 0.7;
+        }
         & svg {
             width: var(--svg-smaller) !important;
             height: var(--svg-smaller) !important;
         }
-    }
-}
-
-.button--microphone {
-    @include xsmall {
-        display: none;
-    }
-    @extend .flexbox-row-centered;
-    @extend .button--round;
-    @extend .darkening;
-    background-color: var(--ytd-searchbox-legacy-button-color);
-    margin-left: 4px;
-
-    & svg {
-        width: var(--svg-middle);
-        height: var(--svg-middle);
-        fill: var(--yt-spec-text-primary);
     }
 }
 
@@ -162,6 +130,10 @@
     height: 40px;
     width: 64px;
     margin: 0;
+    &:disabled {
+        cursor: default !important;
+        opacity: 0.7 !important;
+    }
     & svg {
         color: var(--yt-spec-text-primary);
         width: var(--svg-width);

@@ -6,13 +6,13 @@ import NotLogged from "./components/NotLogged";
 import { getLoginStatus } from "reduxware/reducers/logReducer";
 
 interface Props {
-    children: ReactNode;
+    children: JSX.Element;
 }
 export const ProtectedRoute = (props: Props) => {
     const isLogged = useSelector(getLoginStatus, shallowEqual);
 
     if (!isLogged) {
-        return (<NotLogged />) as any;
+        return <NotLogged />;
     }
 
     return props.children;

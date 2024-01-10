@@ -2,7 +2,7 @@ import { AnyAction } from "redux";
 import { ThunkAction } from "redux-thunk";
 
 import { startLoading, completeLoading, showError, storeVideos, setPageToken } from "../actionCreators";
-import { RootStateType } from "types/types";
+import { RootStateType } from "types";
 
 const thunkFetchVideos = (URL: string): ThunkAction<void, RootStateType, unknown, AnyAction> => {
     return async (dispatch, getState) => {

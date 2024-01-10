@@ -1,5 +1,5 @@
 import { createAction } from "@reduxjs/toolkit";
-import { PageToken, PlayerFeed, Video, Videos } from "types/types";
+import { PageToken, PlayerFeed, Videos } from "types";
 
 interface ShowError {
     isError: boolean;
@@ -20,3 +20,4 @@ export const setQuery = createAction<string>("QUERY_SET");
 export const resetQuery = createAction("QUERY_RESET");
 export const setPlayerFeed = createAction<PlayerFeed>("PLAYER_FEED_SET");
 export const clearPlayerFeed = createAction("PLAYER_FEED_CLEAR");
+export const setIsOnline = createAction<boolean>("IS_ONLINE_SET");

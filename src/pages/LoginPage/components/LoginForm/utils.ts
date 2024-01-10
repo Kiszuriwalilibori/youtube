@@ -1,4 +1,4 @@
-import { Messages, Validators } from "../types";
+import { Messages, Validators } from "../../types";
 
 export const messages: Messages = {
     minLength: "Minimal length not reached, should be at least ",
@@ -6,7 +6,7 @@ export const messages: Messages = {
     required: "This field is required ",
     pattern: "Not a valid e-mail",
 };
-export const crits = {
+export const criterions = {
     password: {
         required: true,
     },
@@ -17,6 +17,6 @@ export const crits = {
     },
 };
 export const validators: Validators = {
-    password: { ...crits.password },
-    email: { ...crits.email },
+    password: { ...criterions.password },
+    email: { ...criterions.email },
 };

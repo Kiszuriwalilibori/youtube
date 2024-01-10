@@ -27,7 +27,9 @@
             "functions/*": ["functions/*"],
             "routing/*": ["routing/*"],
             "Pages/*": ["Pages/*"],
-            "reduxware/*": ["reduxware/*"]
+            "reduxware/*": ["reduxware/*"],
+            "images/*": ["images/*"],
+            "config/*": ["config/*"]
         }
     },
     "include": ["src"]

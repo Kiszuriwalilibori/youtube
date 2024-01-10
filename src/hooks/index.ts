@@ -5,8 +5,10 @@ import useFetchThumbnails from "./useFetchThumbnails";
 import useHandleConnectionStatus from "./useHandleConnectionStatus";
 import useManageInput from "./useManageInput";
 import useManageThumbnails from "./useManageThumbnails";
+import useMessage from "./useMessage";
 import useQueryClient from "./useQueryClient";
 import useSelectVideo from "./useSelectVideo";
+import useSetInitialConnectionStatus from "./useSetInitialConnectionStatus";
 
 export {
     useBoolean,
@@ -16,6 +18,8 @@ export {
     useHandleConnectionStatus,
     useManageInput,
     useManageThumbnails,
+    useMessage,
     useQueryClient,
     useSelectVideo,
+    useSetInitialConnectionStatus,
 };

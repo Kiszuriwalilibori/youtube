@@ -1,3 +1,4 @@
+import { memo } from "react";
 import Fade from "@mui/material/Fade";
 
 interface Props {
@@ -8,8 +9,8 @@ export const InvalidCredentialsMessage = (props: Props) => {
     const { isError } = props;
     return (
         <Fade in={isError}>
-            <p className="invalid-credentials visible">{text}</p>
+            <p className="login__invalid-credentials">{text}</p>
         </Fade>
     );
 };
-export default InvalidCredentialsMessage;
+export default memo(InvalidCredentialsMessage);

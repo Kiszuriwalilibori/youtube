@@ -1,4 +1,4 @@
-export const options = {
+export const PLAYER_OPTIONS = {
     width: "100%",
     height: "100%",
     playerVars: {
@@ -9,4 +9,4 @@ export const options = {
     },
 };
 
-export default options;
+export default PLAYER_OPTIONS;

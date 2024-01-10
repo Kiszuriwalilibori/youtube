@@ -1,25 +1,32 @@
 import { useEffect } from "react";
+import { useSelector } from "react-redux";
 
-import useDispatchAction from "hooks/useDispatchAction";
+import { InvalidCredentialsMessage, LoginForm, LoginPrompt, Welcome } from "./components";
+import { useMessage, useDispatchAction, useBoolean } from "hooks";
 
-import { useBoolean } from "hooks";
-import { InvalidCredentialsMessage, LogInForm, LogInPrompt, LoginPageWrapper, Welcome } from "./components";
+import { isOnlineSelector } from "reduxware/reducers/onlineReducer";
 
 const Login = () => {
     const { logOutUser } = useDispatchAction();
+    const isOnline = useSelector(isOnlineSelector);
+    const showMessage = useMessage();
     const [isError, setError, clearError] = useBoolean(false);
 
     useEffect(() => {
         logOutUser();
     }, [logOutUser]);
 
+    !isOnline && showMessage.warning("No internet connection - no login - no videos. Nothing at all.");
+
     return (
-        <LoginPageWrapper>
-            <InvalidCredentialsMessage isError={isError} />
-            <Welcome />
-            <LogInPrompt />
-            <LogInForm setError={setError} clearError={clearError} />
-        </LoginPageWrapper>
+        <section className="page--login">
+            <div className="login">
+                <InvalidCredentialsMessage isError={isError} />
+                <Welcome />
+                {isOnline && <LoginPrompt />}
+                {isOnline && <LoginForm setError={setError} clearError={clearError} />}
+            </div>
+        </section>
     );
 };
 

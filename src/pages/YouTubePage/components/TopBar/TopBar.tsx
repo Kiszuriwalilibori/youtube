@@ -1,40 +1,52 @@
 import { useCallback, useEffect, useRef } from "react";
+import { useSelector } from "react-redux";
+import { useSpeechRecognition } from "react-speech-kit";
 
-import BasicButton from "components/BasicButton";
 import Icons from "icons";
 import keyb from "icons/keyboard.png";
 
 import { useBreakpoints } from "contexts/ViewPortProvider";
 import { useBoolean, useManageInput } from "hooks";
 import { SliderOrientation } from "types";
-import { Start, End, MicrophoneButton } from "./components";
+import { BasicButton } from "components";
+import { Start, End } from "./components";
+import { isOfflineSelector } from "reduxware/reducers/onlineReducer";
+import { ShowHiddenButton, MicrophoneButton } from "./styled";
+import { InputContent } from "hooks/useManageInput";
 
-const placeHolder = "Szukaj";
+const SEARCH = "Szukaj";
+
+const microphoneButtonSx = {
+    "&.Mui-disabled": {
+        opacity: 0.3,
+    },
+};
 
 type LastSize = "large" | "small" | undefined;
 
 const TopBar = () => {
     const { point: viewportType, sliderOrientation } = useBreakpoints();
+    const isOffline = useSelector(isOfflineSelector);
     const previousSize = useRef<LastSize>(undefined);
     const [isFolded, fold, unfold] = useBoolean(true);
     const [isStartVisible, showStart, hideStart] = useBoolean(true);
     const [isKeyboardButtonVisible, showKeyboard, ,] = useBoolean(false);
-    const [isLeftArrowButtonVisible, showLeftArrowButton, hideLeftArrowButton] = useBoolean(false);
+    const [isShowHiddenButtonVisible, showShowHiddenButton, hideShowHiddenButton] = useBoolean(false);
 
     const horizontalSearchHandleHelper = useCallback(() => {
         unfold();
         hideStart();
-        showLeftArrowButton();
-    }, [hideStart, showLeftArrowButton, unfold]);
+        showShowHiddenButton();
+    }, [hideStart, showShowHiddenButton, unfold]);
 
-    const { inputClickHandler, searchHandler, inputRef } = useManageInput(
+    const { handleClickInput, handleSearch, inputRef, updateInput } = useManageInput(
         sliderOrientation as SliderOrientation,
         horizontalSearchHandleHelper
     );
-    const arrowLeftClickHandler = useCallback((e: { stopPropagation: () => void }) => {
+    const handleLeftArrowClick = useCallback((e: { stopPropagation: () => void }) => {
         e.stopPropagation();
         showStart();
-        hideLeftArrowButton();
+        hideShowHiddenButton();
         fold();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
@@ -53,25 +65,40 @@ const TopBar = () => {
                 previousSize.current = "large";
                 isFolded && unfold();
                 !isStartVisible && showStart();
-                isLeftArrowButtonVisible && hideLeftArrowButton();
+                isShowHiddenButtonVisible && hideShowHiddenButton();
             }
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [viewportType]);
 
+    const { listen, listening, stop, supported } = useSpeechRecognition({
+        onResult: (result: InputContent) => {
+            result && updateInput(result);
+        },
+    });
+
     return (
         <header className="TopBar">
             {isStartVisible && <Start />}
             <div className="TopBar__center">
-                {isLeftArrowButtonVisible && (
-                    <BasicButton className="button--reverted" onClick={arrowLeftClickHandler}>
+                {isShowHiddenButtonVisible && (
+                    <ShowHiddenButton
+                        aria-label="show hidden content"
+                        title="notifications"
+                        onClick={handleLeftArrowClick}
+                    >
                         <Icons.ArrowLeft />
-                    </BasicButton>
+                    </ShowHiddenButton>
                 )}
                 {!isFolded && (
                     <div className="search">
                         <div className="search__buttons">
-                            <BasicButton className="button smaller hidden" type="submit" onClick={searchHandler}>
+                            <BasicButton
+                                disabled={isOffline}
+                                className="button smaller hidden"
+                                type="submit"
+                                onClick={handleSearch}
+                            >
                                 <Icons.Search />
                             </BasicButton>
                         </div>
@@ -79,15 +106,16 @@ const TopBar = () => {
                         <input
                             className="search__input"
                             onMouseEnter={showKeyboard}
-                            onKeyDown={inputClickHandler}
-                            placeholder={placeHolder}
-                            aria-label="Szukaj"
+                            onKeyDown={handleClickInput}
+                            placeholder={SEARCH}
+                            aria-label={SEARCH}
                             type="text"
                             tabIndex={0}
                             ref={inputRef}
+                            disabled={isOffline}
                         ></input>
                         {isKeyboardButtonVisible && (
-                            <BasicButton className="button button--keyboard">
+                            <BasicButton className="button button--keyboard" disabled={isOffline}>
                                 <img src={keyb} alt="keyboard"></img>
                             </BasicButton>
                         )}
@@ -95,14 +123,26 @@ const TopBar = () => {
                 )}
 
                 <BasicButton
-                    className={isFolded ? "button--neutral" : "button--search"}
+                    className={isFolded ? "button button--neutral" : "button button--search"}
                     type="submit"
-                    onClick={searchHandler}
+                    onClick={handleSearch}
                     aria-label="Search"
+                    disabled={isOffline}
                 >
                     <Icons.Search />
                 </BasicButton>
-                <MicrophoneButton className="with-tooltip" data-tooltip="Wyszukuj głosowo" aria-label="Search by voice">
+                <MicrophoneButton
+                    sx={{
+                        backgroundColor: listening ? "#91ff35" : "initial",
+                        "&:hover": { backgroundColor: listening ? "#91ff35" : "lightgrey" },
+                        ...microphoneButtonSx,
+                    }}
+                    className="with-tooltip"
+                    data-tooltip="Wyszukuj głosowo"
+                    aria-label="Search by voice"
+                    disabled={isOffline || !supported}
+                    onClick={listening ? stop : listen}
+                >
                     <Icons.Microphone />
                 </MicrophoneButton>
             </div>

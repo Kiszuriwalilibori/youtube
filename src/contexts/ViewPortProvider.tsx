@@ -1,6 +1,7 @@
 import { useState, useEffect, createContext, useContext, FC, ReactNode } from "react";
 import throttle from "lodash/throttle";
 import { ViewportSize } from "types";
+import { BRAKPOINT_MOBILE, BREAKPOINT_DESKTOP, BREAKPOINT_PHABLET, BREAKPOINT_TABLET, THROTTLE_GAP } from "config";
 
 type desktopSizes = "mobile" | "phablet" | "tablet" | "desktop" | "desktopHD";
 
@@ -25,13 +26,13 @@ interface viewportContextInterface {
 const viewportContext = createContext({} as viewportContextInterface);
 
 const getDeviceConfig = (width: number): desktopSizes => {
-    if (width < 550) {
+    if (width < BRAKPOINT_MOBILE) {
         return "mobile";
-    } else if (width >= 550 && width < 750) {
+    } else if (width >= BRAKPOINT_MOBILE && width < BREAKPOINT_PHABLET) {
         return "phablet";
-    } else if (width >= 750 && width < 1000) {
+    } else if (width >= BREAKPOINT_PHABLET && width < BREAKPOINT_TABLET) {
         return "tablet";
-    } else if (width >= 1000 && width < 1200) {
+    } else if (width >= BREAKPOINT_TABLET && width < BREAKPOINT_DESKTOP) {
         return "desktop";
     } else {
         return "desktopHD";
@@ -55,7 +56,7 @@ const ViewportProvider: FC<{ children: ReactNode }> = ({ children }) => {
             const newOrientation = getSliderOrientation(getDeviceConfig(window.innerWidth));
             if (newOrientation !== sliderOrientation) setSliderOrientation(newOrientation);
             setSliderOrientation(getSliderOrientation(getDeviceConfig(window.innerWidth)));
-        }, 200);
+        }, THROTTLE_GAP);
 
         const calcInnerHeight = throttle(function () {
             const playerHeight = document.getElementById("player-id")?.offsetHeight;
@@ -63,7 +64,7 @@ const ViewportProvider: FC<{ children: ReactNode }> = ({ children }) => {
             else {
                 setHeight(window.innerHeight);
             }
-        }, 200);
+        }, THROTTLE_GAP);
 
         window.addEventListener("resize", calcInnerWidth);
         window.addEventListener("resize", calcInnerHeight);

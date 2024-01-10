@@ -7,7 +7,7 @@ export const useCheckApiKey = () => {
     const isAPIKeyAvailable = useRef(false);
 
     if (!process.env.REACT_APP_API_KEY) {
-        showError({ isError: true, errorMessage: "No API key found in the application" });
+        showError({ isError: true, errorMessage: "No API key found" });
     } else {
         isAPIKeyAvailable.current = true;
     }

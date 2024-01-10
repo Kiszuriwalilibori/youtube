@@ -1,8 +1,9 @@
+import { memo } from "react";
 import { CircularProgress, Modal } from "@mui/material";
 
 export const Loader = () => {
     return (
-        <Modal open={true} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
+        <Modal open={true} aria-label="Loading">
             <CircularProgress
                 color="warning"
                 sx={{ position: "absolute" as "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}
@@ -10,4 +11,4 @@ export const Loader = () => {
         </Modal>
     );
 };
-export default Loader;
+export default memo(Loader);

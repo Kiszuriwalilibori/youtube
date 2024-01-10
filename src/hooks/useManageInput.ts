@@ -4,20 +4,23 @@ import useDispatchAction from "./useDispatchAction";
 
 import { SliderOrientation } from "types";
 
+export type InputContent = string;
+
 export const useManageInput = (orientation: SliderOrientation, helper: Function) => {
-    const [textContent, setTextContent] = useState<string>("");
+    const [inputContent, setInputContent] = useState<InputContent>("");
     const inputRef = useRef<HTMLInputElement>(null);
     const { setQuery } = useDispatchAction();
 
-    const inputClickHandler = useCallback((event: { key: string }) => {
+    const handleClickInput = useCallback((event: { key: string }) => {
         if (event.key === "Enter") {
-            inputRef.current && inputRef.current!.value && setTextContent(inputRef.current!.value);
+            inputRef.current && inputRef.current!.value && setInputContent(inputRef.current!.value);
         }
     }, []);
-    const searchHandler = useCallback(
+    const handleSearch = useCallback(
         (e: SyntheticEvent) => {
+            e.stopPropagation();
             e.preventDefault();
-            inputRef.current && inputRef.current!.value && setTextContent(inputRef.current!.value);
+            inputRef.current && inputRef.current!.value && setInputContent(inputRef.current!.value);
             if (orientation === "horizontal") {
                 helper();
             }
@@ -25,13 +28,21 @@ export const useManageInput = (orientation: SliderOrientation, helper: Function)
         [helper, orientation]
     );
 
-    useEffect(() => {
-        if (textContent) {
-            setQuery(textContent);
-        }
-    }, [setQuery, textContent]);
+    const updateInput = useCallback(
+        (newContent: InputContent) => {
+            const updatedInputContent = inputContent + " " + newContent;
+            inputRef.current!.value = updatedInputContent;
+        },
+        [inputContent]
+    );
 
-    return { searchHandler, inputClickHandler, inputRef };
+    useEffect(() => {
+        if (inputContent) {
+            setQuery(inputContent);
+        }
+    }, [setQuery, inputContent]);
+
+    return { handleSearch, handleClickInput, inputRef, setInputContent, updateInput };
 };
 
 export default useManageInput;

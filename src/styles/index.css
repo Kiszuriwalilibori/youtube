@@ -299,13 +299,13 @@ textarea {
   font-size: 16px;
 }
 
-.flexbox-row-v-centered, .login-page .login .form .search, .TopBar__center .search, .TopBar__center, .TopBar__end, .TopBar__start.visible, .TopBar {
+.flexbox-row-v-centered, .login__form .field, .TopBar__center .search, .TopBar__center, .TopBar__end, .TopBar__start.visible, .TopBar {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 
-.flexbox-row-centered, .login-page, .not-logged, .button--search, .button--microphone, .button--alarm, .button--reverted, .error {
+.flexbox-row-centered, .page--login, .not-logged, .button--search, .button--alarm, .error {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -330,7 +330,7 @@ textarea {
   color: var(--text-color-secondary);
 }
 
-.full-page, .login-page, .not-logged {
+.full-page, .page--login, .not-logged {
   position: fixed;
   z-index: 999;
   margin: auto;
@@ -344,16 +344,16 @@ textarea {
   font-size: 48px;
   color: var(--ytd-alarm-color);
 }
-.shout-text--small, .login-page .login .invalid-credentials {
+.shout-text--small, .login__invalid-credentials {
   font-size: 24px;
   text-align: center;
   color: var(--ytd-alarm-color);
 }
 
-.darkening, .button--microphone, .button--reverted {
+.darkening {
   transition: background-color 0.3s;
 }
-.darkening:hover, .button--microphone:hover, .button--reverted:hover {
+.darkening:hover {
   background-color: var(--yt-spec-touch-response);
 }
 
@@ -378,6 +378,16 @@ textarea {
   width: 1px;
   height: 1px;
   overflow: hidden;
+}
+
+.rotated, .button--downwards, .button--upwards {
+  transform: rotateZ(-90deg);
+}
+
+*:focus {
+  outline: 2px ridge #0ca4f6;
+  outline-offset: 1px;
+  z-index: 2000;
 }
 
 .TopBar {
@@ -567,15 +577,12 @@ textarea {
   border-radius: 12px;
 }
 
-.btn, .button--search, .button, .button--alarm, .button--neutral, .button--sidebar, .button--round, .button--microphone, .button--reverted, .button--login {
+.btn, .button--search, .button, .button--alarm, .button--neutral, .button--slider, .button--login {
   cursor: pointer;
 }
-.btn:disabled, .button--search:disabled, .button:disabled, .button--alarm:disabled, .button--neutral:disabled, .button--sidebar:disabled, .button--round:disabled, .button--microphone:disabled, .button--reverted:disabled, .button--login:disabled {
+.btn:disabled, .button--search:disabled, .button:disabled, .button--alarm:disabled, .button--neutral:disabled, .button--slider:disabled, .button--login:disabled {
   cursor: default;
-}
-
-.rotated, .button--downwards, .button--upwards {
-  transform: rotateZ(-90deg);
+  opacity: 0.7;
 }
 
 .button--login {
@@ -602,14 +609,6 @@ textarea {
 }
 .button--login[type=reset]:focus {
   background-color: var(--ytd-contrast-red-color-hover);
-}
-
-.button--round, .button--microphone, .button--reverted {
-  border: none;
-  border-radius: var(--ytd-search-height);
-  height: var(--ytd-search-height);
-  width: var(--ytd-search-height);
-  margin: 0;
 }
 
 .button--left, .button--downwards {
@@ -640,7 +639,7 @@ textarea {
   top: 50px;
 }
 
-.button--sidebar {
+.button--slider {
   border: none;
   border-radius: var(--ytd-search-height);
   cursor: pointer;
@@ -652,19 +651,8 @@ textarea {
   background-color: var(--ytd-alarm-color);
   z-index: 10;
 }
-.button--sidebar:disabled {
+.button--slider:disabled {
   background-color: var(--yt-spec-touch-response);
-}
-
-.button--reverted {
-  background-color: var(--ytd-searchbox-background);
-}
-.button--reverted svg {
-  width: var(--svg-larger);
-  height: var(--svg-larger);
-}
-.button--reverted svg {
-  fill: var(--yt-spec-text-primary);
 }
 
 .button--neutral {
@@ -688,24 +676,17 @@ textarea {
   background-color: initial;
   text-align: inherit;
 }
+.button:disabled {
+  cursor: default !important;
+  opacity: 0.7 !important;
+}
+.button.smaller:disabled {
+  cursor: default;
+  opacity: 0.7;
+}
 .button.smaller svg {
   width: var(--svg-smaller) !important;
   height: var(--svg-smaller) !important;
-}
-
-.button--microphone {
-  background-color: var(--ytd-searchbox-legacy-button-color);
-  margin-left: 4px;
-}
-@media (max-width: 430px) {
-  .button--microphone {
-    display: none;
-  }
-}
-.button--microphone svg {
-  width: var(--svg-middle);
-  height: var(--svg-middle);
-  fill: var(--yt-spec-text-primary);
 }
 
 .button--search {
@@ -715,6 +696,10 @@ textarea {
   height: 40px;
   width: 64px;
   margin: 0;
+}
+.button--search:disabled {
+  cursor: default !important;
+  opacity: 0.7 !important;
 }
 .button--search svg {
   color: var(--yt-spec-text-primary);
@@ -730,6 +715,16 @@ textarea {
 .player p {
   margin: 10px 5px;
 }
+.player--empty {
+  background: url(images/nomovies.jpg) no-repeat center center;
+  background-size: contain;
+  height: 20vw;
+  width: 20vw;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
 .main {
   display: flex;
@@ -742,31 +737,31 @@ textarea {
   }
 }
 
-.login-page .login {
+.login {
   display: grid;
   grid-template-columns: 1fr;
   row-gap: 20px;
   margin: 0 auto;
   width: 300px;
 }
-.login-page .login h1 {
+.login__welcome {
   font-weight: 500;
   font-size: 24px;
   text-align: center;
 }
-.login-page .login h2 {
+.login__prompt {
   font-weight: 500;
   font-size: 20px;
   text-align: center;
 }
-.login-page .login .form {
+.login__form {
   display: grid;
   row-gap: 20px;
 }
-.login-page .login .form > * {
+.login__form > * {
   margin: 0 auto;
 }
-.login-page .login .form .search {
+.login__form .field {
   position: relative;
   justify-content: space-between;
   width: 100%;
@@ -782,20 +777,22 @@ textarea {
   color: var(--ytd-searchbox-text-color);
   margin-bottom: 20px;
 }
-.login-page .login .form .search:has(:focus) {
-  border: 1px solid var(--ytd-searchbox-active-color);
+.login__form .field:has(:focus) {
   padding-left: 10px;
+  outline: 2px ridge #0ca4f6;
+  outline-offset: 1px;
+  z-index: 2000;
 }
-.login-page .login .form .search:has(:focus) .hidden {
+.login__form .field:has(:focus) .hidden {
   display: block;
 }
-.login-page .login .form .search .search__label {
+.login__form .field__label {
   position: absolute;
   top: -20px;
   left: 0;
   font-size: 12px;
 }
-.login-page .login .form .search .search__input {
+.login__form .field__input {
   border: medium none;
   padding: 0px;
   margin: 0px;
@@ -804,7 +801,7 @@ textarea {
   outline: none;
   color: var(--ytd-searchbox-text-color);
 }
-.login-page .login .form .search .search__hint {
+.login__form .field__hint {
   position: absolute;
   bottom: 16px;
   right: -100px;
@@ -853,7 +850,7 @@ textarea {
   opacity: 1;
 }
 
-.NoPage {
+.page--none {
   display: flex;
   align-items: center;
   justify-content: center;

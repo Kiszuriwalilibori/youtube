@@ -1,7 +1,12 @@
-.NoPage {
+.page--none {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
     font-size: xx-large;
+}
+
+.page--login {
+    @extend .full-page;
+    @extend .flexbox-row-centered;
 }

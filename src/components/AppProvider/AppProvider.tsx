@@ -13,6 +13,7 @@ import videosReducer from "reduxware/reducers/playerReducer";
 import logReducer from "reduxware/reducers/logReducer";
 import pageTokenReducer from "reduxware/reducers/pageTokenReducer";
 import queryReducer from "reduxware/reducers/queryReducer";
+import onlineReducer from "reduxware/reducers/onlineReducer";
 
 import { ViewportProvider } from "contexts/ViewPortProvider";
 
@@ -26,6 +27,7 @@ const rootReducer = combineReducers({
     log: logReducer,
     pageToken: pageTokenReducer,
     query: queryReducer,
+    online: onlineReducer,
 });
 // declare module "@mui/styles/defaultTheme" {
 //     // eslint-disable-next-line @typescript-eslint/no-empty-interface

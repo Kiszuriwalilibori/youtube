@@ -6,4 +6,14 @@
     p {
         margin: 10px 5px;
     }
+    &--empty {
+        background: url(images/nomovies.jpg) no-repeat center center;
+        background-size: contain;
+        height: 20vw;
+        width: 20vw;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
 }
