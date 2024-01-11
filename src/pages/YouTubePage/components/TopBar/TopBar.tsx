@@ -141,13 +141,11 @@ const TopBar = () => {
                     sx={{
                         backgroundColor: getMicrophoneBackgroundColor(listening),
                         "&:hover": { backgroundColor: getMicrophoneHoverColor(listening) },
-                        // ...microphoneButtonSx,
                     }}
                     className="with-tooltip"
                     data-tooltip="Wyszukuj głosowo"
                     aria-label="Search by voice"
                     disabled={isMicrophoneDisabled}
-                    // onClick={listening ? stop : listen}
                     onClick={handleClickMicrophone}
                 >
                     <Icons.Microphone />
