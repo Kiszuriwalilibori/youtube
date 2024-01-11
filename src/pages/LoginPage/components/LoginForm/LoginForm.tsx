@@ -1,12 +1,13 @@
 import { useCallback, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import { useTranslation } from "react-i18next";
 
 import paths from "routing";
 
 import { useDispatchAction } from "hooks";
 import { BasicButton } from "components";
-import { criterions, messages, validators } from "./utils";
+import { validators } from "./utils";
 
 interface Props {
     setError: () => void;
@@ -14,11 +15,11 @@ interface Props {
 }
 
 export const LogInForm = (props: Props) => {
+    const refPassword = useRef<HTMLInputElement | null>(null);
+    const navigate = useNavigate();
+    const { t } = useTranslation();
     const { setError, clearError } = props;
     const { logUser, clearVideos } = useDispatchAction();
-    const refPassword = useRef<HTMLInputElement | null>(null);
-    const refEmail = useRef<HTMLInputElement | null>(null);
-    const navigate = useNavigate();
 
     const onFormSubmit = useCallback(() => {
         const password = refPassword.current!.value;
@@ -50,7 +51,7 @@ export const LogInForm = (props: Props) => {
     return (
         <form className="login__form" onSubmit={handleSubmit(onFormSubmit)}>
             <label className="field">
-                <p className="field__label">email</p>
+                <p className="field__label">{t("login.email")}</p>
                 <input
                     className="field__input"
                     autoComplete="email"
@@ -58,22 +59,22 @@ export const LogInForm = (props: Props) => {
                     autoFocus
                     type="text"
                     tabIndex={0}
-                    placeholder="Type your e-mail here..."
+                    placeholder={t("login.email_prompt")}
                     {...register("email", validators.email)}
                 />
                 {errors.email && errors.email.type === "required" && (
                     <span className="field__hint">
-                        {messages.required}
-                        {criterions.email.required}
+                        {t("warnings.required")}
+                        {/* {criterions.email.required} */}
                     </span>
                 )}
                 {errors.email && errors.email.type === "pattern" && (
-                    <span className="field__hint">{messages.pattern}</span>
+                    <span className="field__hint">{t("warnings.pattern")}</span>
                 )}
             </label>
 
             <label className="field">
-                <p className="field__label">password</p>
+                <p className="field__label">{t("login.password")}</p>
                 <input
                     className="field__input"
                     autoComplete="current-password"
@@ -82,26 +83,26 @@ export const LogInForm = (props: Props) => {
                         ref(e);
                         refPassword.current = e;
                     }}
-                    placeholder="Type your password here..."
+                    placeholder={t("login.password_prompt")}
                     type="password"
                     {...rest}
                 />
                 {errors.password && errors.password.type === "required" && (
                     <span className="field__hint">
-                        {messages.required}
-                        {criterions.password.required}
+                        {t("warnings.required")}
+                        {/* {criterions.password.required} */}
                     </span>
                 )}
             </label>
 
-            <BasicButton className="button--login" type="submit" aria-label="submit" children="Submit" />
+            <BasicButton className="button--login" type="submit" aria-label="submit" children={t("buttons.submit")} />
 
             <BasicButton
                 className="button--login"
                 type="reset"
                 aria-label="reset"
                 onClick={handleClickReset}
-                children="Reset"
+                children={t("buttons.reset")}
             />
         </form>
     );

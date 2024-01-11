@@ -29,7 +29,8 @@
             "Pages/*": ["Pages/*"],
             "reduxware/*": ["reduxware/*"],
             "images/*": ["images/*"],
-            "config/*": ["config/*"]
+            "config/*": ["config/*"],
+            "i18n/*": ["i18n/*"]
         }
     },
     "include": ["src"]

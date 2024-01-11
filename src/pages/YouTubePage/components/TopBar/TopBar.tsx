@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
 import { useSpeechRecognition } from "react-speech-kit";
+import { useTranslation } from "react-i18next";
 
 import Icons from "icons";
 import keyb from "icons/keyboard.png";
@@ -14,14 +15,6 @@ import { isOfflineSelector } from "reduxware/reducers/onlineReducer";
 import { getMicrophoneBackgroundColor, getMicrophoneHoverColor, ShowHiddenButton, MicrophoneButton } from "./styled";
 import { InputContent } from "hooks/useManageInput";
 
-const SEARCH = "Szukaj";
-
-// const microphoneButtonSx = {
-//     "&.Mui-disabled": {
-//         opacity: 0.3,
-//     },
-// };
-
 type LastSize = "large" | "small" | undefined;
 
 const TopBar = () => {
@@ -32,6 +25,7 @@ const TopBar = () => {
     const [isStartVisible, showStart, hideStart] = useBoolean(true);
     const [isKeyboardButtonVisible, showKeyboard, ,] = useBoolean(false);
     const [isShowHiddenButtonVisible, showShowHiddenButton, hideShowHiddenButton] = useBoolean(false);
+    const { t } = useTranslation();
 
     const horizontalSearchHandleHelper = useCallback(() => {
         unfold();
@@ -113,8 +107,8 @@ const TopBar = () => {
                             className="search__input"
                             onMouseEnter={showKeyboard}
                             onKeyDown={handleClickInput}
-                            placeholder={SEARCH}
-                            aria-label={SEARCH}
+                            placeholder={t("buttons.search")}
+                            aria-label="Search"
                             type="text"
                             tabIndex={0}
                             ref={inputRef}
@@ -143,7 +137,7 @@ const TopBar = () => {
                         "&:hover": { backgroundColor: getMicrophoneHoverColor(listening) },
                     }}
                     className="with-tooltip"
-                    data-tooltip="Wyszukuj głosowo"
+                    data-tooltip={t("buttons.microphone")}
                     aria-label="Search by voice"
                     disabled={isMicrophoneDisabled}
                     onClick={handleClickMicrophone}

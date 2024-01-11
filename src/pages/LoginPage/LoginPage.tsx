@@ -5,11 +5,12 @@ import { InvalidCredentialsMessage, LoginForm, LoginPrompt, Welcome } from "./co
 import { useMessage, useDispatchAction, useBoolean } from "hooks";
 
 import { isOnlineSelector } from "reduxware/reducers/onlineReducer";
+import LanguageSwitch from "./components/LanguageSwitch";
 
 const Login = () => {
-    const { logOutUser } = useDispatchAction();
     const isOnline = useSelector(isOnlineSelector);
     const showMessage = useMessage();
+    const { logOutUser } = useDispatchAction();
     const [isError, setError, clearError] = useBoolean(false);
 
     useEffect(() => {
@@ -25,6 +26,7 @@ const Login = () => {
                 <Welcome />
                 {isOnline && <LoginPrompt />}
                 {isOnline && <LoginForm setError={setError} clearError={clearError} />}
+                <LanguageSwitch />
             </div>
         </section>
     );

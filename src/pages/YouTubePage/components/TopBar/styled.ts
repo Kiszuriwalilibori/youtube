@@ -1,8 +1,9 @@
 import IconButton from "@mui/material/IconButton";
 import { styled } from "@mui/material/styles";
 
-const ACTIVE_BUTTON_MIC_COLOR = "#48BF53";
-const INITIAL_BTN_MIC_COLOR = "#f8f8f8";
+const ACTIVE_BUTTON_MIC_COLOR = "#43a047";
+const ACTIVE_BUTTON_MIC_COLOR_HOVER = "#66bb6a";
+const INITIAL_BTN_MIC_COLOR = "#eeeeee";
 const HIDDEN_BTN_HOVER_COLOR = "#e5e5e5";
 
 export const ShowHiddenButton = styled(IconButton)(({ theme }) => ({
@@ -27,8 +28,8 @@ export const MicrophoneButton = styled(IconButton)(({ theme }) => ({
 }));
 
 export const getMicrophoneBackgroundColor = (listening: Boolean) => {
-    return listening ? ACTIVE_BUTTON_MIC_COLOR : "initial";
+    return listening ? ACTIVE_BUTTON_MIC_COLOR : INITIAL_BTN_MIC_COLOR;
 };
 export const getMicrophoneHoverColor = (listening: Boolean) => {
-    return listening ? ACTIVE_BUTTON_MIC_COLOR : "lightgrey";
+    return listening ? ACTIVE_BUTTON_MIC_COLOR_HOVER : "lightgrey";
 };

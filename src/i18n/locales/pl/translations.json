@@ -1,0 +1,27 @@
+{
+    "buttons": {
+        "submit": "Wyślij",
+        "reset": "Wyczyść",
+        "bell": "Powiadomienia",
+        "camera": "Dodaj film",
+        "microphone": "Wyszukuj głosem",
+        "search": "Szukaj"
+    },
+
+    "login": {
+        "welcome": "Witamy w YouTube",
+        "login_prompt": "Proszę się zalogować",
+        "email": "e-mail",
+        "password": "hasło",
+        "email_prompt": "Wpisz e-mail...",
+        "password_prompt": "Wpisz hasło..."
+    },
+    "warnings": {
+        "noInternet": "Brak połączenia z Internetem - brak logowania - brak filmów - nie ma nic. ",
+        "minLength": "Minimalna długość nie została osiągnięta. Powinna wynosić co najmniej ",
+        "maxLength": "Przekroczono maksymalną długość ",
+        "required": "Pole wymagane ",
+        "pattern": "Nieprawidłowy adres e-mail",
+        "credentials": "- - - Złe dane logowania - - -"
+    }
+}

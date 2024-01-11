@@ -1,6 +1,9 @@
 import { memo } from "react";
+import { useTranslation } from "react-i18next";
 
 export const LogInPrompt = () => {
-    return <h2 className="login__prompt">Please log in</h2>;
+    const { t } = useTranslation();
+
+    return <h2 className="login__prompt">{t("login.login_prompt")}</h2>;
 };
 export default memo(LogInPrompt);

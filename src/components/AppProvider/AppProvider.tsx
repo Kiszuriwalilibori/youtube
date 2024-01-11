@@ -21,6 +21,8 @@ import theme from "themes/theme";
 import { SnackbarProvider } from "notistack";
 import { register } from "serviceWorkerRegistration";
 
+import "i18n/config";
+
 const rootReducer = combineReducers({
     fetch: fetchReducer,
     movies: videosReducer,

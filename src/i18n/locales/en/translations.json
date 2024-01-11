@@ -1,0 +1,29 @@
+{
+    "buttons": {
+        "submit": "Submit",
+        "reset": "Reset",
+        "bell": "Notifications",
+        "camera": "Create content",
+        "microphone": "Search with your voice",
+        "search": "Search"
+    },
+    "params": {
+        "temp": "Temperature"
+    },
+    "login": {
+        "welcome": "Welcome to YouTube",
+        "login_prompt": "Please log in",
+        "email": "e-mail",
+        "password": "password",
+        "email_prompt": "Type your e-mail here...",
+        "password_prompt": "Type your password here..."
+    },
+    "warnings": {
+        "noInternet": "No internet connection - no login - no videos. Nothing at all.",
+        "minLength": "Minimal length not reached, should be at least ",
+        "maxLength": "Max length exceeded ",
+        "required": "This field is required ",
+        "pattern": "Not a valid e-mail",
+        "credentials": "- - - Invalid credentials - - -"
+    }
+}
