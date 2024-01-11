@@ -36,8 +36,7 @@ const End = () => {
                 <IconButton
                     sx={bellButtonSx}
                     className="hiddenxsmall "
-                    // className="hiddenxsmall with-tooltip"
-                    // data-tooltip="Notifications"
+                    data-tooltip-right-edge="Notifications"
                     aria-label="Turn on notifications for the channel"
                     title="notifications"
                     disabled={isOffline}
