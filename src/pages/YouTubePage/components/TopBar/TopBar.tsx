@@ -11,16 +11,16 @@ import { SliderOrientation } from "types";
 import { BasicButton } from "components";
 import { Start, End } from "./components";
 import { isOfflineSelector } from "reduxware/reducers/onlineReducer";
-import { ShowHiddenButton, MicrophoneButton } from "./styled";
+import { getMicrophoneBackgroundColor, getMicrophoneHoverColor, ShowHiddenButton, MicrophoneButton } from "./styled";
 import { InputContent } from "hooks/useManageInput";
 
 const SEARCH = "Szukaj";
 
-const microphoneButtonSx = {
-    "&.Mui-disabled": {
-        opacity: 0.3,
-    },
-};
+// const microphoneButtonSx = {
+//     "&.Mui-disabled": {
+//         opacity: 0.3,
+//     },
+// };
 
 type LastSize = "large" | "small" | undefined;
 
@@ -76,6 +76,12 @@ const TopBar = () => {
             result && updateInput(result);
         },
     });
+
+    const isMicrophoneDisabled = isOffline || !supported;
+
+    const handleClickMicrophone = useCallback(() => {
+        listening ? stop() : listen();
+    }, [listening, listen, stop]);
 
     return (
         <header className="TopBar">
@@ -133,15 +139,16 @@ const TopBar = () => {
                 </BasicButton>
                 <MicrophoneButton
                     sx={{
-                        backgroundColor: listening ? "#91ff35" : "initial",
-                        "&:hover": { backgroundColor: listening ? "#91ff35" : "lightgrey" },
-                        ...microphoneButtonSx,
+                        backgroundColor: getMicrophoneBackgroundColor(listening),
+                        "&:hover": { backgroundColor: getMicrophoneHoverColor(listening) },
+                        // ...microphoneButtonSx,
                     }}
                     className="with-tooltip"
                     data-tooltip="Wyszukuj głosowo"
                     aria-label="Search by voice"
-                    disabled={isOffline || !supported}
-                    onClick={listening ? stop : listen}
+                    disabled={isMicrophoneDisabled}
+                    // onClick={listening ? stop : listen}
+                    onClick={handleClickMicrophone}
                 >
                     <Icons.Microphone />
                 </MicrophoneButton>
