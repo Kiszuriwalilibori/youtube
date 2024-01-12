@@ -1,9 +1,6 @@
 import { MouseEventHandler, MutableRefObject, useCallback, useRef } from "react";
 
 export const useManageEye = (input: MutableRefObject<HTMLInputElement | null>) => {
-    const eyeRef = useRef<SVGElement | null>(null);
-    const inputRef = useRef<HTMLInputElement | null>(null);
-
     const toggleInputType = useCallback(
         (event: any) => {
             console.log("clicked");
@@ -19,7 +16,7 @@ export const useManageEye = (input: MutableRefObject<HTMLInputElement | null>) =
         [input]
     );
 
-    return { eyeRef, inputRef, toggleInputType };
+    return { toggleInputType };
 };
 
 export default useManageEye;
