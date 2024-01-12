@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/youtube/static/css/main.2c0fe717.css",
-    "main.js": "/youtube/static/js/main.3a6fc5d2.js",
+    "main.css": "/youtube/static/css/main.0a7ea9aa.css",
+    "main.js": "/youtube/static/js/main.9fc13d7e.js",
     "static/js/547.2f6e91f1.chunk.js": "/youtube/static/js/547.2f6e91f1.chunk.js",
     "static/media/nomovies.jpg": "/youtube/static/media/nomovies.4d853e961ce3b863b1c1.jpg",
     "service-worker.js": "/youtube/service-worker.js",
@@ -10,6 +10,7 @@
     "static/media/send.svg": "/youtube/static/media/send.869ec500ac53183c628dc6da78f9397b.svg",
     "static/media/keyboard.svg": "/youtube/static/media/keyboard.96b084a03b0b62dd21b3b962fce6214b.svg",
     "static/media/phone.svg": "/youtube/static/media/phone.6ee868819ac4723bd05dcf207906d60f.svg",
+    "static/media/eye.svg": "/youtube/static/media/eye.9fa744aa85545355137888e23eb81e49.svg",
     "static/media/twitter.svg": "/youtube/static/media/twitter.eedb625be7df1a5f7eb6e505e19220e4.svg",
     "index.html": "/youtube/index.html",
     "static/media/chat.svg": "/youtube/static/media/chat.bc7ed6ebd510fd1168b1e89f8011a106.svg",
@@ -34,12 +35,12 @@
     "static/media/person.svg": "/youtube/static/media/person.423fa0bb0fa241ff6f5a45369f822045.svg",
     "static/media/information.svg": "/youtube/static/media/information.522971a05f65decdf323796073f3c027.svg",
     "static/media/hamburger.svg": "/youtube/static/media/hamburger.dee697bdafd287bc1ba802d5ac87ef29.svg",
-    "main.2c0fe717.css.map": "/youtube/static/css/main.2c0fe717.css.map",
-    "main.3a6fc5d2.js.map": "/youtube/static/js/main.3a6fc5d2.js.map",
+    "main.0a7ea9aa.css.map": "/youtube/static/css/main.0a7ea9aa.css.map",
+    "main.9fc13d7e.js.map": "/youtube/static/js/main.9fc13d7e.js.map",
     "547.2f6e91f1.chunk.js.map": "/youtube/static/js/547.2f6e91f1.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.2c0fe717.css",
-    "static/js/main.3a6fc5d2.js"
+    "static/css/main.0a7ea9aa.css",
+    "static/js/main.9fc13d7e.js"
   ]
 }
