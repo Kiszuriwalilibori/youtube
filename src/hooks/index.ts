@@ -3,6 +3,7 @@ import useCheckApiKey from "./useCheckApiKey";
 import useDispatchAction from "./useDispatchAction";
 import useFetchThumbnails from "./useFetchThumbnails";
 import useHandleConnectionStatus from "./useHandleConnectionStatus";
+import useManageEye from "./useManageEye";
 import useManageInput from "./useManageInput";
 import useManageThumbnails from "./useManageThumbnails";
 import useMessage from "./useMessage";
@@ -16,6 +17,7 @@ export {
     useDispatchAction,
     useFetchThumbnails,
     useHandleConnectionStatus,
+    useManageEye,
     useManageInput,
     useManageThumbnails,
     useMessage,

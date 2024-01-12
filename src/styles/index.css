@@ -797,17 +797,27 @@ textarea {
   padding: 0px;
   margin: 0px;
   height: auto;
-  width: 100%;
   outline: none;
   color: var(--ytd-searchbox-text-color);
 }
 .login__form .field__hint {
   position: absolute;
-  bottom: 16px;
-  right: -125px;
+  right: 0;
+  transform: translateX(100%);
   color: var(--ytd-alarm-color);
   font-size: x-small;
   font-style: italic;
+  padding-left: 8px;
+}
+.login .password-toggle-icon {
+  position: absolute;
+  width: 24px;
+  height: auto;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  z-index: 2;
 }
 
 [data-tooltip] {

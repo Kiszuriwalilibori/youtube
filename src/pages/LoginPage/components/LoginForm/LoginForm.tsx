@@ -3,9 +3,10 @@ import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 
+import Icons from "icons";
 import paths from "routing";
 
-import { useDispatchAction } from "hooks";
+import { useDispatchAction, useManageEye } from "hooks";
 import { BasicButton } from "components";
 import { validators } from "./utils";
 
@@ -16,6 +17,7 @@ interface Props {
 
 export const LogInForm = (props: Props) => {
     const refPassword = useRef<HTMLInputElement | null>(null);
+    const { toggleInputType } = useManageEye(refPassword);
     const navigate = useNavigate();
     const { t } = useTranslation();
     const { setError, clearError } = props;
@@ -63,10 +65,7 @@ export const LogInForm = (props: Props) => {
                     {...register("email", validators.email)}
                 />
                 {errors.email && errors.email.type === "required" && (
-                    <span className="field__hint">
-                        {t("warnings.required")}
-                        {/* {criterions.email.required} */}
-                    </span>
+                    <span className="field__hint">{t("warnings.required")}</span>
                 )}
                 {errors.email && errors.email.type === "pattern" && (
                     <span className="field__hint">{t("warnings.pattern")}</span>
@@ -87,11 +86,9 @@ export const LogInForm = (props: Props) => {
                     type="password"
                     {...rest}
                 />
+                <Icons.Eye className="password-toggle-icon" onClick={toggleInputType} />
                 {errors.password && errors.password.type === "required" && (
-                    <span className="field__hint">
-                        {t("warnings.required")}
-                        {/* {criterions.password.required} */}
-                    </span>
+                    <span className="field__hint">{t("warnings.required")}</span>
                 )}
             </label>
 
