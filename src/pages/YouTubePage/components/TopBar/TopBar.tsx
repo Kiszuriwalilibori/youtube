@@ -12,8 +12,8 @@ import { SliderOrientation } from "types";
 import { BasicButton } from "components";
 import { Start, End } from "./components";
 import { isOfflineSelector } from "reduxware/reducers/onlineReducer";
-import { getMicrophoneBackgroundColor, getMicrophoneHoverColor, ShowHiddenButton, MicrophoneButton } from "./styled";
 import { InputContent } from "hooks/useManageInput";
+import { listeningMicrophoneSx, ShowHiddenButton, MicrophoneButton } from "./TopBar.styles";
 
 type LastSize = "large" | "small" | undefined;
 
@@ -132,10 +132,7 @@ const TopBar = () => {
                     <Icons.Search />
                 </BasicButton>
                 <MicrophoneButton
-                    sx={{
-                        backgroundColor: getMicrophoneBackgroundColor(listening),
-                        "&:hover": { backgroundColor: getMicrophoneHoverColor(listening) },
-                    }}
+                    sx={{ ...listeningMicrophoneSx(listening) }}
                     className="with-tooltip"
                     data-tooltip={t("buttons.microphone")}
                     aria-label="Search by voice"
