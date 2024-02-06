@@ -9,7 +9,7 @@ interface Props {
     isLoading: Boolean;
 }
 const YouTubePage = (props: Props) => {
-    const { isError, isLoading, errorMessage } = props;
+    const { isError, errorMessage } = props;
     const { clearError } = useDispatchAction();
     const isAPIKeyAvailable = useCheckApiKey();
 
@@ -21,7 +21,7 @@ const YouTubePage = (props: Props) => {
                 <Slider />
                 <Player />
             </ContentWrapper>
-            {isLoading && <Loader />}
+            <Loader />
             {isError && <Message message={errorMessage ? errorMessage : ""} handleClear={() => clearError()} />}
             {!isAPIKeyAvailable && <Message message={errorMessage ? errorMessage : ""} />}
         </div>

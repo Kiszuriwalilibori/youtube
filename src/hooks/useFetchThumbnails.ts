@@ -9,12 +9,17 @@ function useFetchThumbnails(query: string) {
     const { startLoading, completeLoading, storeVideos } = useDispatchAction();
     const url = createTanstackURL(query, token);
 
-    const { isLoading, data, refetch, isFetching, isPreviousData } = useQuery({
+    const { data, refetch, isFetching, isPreviousData } = useQuery({
         queryKey: ["users", url],
         queryFn: () => fetchThumbnails(url),
         enabled: Boolean(url) && navigator.onLine,
         keepPreviousData: true,
     });
+
+    useEffect(() => {
+        isFetching && startLoading();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [isFetching]);
 
     useEffect(() => {
         if (data) {
@@ -27,6 +32,7 @@ function useFetchThumbnails(query: string) {
                     isError: true,
                     errorMessage: "No videos found",
                 });
+                completeLoading();
             }
         }
     }, [data]);
