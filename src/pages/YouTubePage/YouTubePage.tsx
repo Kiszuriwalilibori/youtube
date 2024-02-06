@@ -1,12 +1,13 @@
 import { useDispatchAction, useCheckApiKey } from "hooks";
 import { TopBar, Message, Loader, Player, Slider, ContentWrapper } from "./components";
 import { HiddenH1 } from "components";
+import { RootStateType } from "types";
 
 interface Props {
-    isLogged: Boolean;
-    isError: Boolean;
-    errorMessage: string;
-    isLoading: Boolean;
+    isLogged: RootStateType["log"]["isLogged"];
+    isError: RootStateType["fetch"]["isError"];
+    errorMessage: RootStateType["fetch"]["errorMessage"];
+    isLoading: RootStateType["fetch"]["isLoading"];
 }
 const YouTubePage = (props: Props) => {
     const { isError, errorMessage } = props;

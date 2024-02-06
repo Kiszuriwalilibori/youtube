@@ -1,17 +1,12 @@
-import { memo } from "react";
 import { CircularProgress, Modal } from "@mui/material";
 
 import useDelayedCondition from "hooks/useDelayedCondition";
 
-const circularProgressSx = {
-    position: "absolute" as "absolute",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-};
+import { circularProgressSx } from "./Loader.styles";
+import { RootStateType } from "types/types";
 
 interface Props {
-    isLoading: boolean;
+    isLoading: RootStateType["fetch"]["isLoading"];
 }
 export const Loader = (props: Props) => {
     const { isLoading } = props;
