@@ -59,6 +59,12 @@ Folder structure modified
 Many files and variables renamed
 Generally, getting ready to apply TanstackQuery
 
+# 1.0.4
+
+with Tanstack Query
+
+### 1.0.5
+
 ### Important
 
 The password is set to "MISIO"
