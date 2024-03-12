@@ -11,6 +11,7 @@ import useMessage from "./useMessage";
 import useQueryClient from "./useQueryClient";
 import useSelectVideo from "./useSelectVideo";
 import useSetInitialConnectionStatus from "./useSetInitialConnectionStatus";
+import useVoice from "./useVoice";
 
 export {
     useBoolean,
@@ -26,4 +27,5 @@ export {
     useQueryClient,
     useSelectVideo,
     useSetInitialConnectionStatus,
+    useVoice,
 };

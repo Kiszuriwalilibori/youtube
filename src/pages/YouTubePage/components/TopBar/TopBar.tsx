@@ -7,7 +7,7 @@ import Icons from "icons";
 import keyb from "icons/keyboard.png";
 
 import { useBreakpoints } from "contexts/ViewPortProvider";
-import { useBoolean, useManageInput } from "hooks";
+import { useBoolean, useManageInput, useVoice } from "hooks";
 import { SliderOrientation } from "types";
 import { BasicButton } from "components";
 import { Start, End } from "./components";
@@ -65,17 +65,19 @@ const TopBar = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [viewportType]);
 
-    const { listen, listening, stop, supported } = useSpeechRecognition({
-        onResult: (result: InputContent) => {
-            result && updateInput(result);
-        },
-    });
+    // const { listen, listening, stop, supported } = useSpeechRecognition({
+    //     onResult: (result: InputContent) => {
+    //         result && updateInput(result);
+    //     },
+    // });
 
-    const isMicrophoneDisabled = isOffline || !supported;
+    // const isMicrophoneDisabled = isOffline || !supported;
 
-    const handleClickMicrophone = useCallback(() => {
-        listening ? stop() : listen();
-    }, [listening, listen, stop]);
+    // const handleClickMicrophone = useCallback(() => {
+    //     listening ? stop() : listen();
+    // }, [listening, listen, stop]);
+
+    const { handleClickMicrophone, isMicrophoneDisabled, listening } = useVoice(updateInput);
 
     return (
         <header className="TopBar">
