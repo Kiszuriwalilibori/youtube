@@ -5,7 +5,7 @@ import { shallowEqual, useSelector } from "react-redux";
 
 import { useDispatchAction } from "hooks";
 import { PLAYER_OPTIONS } from "./config";
-import { getPlayerFeed } from "reduxware/reducers/playerReducer";
+import { getPlayerFeed } from "reduxware/reducers/moviesReducer";
 
 export const Player = () => {
     const { videoId, title, description } = useSelector(getPlayerFeed, shallowEqual);

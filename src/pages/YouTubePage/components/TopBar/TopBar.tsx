@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
-import { useSpeechRecognition } from "react-speech-kit";
 import { useTranslation } from "react-i18next";
 
 import Icons from "icons";
@@ -11,8 +10,7 @@ import { useBoolean, useManageInput, useVoice } from "hooks";
 import { SliderOrientation } from "types";
 import { BasicButton } from "components";
 import { Start, End } from "./components";
-import { isOfflineSelector } from "reduxware/reducers/onlineReducer";
-import { InputContent } from "hooks/useManageInput";
+import { isOfflineSelector } from "reduxware/reducers";
 import { listeningMicrophoneSx, ShowHiddenButton, MicrophoneButton } from "./TopBar.styles";
 
 type LastSize = "large" | "small" | undefined;
@@ -64,18 +62,6 @@ const TopBar = () => {
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [viewportType]);
-
-    // const { listen, listening, stop, supported } = useSpeechRecognition({
-    //     onResult: (result: InputContent) => {
-    //         result && updateInput(result);
-    //     },
-    // });
-
-    // const isMicrophoneDisabled = isOffline || !supported;
-
-    // const handleClickMicrophone = useCallback(() => {
-    //     listening ? stop() : listen();
-    // }, [listening, listen, stop]);
 
     const { handleClickMicrophone, isMicrophoneDisabled, listening } = useVoice(updateInput);
 

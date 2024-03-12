@@ -1,40 +1,36 @@
 import thunk from "redux-thunk";
 import React, { ReactNode } from "react";
 
-import { Theme } from "@mui/material/styles";
 import { ThemeProvider, StyledEngineProvider } from "@mui/material";
 import { combineReducers } from "redux";
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 import { HashRouter as Router } from "react-router-dom";
-
-import fetchReducer from "reduxware/reducers/fetchReducer";
-import videosReducer from "reduxware/reducers/playerReducer";
-import logReducer from "reduxware/reducers/logReducer";
-import pageTokenReducer from "reduxware/reducers/pageTokenReducer";
-import queryReducer from "reduxware/reducers/queryReducer";
-import onlineReducer from "reduxware/reducers/onlineReducer";
-
+import { SnackbarProvider } from "notistack";
+import { register } from "serviceWorkerRegistration";
 import { ViewportProvider } from "contexts/ViewPortProvider";
 
 import theme from "themes/theme";
-import { SnackbarProvider } from "notistack";
-import { register } from "serviceWorkerRegistration";
-
 import "i18n/config";
+
+import {
+    fetchReducer,
+    logReducer,
+    pageTokenReducer,
+    queryReducer,
+    onlineReducer,
+    moviesReducer,
+} from "reduxware/reducers";
 
 const rootReducer = combineReducers({
     fetch: fetchReducer,
-    movies: videosReducer,
+    movies: moviesReducer,
     log: logReducer,
     pageToken: pageTokenReducer,
     query: queryReducer,
     online: onlineReducer,
 });
-// declare module "@mui/styles/defaultTheme" {
-//     // eslint-disable-next-line @typescript-eslint/no-empty-interface
-//     interface DefaultTheme extends Theme {}
-// }
+
 export const store = configureStore({
     reducer: rootReducer,
     middleware: getDefaultMiddleware => getDefaultMiddleware().concat(thunk),
