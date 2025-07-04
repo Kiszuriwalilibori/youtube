@@ -1,7 +1,7 @@
 import uuid from "react-uuid";
 import isEqual from "lodash/isEqual";
 
-import { SyntheticEvent, useCallback, useMemo, useRef } from "react";
+import { SyntheticEvent, useCallback, useMemo, useRef, useEffect } from "react";
 import { useSelector, shallowEqual } from "react-redux";
 
 import { getQuery } from "reduxware/reducers/queryReducer";
@@ -15,6 +15,7 @@ import Icons from "icons";
 
 const Slider = () => {
     const query = useSelector(getQuery, shallowEqual);
+    const prevQueryRef = useRef(query);
     const { sliderOrientation, sliderClass, viewportSize } = useBreakpoints();
     const sliderRef = useRef<HTMLBaseElement>(null);
     const { selectedVideo, selectVideo } = useSelectVideo();
@@ -38,6 +39,13 @@ const Slider = () => {
         fetchedVideos,
     });
 
+    useEffect(() => {
+        if (prevQueryRef.current !== query) {
+            setToken("");
+            prevQueryRef.current = query;
+        }
+    }, [query, setToken]);
+
     const handleClickNext = useCallback(
         (e: SyntheticEvent) => {
             e.stopPropagation();
@@ -53,8 +61,9 @@ const Slider = () => {
 
     const handleClickPrevious = useCallback(
         (e: SyntheticEvent) => {
+            // console.log("Previous clicked", { isFirst, pageTokens, token, fetchedVideos });
             e.stopPropagation();
-            console.log("Previous clicked", { isFirst, pageTokens, token, fetchedVideos });
+            // console.log("Previous clicked", { isFirst, pageTokens, token, fetchedVideos });
             if (!isFirst) {
                 showPrevious();
             } else {
@@ -74,7 +83,7 @@ const Slider = () => {
     );
 
     if (!visibleVideoThumbnails) return null;
-    console.log("Query from useSelector:", query);
+    // console.log("Query from useSelector:", query);
     return (
         <aside className={sliderClass} ref={sliderRef}>
             <ButtonPrevious

@@ -15,11 +15,14 @@ const useQueryClient = () => {
         queries: {
             onError: queryErrorHandler,
             retry: false,
-            cacheTime: 1.1 * (60 * 1000),
+            // cacheTime: 1.1 * (60 * 1000),
+            cacheTime: 10 * (60 * 1000), // 10 minut
             refetchOnMount: false,
             refetchOnWindowFocus: false,
-            staleTime: 1 * (60 * 1000),
-            refetchInterval: 1 * (60 * 1000),
+            // staleTime: 1 * (60 * 1000),
+            // refetchInterval: 1 * (60 * 1000),
+            staleTime: 5 * (60 * 1000), // 5 minut
+            refetchInterval: undefined,
         },
     };
 
