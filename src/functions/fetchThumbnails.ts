@@ -6,7 +6,7 @@ export const fetchThumbnails = async (url: string) => {
         throw new Error(`${status} ${result?.error?.message || "unknown error"}`);
     }
     const data = response.json();
-    // console.log("url", url); //używane do weryfikacji czy cachowanie działa czy nie
+    console.log("url", url); //używane do weryfikacji czy cachowanie działa czy nie
     return data;
 };
 
