@@ -76,12 +76,12 @@ const Slider = () => {
 
     return (
         <aside className={sliderClass} ref={sliderRef}>
-            {/* <ButtonPrevious
+            <ButtonPrevious
                 sliderOrientation={sliderOrientation}
                 handleClick={handleClickPrevious}
                 disabled={isFirst && !pageTokens.prev} //
-            /> */}
-            <SliderButton
+            />
+            {/* <SliderButton
                 id="previous"
                 variant="previous"
                 orientation={sliderOrientation}
@@ -89,7 +89,7 @@ const Slider = () => {
                 disabled={isFirst && !pageTokens.prev}
             >
                 <Icons.Right />
-            </SliderButton>
+            </SliderButton> */}
 
             {visibleVideoThumbnails.map((video: Video) => {
                 return (

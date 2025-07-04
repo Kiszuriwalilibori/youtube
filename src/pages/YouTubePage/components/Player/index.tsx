@@ -23,7 +23,13 @@ export const Player = () => {
     if (!videoId) return <section className="player player--empty"></section>;
     return (
         <section className="player" id="player-id">
-            <YouTube videoId={videoId} opts={PLAYER_OPTIONS} className={"youtube"} onError={dispatchError}></YouTube>
+            <YouTube
+                videoId={videoId}
+                opts={PLAYER_OPTIONS}
+                className={"youtube"}
+                id={"youtube-container"} // jest używane
+                onError={dispatchError}
+            ></YouTube>
             <p className="title">{title}</p>
             <p className="description">{description}</p>
         </section>

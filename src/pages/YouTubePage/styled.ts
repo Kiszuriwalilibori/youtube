@@ -4,6 +4,8 @@ import IconButton from "@mui/material/IconButton";
 export const SliderButton = styled(IconButton as any)(({ theme, variant, orientation }) => ({
     backgroundColor: "rgb(255,0,0)",
     "&:disabled": {
+        pointerEvents: "none",
+        userSelect: "none",
         backgroundColor: "#e5e5e5",
         cursor: "default !important",
         opacity: 0.7,
@@ -20,9 +22,10 @@ export const SliderButton = styled(IconButton as any)(({ theme, variant, orienta
     ...(variant === "next" && orientation === "vertical"
         ? {
               position: "absolute",
-              top: "40px",
-              right: "0",
-              "@media (min-width: 751px)": { top: "0", left: "120px" },
+              top: "20px",
+              left: "0",
+              zIndex: 11,
+              "@media (min-width: 751px)": { bottom: "0", left: "120px" },
               transform: "rotateZ(-90deg)",
           }
         : {}),
@@ -38,7 +41,7 @@ export const SliderButton = styled(IconButton as any)(({ theme, variant, orienta
     ...(variant === "previous" && orientation === "vertical"
         ? {
               position: "absolute",
-              top: "50px",
+              top: "80px",
               left: "0",
               "@media (min-width: 751px)": { bottom: "0", left: "120px" },
               transform: "rotateZ(90deg)",

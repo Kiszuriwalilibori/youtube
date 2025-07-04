@@ -10,7 +10,10 @@ export function getSliderCapacity(orientation: SliderOrientation, viewportSize: 
                 result = getRoundedNumber(viewportSize.width - VIEWPORT_SIZE_OFFSET, THUMBNAIL_SIZE.width);
             break;
         case "vertical":
-            if (viewportSize.height) result = getRoundedNumber(viewportSize.height, THUMBNAIL_SIZE.height);
+            const containerHeight =
+                (document.querySelector("#youtube-container") as HTMLElement | null)?.offsetHeight ||
+                window.screen.height;
+            if (containerHeight) result = getRoundedNumber(containerHeight, THUMBNAIL_SIZE.height);
             break;
         default:
             return 0;
