@@ -18,7 +18,7 @@ const Slider = () => {
     const { sliderOrientation, sliderClass, viewportSize } = useBreakpoints();
     const sliderRef = useRef<HTMLBaseElement>(null);
     const { selectedVideo, selectVideo } = useSelectVideo();
-    const { setToken, pageTokens, lengthOfVideosArray, fetchedVideos } = useFetchThumbnails(query); //
+    const { setToken, pageTokens, lengthOfVideosArray, fetchedVideos, token } = useFetchThumbnails(query); //
 
     const sliderCapacity = useMemo(
         () => getSliderCapacity(sliderOrientation, viewportSize),
@@ -54,6 +54,7 @@ const Slider = () => {
     const handleClickPrevious = useCallback(
         (e: SyntheticEvent) => {
             e.stopPropagation();
+            console.log("Previous clicked", { isFirst, pageTokens, token, fetchedVideos });
             if (!isFirst) {
                 showPrevious();
             } else {
@@ -73,7 +74,7 @@ const Slider = () => {
     );
 
     if (!visibleVideoThumbnails) return null;
-
+    console.log("Query from useSelector:", query);
     return (
         <aside className={sliderClass} ref={sliderRef}>
             <ButtonPrevious
