@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useCallback } from "react";
+import React, { useEffect, useMemo } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { useDispatchAction } from "hooks";
 import { showError } from "reduxware/actionCreators";
@@ -7,24 +7,21 @@ import { createTanstackURL, fetchThumbnails } from "functions";
 function useFetchThumbnails(query: string) {
     const [token, setToken] = React.useState("");
     const { startLoading, completeLoading, storeVideos } = useDispatchAction();
-    // const url = createTanstackURL(query, token);
-    const url = useMemo(() => createTanstackURL(query, token), [query, token]);
-    const fetchData = useCallback(() => fetchThumbnails(url), [url]);
+    const url = createTanstackURL(query, token);
+
     const { data, refetch, isFetching, isPreviousData } = useQuery({
-        // queryKey: ["users", url],
-        // queryFn: () => fetchThumbnails(url),
-        queryKey: ["users", query, token],
-        queryFn: fetchData,
+        queryKey: ["users", url],
+        queryFn: () => fetchThumbnails(url),
         enabled: Boolean(url) && navigator.onLine,
         keepPreviousData: true,
-        staleTime: 5 * 60 * 1000,
-        // cacheTime: 60 * 60 * 1000,
+        staleTime: 30 * 60 * 1000,
+        cacheTime: 60 * 60 * 1000,
     });
 
-    // useEffect(() => {
-    //     console.log("Fetch Status:", { isFetching, isPreviousData, token, dataAvailable: !!data });
-    // }, [isFetching, isPreviousData, token, data]);
-    // console.log("QueryKey:", ["users", query, token]);
+    useEffect(() => {
+        console.log("Fetch Status:", { isFetching, isPreviousData, token, dataAvailable: !!data });
+    }, [isFetching, isPreviousData, token, data]);
+    console.log("QueryKey:", ["users", query, token]);
     useEffect(() => {
         isFetching && startLoading();
     }, [isFetching, startLoading]);
@@ -47,13 +44,13 @@ function useFetchThumbnails(query: string) {
 
     const pageTokens = useMemo(() => {
         const tokens = { next: data?.nextPageToken || "", prev: data?.prevPageToken || "" };
-        // console.log("PageTokens:", tokens, "Current Token:", token);
+        console.log("PageTokens:", tokens, "Current Token:", token);
         return tokens;
     }, [data]);
 
-    // useEffect(() => {
-    //     console.log("Fetching:", isFetching, "Data:", data, "Token:", token);
-    // }, [isFetching, data, token]);
+    useEffect(() => {
+        console.log("Fetching:", isFetching, "Data:", data, "Token:", token);
+    }, [isFetching, data, token]);
 
     // useEffect(() => {
     //     if (query) {
