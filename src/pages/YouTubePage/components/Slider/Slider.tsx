@@ -10,8 +10,6 @@ import { useFetchThumbnails, useManageThumbnails, useSelectVideo } from "hooks";
 import { ButtonPrevious, VideoThumbnail, ButtonNext } from "./components";
 import { getSliderCapacity } from "./utils";
 import { Video } from "types";
-import { SliderButton } from "../../styled";
-import Icons from "icons";
 
 const Slider = () => {
     const query = useSelector(getQuery, shallowEqual);
