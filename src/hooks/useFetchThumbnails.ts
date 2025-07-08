@@ -9,7 +9,7 @@ function useFetchThumbnails(query: string) {
     const { startLoading, completeLoading, storeVideos } = useDispatchAction();
     const url = createTanstackURL(query, token);
 
-    const { data, refetch, isFetching, isPreviousData } = useQuery({
+    const { data, isFetching, isPreviousData } = useQuery({
         queryKey: ["users", url],
         queryFn: () => fetchThumbnails(url),
         enabled: Boolean(url) && navigator.onLine,

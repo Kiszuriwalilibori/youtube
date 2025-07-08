@@ -4,12 +4,10 @@ import useDelayedCondition from "hooks/useDelayedCondition";
 
 import { circularProgressSx } from "./Loader.styles";
 import { RootStateType } from "types/types";
+import { useSelector } from "react-redux";
 
-interface Props {
-    isLoading: RootStateType["fetch"]["isLoading"];
-}
-export const Loader = (props: Props) => {
-    const { isLoading } = props;
+export const Loader = () => {
+    const isLoading = useSelector((state: RootStateType) => state.fetch.isLoading);
     const shouldRender = useDelayedCondition(isLoading);
     return (
         <Modal open={shouldRender} aria-label="Loading">

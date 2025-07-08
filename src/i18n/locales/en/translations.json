@@ -24,6 +24,6 @@
         "maxLength": "Max length exceeded ",
         "required": "This field is required ",
         "pattern": "Not a valid e-mail",
-        "credentials": "- - - Invalid credentials - - -"
+        "credentials": "- - - Invalid credentials. Please check your email and password and try again - - -"
     }
 }

@@ -2,15 +2,12 @@ import { useDispatchAction, useCheckApiKey } from "hooks";
 import { TopBar, Message, Loader, Player, Slider, ContentWrapper } from "./components";
 import { HiddenH1 } from "components";
 import { RootStateType } from "types";
+import { useSelector } from "react-redux";
 
-interface Props {
-    isLogged: RootStateType["log"]["isLogged"];
-    isError: RootStateType["fetch"]["isError"];
-    errorMessage: RootStateType["fetch"]["errorMessage"];
-    isLoading: RootStateType["fetch"]["isLoading"];
-}
-const YouTubePage = (props: Props) => {
-    const { isError, errorMessage } = props;
+const YouTubePage = () => {
+    const isError = useSelector((state: RootStateType) => state.fetch.isError);
+    const errorMessage = useSelector((state: RootStateType) => state.fetch.errorMessage);
+
     const { clearError } = useDispatchAction();
     const isAPIKeyAvailable = useCheckApiKey();
 

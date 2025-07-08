@@ -13,7 +13,7 @@ export const Player = () => {
     const dispatchError = useCallback(() => {
         showError({
             isError: true,
-            errorMessage: "Requested video caused error and can not be displayed",
+            errorMessage: "This video is unavailable. Try selecting another video or refresh the page.",
         });
 
         clearPlayerFeed();
