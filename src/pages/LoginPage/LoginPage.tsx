@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
 
 import { InvalidCredentialsMessage, LoginForm, LoginPrompt, Welcome } from "./components";
 import { useMessage, useDispatchAction, useBoolean } from "hooks";
@@ -12,12 +13,14 @@ const Login = () => {
     const showMessage = useMessage();
     const { logOutUser } = useDispatchAction();
     const [isError, setError, clearError] = useBoolean(false);
+    const { t } = useTranslation();
 
     useEffect(() => {
         logOutUser();
     }, [logOutUser]);
 
-    !isOnline && showMessage.warning("No internet connection - no login - no videos. Nothing at all.");
+    // Use translated message for offline warning
+    !isOnline && showMessage.warning(t("errors.network.noConnectionDescription"));
 
     return (
         <section className="page--login">

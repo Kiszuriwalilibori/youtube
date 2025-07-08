@@ -25,5 +25,54 @@
         "required": "This field is required ",
         "pattern": "Not a valid e-mail",
         "credentials": "- - - Invalid credentials. Please check your email and password and try again - - -"
+    },
+    "errors": {
+        "general": {
+            "title": "Oops, something went wrong",
+            "unknown": "An unexpected error occurred",
+            "tryAgain": "Please try again",
+            "contact": "If the problem persists, please contact support"
+        },
+        "network": {
+            "noConnection": "No internet connection available",
+            "noConnectionDescription": "Check your internet connection and try again",
+            "timeout": "Request timed out",
+            "timeoutDescription": "The server is taking too long to respond. Please try again later"
+        },
+        "video": {
+            "unavailable": "This video is unavailable",
+            "unavailableDescription": "The video you're trying to watch cannot be played. Try selecting another video or refresh the page",
+            "loadError": "Failed to load video",
+            "loadErrorDescription": "There was a problem loading the video. Please try again"
+        },
+        "page": {
+            "notFound": "Page not found",
+            "notFoundDescription": "The page you're looking for doesn't exist at this address",
+            "redirecting": "Redirecting you back..."
+        },
+        "auth": {
+            "loginRequired": "Please log in to continue",
+            "sessionExpired": "Your session has expired",
+            "invalidCredentials": "Invalid email or password"
+        },
+        "search": {
+            "noResults": "No results found",
+            "noResultsDescription": "Try different keywords or check your spelling",
+            "searchError": "Search failed",
+            "searchErrorDescription": "There was a problem with your search. Please try again"
+        },
+        "api": {
+            "keyMissing": "API key is missing",
+            "keyMissingDescription": "The application is not properly configured. Please contact support",
+            "rateLimited": "Too many requests",
+            "rateLimitedDescription": "Please wait a moment before trying again"
+        }
+    },
+    "actions": {
+        "retry": "Retry",
+        "goBack": "Go Back",
+        "refresh": "Refresh",
+        "dismiss": "Dismiss",
+        "close": "Close"
     }
 }
