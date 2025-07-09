@@ -2,11 +2,10 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 
-import { InvalidCredentialsMessage, LoginForm, LoginPrompt, Welcome } from "./components";
-import { useMessage, useDispatchAction, useBoolean } from "hooks";
-
+import { useBoolean, useDispatchAction, useMessage } from "hooks";
 import { isOnlineSelector } from "reduxware/reducers/onlineReducer";
-import LanguageSwitch from "./components/LanguageSwitch";
+
+import { InvalidCredentialsMessage, LanguageSwitch, LoginForm, LoginPrompt, Welcome } from "./components";
 
 const Login = () => {
     const isOnline = useSelector(isOnlineSelector);
@@ -19,7 +18,6 @@ const Login = () => {
         logOutUser();
     }, [logOutUser]);
 
-    // Use translated message for offline warning
     !isOnline && showMessage.warning(t("errors.network.noConnectionDescription"));
 
     return (

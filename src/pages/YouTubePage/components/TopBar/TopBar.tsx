@@ -6,14 +6,17 @@ import Icons from "icons";
 import keyb from "icons/keyboard.png";
 
 import { useBreakpoints } from "contexts/ViewPortProvider";
-import { useBoolean, useManageInput, useVoice } from "hooks";
+import { useBoolean, useManageInput, useSanitizeInput, useVoice } from "hooks";
 import { SliderOrientation } from "types";
 import { BasicButton } from "components";
 import { Start, End } from "./components";
 import { isOfflineSelector } from "reduxware/reducers";
 import { listeningMicrophoneSx, ShowHiddenButton, MicrophoneButton } from "./TopBar.styles";
+import { TFunction } from "i18next";
 
 type LastSize = "large" | "small" | undefined;
+const SEARCH_INPUT_MAX_LENGTH = 100;
+const SEARCH_INPUT_TITLE = `Search query (max ${SEARCH_INPUT_MAX_LENGTH} characters, no special characters)`;
 
 const TopBar = () => {
     const { point: viewportType, sliderOrientation } = useBreakpoints();
@@ -24,6 +27,8 @@ const TopBar = () => {
     const [isKeyboardButtonVisible, showKeyboard, ,] = useBoolean(false);
     const [isShowHiddenButtonVisible, showShowHiddenButton, hideShowHiddenButton] = useBoolean(false);
     const { t } = useTranslation();
+    const getSearchInputTitle = (t: TFunction, maxLength: number): string =>
+        t("topbar.searchInputTitle", { maxLength });
 
     const horizontalSearchHandleHelper = useCallback(() => {
         unfold();
@@ -35,6 +40,15 @@ const TopBar = () => {
         sliderOrientation as SliderOrientation,
         horizontalSearchHandleHelper
     );
+    const {
+        handleKeyDown: handleSanitizedKeyDown,
+        handleInputChange,
+        handlePaste,
+    } = useSanitizeInput({
+        forbiddenChars: ["<", ">"],
+        onKeyDown: handleClickInput,
+    });
+
     const handleLeftArrowClick = useCallback((e: { stopPropagation: () => void }) => {
         e.stopPropagation();
         showStart();
@@ -71,8 +85,8 @@ const TopBar = () => {
             <div className="TopBar__center">
                 {isShowHiddenButtonVisible && (
                     <ShowHiddenButton
-                        aria-label="show hidden content"
-                        title="notifications"
+                        aria-label={t("topbar.showHidden")}
+                        title={t("buttons.bell")}
                         onClick={handleLeftArrowClick}
                     >
                         <Icons.ArrowLeft />
@@ -94,13 +108,17 @@ const TopBar = () => {
                         <input
                             className="search__input"
                             onMouseEnter={showKeyboard}
-                            onKeyDown={handleClickInput}
+                            onKeyDown={handleSanitizedKeyDown}
+                            onInput={handleInputChange}
+                            onPaste={handlePaste}
                             placeholder={t("buttons.search")}
-                            aria-label="Search"
+                            aria-label={t("buttons.search")}
                             type="text"
                             tabIndex={0}
                             ref={inputRef}
                             disabled={isOffline}
+                            maxLength={SEARCH_INPUT_MAX_LENGTH}
+                            title={getSearchInputTitle(t, SEARCH_INPUT_MAX_LENGTH)}
                         ></input>
                         {isKeyboardButtonVisible && (
                             <BasicButton className="button button--keyboard" disabled={isOffline}>
@@ -114,7 +132,7 @@ const TopBar = () => {
                     className={isFolded ? "button button--neutral" : "button button--search"}
                     type="submit"
                     onClick={handleSearch}
-                    aria-label="Search"
+                    aria-label={t("buttons.search")}
                     disabled={isOffline}
                 >
                     <Icons.Search />
@@ -123,7 +141,7 @@ const TopBar = () => {
                     sx={{ ...listeningMicrophoneSx(listening) }}
                     className="with-tooltip"
                     data-tooltip={t("buttons.microphone")}
-                    aria-label="Search by voice"
+                    aria-label={t("topbar.searchByVoice")}
                     disabled={isMicrophoneDisabled}
                     onClick={handleClickMicrophone}
                 >

@@ -27,8 +27,8 @@ const End = () => {
             <Stack direction="row" spacing={useMediaQuery("(min-width:750px)") ? 2.5 : 0}>
                 <IconButton
                     sx={cameraButtonSx}
-                    aria-label="Create a content"
-                    title="camera"
+                    aria-label={t("topbar.createContent")}
+                    title={t("buttons.camera")}
                     disabled={isOffline}
                     className="with-tooltip"
                     data-tooltip={t("buttons.camera")}
@@ -39,8 +39,8 @@ const End = () => {
                     sx={bellButtonSx}
                     className="hiddenxsmall"
                     data-tooltip-right-edge={t("buttons.bell")}
-                    aria-label="Turn on notifications for the channel"
-                    title="notifications"
+                    aria-label={t("topbar.notifications")}
+                    title={t("buttons.bell")}
                     disabled={isOffline}
                 >
                     <Icons.Bell />

@@ -1,5 +1,4 @@
 import { shallowEqual, useSelector } from "react-redux";
-import { ReactNode } from "react";
 
 import NotLogged from "./components/NotLogged";
 

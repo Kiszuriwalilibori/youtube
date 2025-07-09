@@ -7,7 +7,9 @@
         "microphone": "Search with your voice",
         "search": "Search",
         "next": "Next",
-        "previous": "Previous"
+        "previous": "Previous",
+        "guide": "Guide",
+        "youtubeMain": "YouTube main page"
     },
     "common": {
         "loading": "Loading...",
@@ -18,6 +20,13 @@
     "navigation": {
         "notLogged": "You are not logged!",
         "redirecting": "Redirecting..."
+    },
+
+    "topbar": {
+        "showHidden": "show hidden content",
+        "createContent": "Create content",
+        "notifications": "Enable notifications for the channel",
+        "searchByVoice": "Search by voice"
     },
     "video": {
         "noVideosFound": "No videos found",

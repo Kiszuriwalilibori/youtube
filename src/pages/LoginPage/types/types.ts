@@ -8,3 +8,5 @@ type Validator = { [key in keyof RegisterOptions]?: any };
 export type Validators = {
     [key in Fields]?: Validator;
 };
+
+export type ErrorType = "general" | "network" | "video" | "page" | "auth" | "search" | "api";

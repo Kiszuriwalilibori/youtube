@@ -1,6 +1,6 @@
 import { memo } from "react";
-import Fade from "@mui/material/Fade";
 import { useTranslation } from "react-i18next";
+import Fade from "@mui/material/Fade";
 
 interface Props {
     isError: boolean;

@@ -12,7 +12,7 @@ interface Props {
 }
 
 const Message = (props: Props): JSX.Element => {
-    const { message, handleClear, errorType = "general", showRetry = false, onRetry } = props;
+    const { message, handleClear, showRetry = false, onRetry } = props;
     const { t } = useTranslation();
 
     // Try to match the message to a translation key, otherwise use the raw message

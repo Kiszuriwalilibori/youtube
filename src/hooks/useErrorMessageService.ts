@@ -21,7 +21,6 @@ export class ErrorMessageService {
         const errorMessage = this.extractErrorMessage(error);
         const lowerError = errorMessage.toLowerCase();
 
-        // Network errors
         if (lowerError.includes("network") || lowerError.includes("internet") || lowerError.includes("connection")) {
             return {
                 type: "network",
@@ -32,7 +31,6 @@ export class ErrorMessageService {
             };
         }
 
-        // Video errors
         if (lowerError.includes("video") || lowerError.includes("unavailable") || lowerError.includes("youtube")) {
             return {
                 type: "video",
@@ -43,7 +41,6 @@ export class ErrorMessageService {
             };
         }
 
-        // API errors
         if (lowerError.includes("api") || lowerError.includes("key") || lowerError.includes("quota")) {
             return {
                 type: "api",
@@ -54,7 +51,6 @@ export class ErrorMessageService {
             };
         }
 
-        // Authentication errors
         if (lowerError.includes("auth") || lowerError.includes("login") || lowerError.includes("credential")) {
             return {
                 type: "auth",
@@ -65,7 +61,6 @@ export class ErrorMessageService {
             };
         }
 
-        // Search errors
         if (lowerError.includes("search") || lowerError.includes("query")) {
             return {
                 type: "search",
@@ -76,7 +71,6 @@ export class ErrorMessageService {
             };
         }
 
-        // Default to general error
         return {
             type: "general",
             title: this.t("errors.general.title"),
@@ -140,3 +134,5 @@ export class ErrorMessageService {
 export const useErrorMessageService = (t: TFunction) => {
     return new ErrorMessageService(t);
 };
+
+export default useErrorMessageService;

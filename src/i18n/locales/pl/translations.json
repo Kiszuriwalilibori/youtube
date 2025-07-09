@@ -7,7 +7,9 @@
         "microphone": "Wyszukuj głosem",
         "search": "Szukaj",
         "next": "Następny",
-        "previous": "Poprzedni"
+        "previous": "Poprzedni",
+        "guide": "Przewodnik",
+        "youtubeMain": "Strona główna YouTube"
     },
     "login": {
         "welcome": "Witamy w YouTube",
@@ -34,6 +36,12 @@
     "navigation": {
         "notLogged": "Nie jesteś zalogowany!",
         "redirecting": "Przekierowywanie..."
+    },
+    "topbar": {
+        "showHidden": "pokaż ukrytą zawartość",
+        "createContent": "Utwórz zawartość",
+        "notifications": "Włącz powiadomienia dla kanału",
+        "searchByVoice": "Szukaj głosem"
     },
     "video": {
         "noVideosFound": "Nie znaleziono filmów",

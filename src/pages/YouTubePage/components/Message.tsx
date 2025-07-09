@@ -3,19 +3,20 @@ import { useTranslation } from "react-i18next";
 import Button from "@mui/material/Button";
 
 import Icons from "icons";
-import { ErrorType } from "functions/errorMessageService";
+
 import { useErrorMessageService } from "hooks";
 import { IconButton } from "@mui/material";
+
 interface Props {
     message: string;
     handleClear?: () => void;
-    errorType?: ErrorType;
+
     onRetry?: () => void;
     rawError?: boolean;
 }
 
 const Message = (props: Props): JSX.Element => {
-    const { message, handleClear, errorType, onRetry, rawError = false } = props;
+    const { message, handleClear, onRetry, rawError = false } = props;
     const { t } = useTranslation();
     const errorService = useErrorMessageService(t);
 
