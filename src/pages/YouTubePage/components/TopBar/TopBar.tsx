@@ -16,7 +16,6 @@ import { TFunction } from "i18next";
 
 type LastSize = "large" | "small" | undefined;
 const SEARCH_INPUT_MAX_LENGTH = 100;
-const SEARCH_INPUT_TITLE = `Search query (max ${SEARCH_INPUT_MAX_LENGTH} characters, no special characters)`;
 
 const TopBar = () => {
     const { point: viewportType, sliderOrientation } = useBreakpoints();
