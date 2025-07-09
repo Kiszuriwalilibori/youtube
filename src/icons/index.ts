@@ -28,7 +28,7 @@ import { ReactComponent as ArrowLeft } from "icons/arrowLeft.svg";
 import { ReactComponent as Right } from "icons/right.svg";
 import { ReactComponent as Left } from "icons/left.svg";
 import { ReactComponent as Eye } from "icons/eye.svg";
-
+import { ReactComponent as Refresh } from "icons/refresh.svg";
 import Tia from "icons/keyboard.png";
 
 const Icons = {
@@ -53,6 +53,7 @@ const Icons = {
     Microphone,
     Person,
     Phone,
+    Refresh,
     Reset,
     Search,
     Send,

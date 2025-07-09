@@ -137,9 +137,6 @@ export class ErrorMessageService {
     }
 }
 
-/**
- * Hook for using the error message service
- */
 export const useErrorMessageService = (t: TFunction) => {
     return new ErrorMessageService(t);
 };

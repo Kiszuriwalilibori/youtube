@@ -1,19 +1,19 @@
 import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
+
 import useMessage from "./useMessage";
 import useDispatchAction from "./useDispatchAction";
 
 export const useHandleConnectionStatus = () => {
     const showMessage = useMessage();
     const { setIsOnline } = useDispatchAction();
+    const { t } = useTranslation();
     useEffect(() => {
         const handleStatusChange = () => {
-            navigator.onLine && showMessage.success("Przywrócono połączenie z internetem");
+            navigator.onLine && showMessage.success(t("common.online"));
             navigator.onLine && setIsOnline(true);
 
-            !navigator.onLine &&
-                showMessage.error(
-                    "Utraciłeś połaczenie  internetem. Niektóre funkcjonalności mogą nie działać normalnie"
-                );
+            !navigator.onLine && showMessage.error(t("errors.network.noConnectionDescription"));
             !navigator.onLine && setIsOnline(false);
         };
         window.addEventListener("online", handleStatusChange);

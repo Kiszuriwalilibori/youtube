@@ -517,6 +517,14 @@ textarea {
     transform: rotate(360deg);
   }
 }
+.message__actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
 .sidebar {
   position: relative;
   min-width: calc(var(--thumbnail-size) + 20px);

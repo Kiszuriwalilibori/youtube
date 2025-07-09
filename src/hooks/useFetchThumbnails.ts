@@ -1,10 +1,14 @@
 import React, { useEffect, useMemo } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { useDispatchAction } from "hooks";
+import { useTranslation } from "react-i18next";
+
+import { useDispatchAction, useErrorMessageService } from "hooks";
 import { showError } from "reduxware/actionCreators";
 import { createTanstackURL, fetchThumbnails } from "functions";
 
 function useFetchThumbnails(query: string) {
+    const { t } = useTranslation();
+    const errorService = useErrorMessageService(t);
     const [token, setToken] = React.useState("");
     const { startLoading, completeLoading, storeVideos } = useDispatchAction();
     const url = createTanstackURL(query, token);
@@ -33,9 +37,10 @@ function useFetchThumbnails(query: string) {
                 storeVideos([...data.items]);
             }
             if (!data.items || !data.items.length) {
+                const errorInfo = errorService.categorizeError(t("video.noVideosFound"));
                 showError({
                     isError: true,
-                    errorMessage: "No videos found",
+                    errorMessage: errorInfo.message,
                 });
                 completeLoading();
             }
@@ -47,10 +52,6 @@ function useFetchThumbnails(query: string) {
         console.log("PageTokens:", tokens, "Current Token:", token);
         return tokens;
     }, [data]);
-
-    useEffect(() => {
-        console.log("Fetching:", isFetching, "Data:", data, "Token:", token);
-    }, [isFetching, data, token]);
 
     // useEffect(() => {
     //     if (query) {

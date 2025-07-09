@@ -5,7 +5,23 @@
         "bell": "Notifications",
         "camera": "Create content",
         "microphone": "Search with your voice",
-        "search": "Search"
+        "search": "Search",
+        "next": "Next",
+        "previous": "Previous"
+    },
+    "common": {
+        "loading": "Loading...",
+        "noData": "No data available",
+        "offline": "You are offline",
+        "online": "Internet connection restored"
+    },
+    "navigation": {
+        "notLogged": "You are not logged!",
+        "redirecting": "Redirecting..."
+    },
+    "video": {
+        "noVideosFound": "No videos found",
+        "selectVideo": "Select a video to watch"
     },
     "params": {
         "temp": "Temperature"

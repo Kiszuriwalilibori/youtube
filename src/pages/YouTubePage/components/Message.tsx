@@ -1,15 +1,18 @@
 import ReactDOM from "react-dom";
 import { useTranslation } from "react-i18next";
+import Button from "@mui/material/Button";
+
 import Icons from "icons";
 import { BasicButton } from "components";
-import { useErrorMessageService } from "functions/errorMessageService";
-
+import { ErrorType } from "functions/errorMessageService";
+import { useErrorMessageService } from "hooks";
+import { IconButton } from "@mui/material";
 interface Props {
     message: string;
     handleClear?: () => void;
     errorType?: ErrorType;
     onRetry?: () => void;
-    rawError?: boolean; // Flag to show raw message without processing
+    rawError?: boolean;
 }
 
 const Message = (props: Props): JSX.Element => {
@@ -17,7 +20,6 @@ const Message = (props: Props): JSX.Element => {
     const { t } = useTranslation();
     const errorService = useErrorMessageService(t);
 
-    // Process error or use raw message
     const errorInfo = rawError ? null : errorService.categorizeError(message);
     const displayTitle = errorInfo?.title || t("errors.general.title");
     const displayMessage = errorInfo?.message || message || t("errors.general.unknown");
@@ -36,43 +38,34 @@ const Message = (props: Props): JSX.Element => {
                         <small>{t("errors.general.contact")}</small>
                     </div>
                 )}
-
                 <div className="message__actions">
                     {canRetry && onRetry && (
-                        <BasicButton className="message__retry-button button--primary" onClick={onRetry}>
-                            <Icons.Refresh />
+                        <Button variant="contained" color="warning" startIcon={<Icons.Refresh />} onClick={onRetry}>
                             {t("actions.retry")}
-                        </BasicButton>
+                        </Button>
                     )}
 
                     {recoveryActions.includes("actions.refresh") && (
-                        <BasicButton
-                            className="message__refresh-button button--secondary"
+                        <Button
+                            variant="contained"
+                            color="warning"
                             onClick={() => window.location.reload()}
+                            startIcon={<Icons.Refresh />}
                         >
-                            <Icons.Refresh />
                             {t("actions.refresh")}
-                        </BasicButton>
+                        </Button>
                     )}
 
                     {recoveryActions.includes("actions.goBack") && (
-                        <BasicButton
-                            className="message__back-button button--secondary"
-                            onClick={() => window.history.back()}
-                        >
-                            <Icons.ArrowLeft />
+                        <Button variant="contained" color="warning" onClick={() => window.history.back()}>
                             {t("actions.goBack")}
-                        </BasicButton>
+                        </Button>
                     )}
 
                     {handleClear && (
-                        <BasicButton
-                            className="message__dismiss-button button--tertiary"
-                            onClick={handleClear}
-                            aria-label={t("actions.dismiss")}
-                        >
+                        <IconButton onClick={handleClear} aria-label={t("actions.dismiss")}>
                             <Icons.Clear />
-                        </BasicButton>
+                        </IconButton>
                     )}
                 </div>
             </div>

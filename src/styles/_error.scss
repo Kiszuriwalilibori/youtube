@@ -117,3 +117,10 @@ $hide-position: -45px;
         transform: rotate(360deg);
     }
 }
+.message__actions {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}

@@ -80,15 +80,6 @@ const Slider = () => {
                 handleClick={handleClickPrevious}
                 disabled={isFirst && !pageTokens.prev} //
             />
-            {/* <SliderButton
-                id="previous"
-                variant="previous"
-                orientation={sliderOrientation}
-                onClick={handleClickPrevious}
-                disabled={isFirst && !pageTokens.prev}
-            >
-                <Icons.Right />
-            </SliderButton> */}
 
             {visibleVideoThumbnails.map((video: Video) => {
                 return (
@@ -106,15 +97,6 @@ const Slider = () => {
                 handleClick={handleClickNext}
                 disabled={isLast && !pageTokens.next}
             />
-            {/* <SliderButton
-                id="next"
-                variant="next"
-                orientation={sliderOrientation}
-                onClick={onClickNext}
-                disabled={isLast && !pageTokens.next}
-            >
-                <Icons.Right />
-            </SliderButton> */}
         </aside>
     );
 };

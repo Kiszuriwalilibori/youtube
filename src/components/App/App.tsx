@@ -28,7 +28,7 @@ const App = () => {
                         </ProtectedRoute>
                     }
                 />
-                <Route path={Paths.nopage} element={<NoPage />} />
+                <Route path={Paths.nopage} element={<NoPage message="Page not found" />} />
             </Routes>
         </main>
     );

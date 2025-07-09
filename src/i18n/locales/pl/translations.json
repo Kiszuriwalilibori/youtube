@@ -5,7 +5,9 @@
         "bell": "Powiadomienia",
         "camera": "Dodaj film",
         "microphone": "Wyszukuj głosem",
-        "search": "Szukaj"
+        "search": "Szukaj",
+        "next": "Następny",
+        "previous": "Poprzedni"
     },
     "login": {
         "welcome": "Witamy w YouTube",
@@ -23,6 +25,21 @@
         "pattern": "Nieprawidłowy adres e-mail",
         "credentials": "- - - Złe dane logowania - - -"
     },
+    "common": {
+        "loading": "Ładowanie...",
+        "noData": "Brak danych",
+        "offline": "Jesteś offline",
+        "online": "Przywrócono połączenie z internetem"
+    },
+    "navigation": {
+        "notLogged": "Nie jesteś zalogowany!",
+        "redirecting": "Przekierowywanie..."
+    },
+    "video": {
+        "noVideosFound": "Nie znaleziono filmów",
+        "selectVideo": "Wybierz film do oglądania"
+    },
+
     "errors": {
         "general": {
             "title": "Ojejku, coś poszło nie tak",

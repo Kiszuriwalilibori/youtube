@@ -1,3 +1,4 @@
+import { useErrorMessageService } from "./useErrorMessageService";
 import useBoolean from "./useBoolean";
 import useCheckApiKey from "./useCheckApiKey";
 import useDelayedCondition from "./useDelayedCondition";
@@ -18,6 +19,7 @@ export {
     useCheckApiKey,
     useDelayedCondition,
     useDispatchAction,
+    useErrorMessageService,
     useFetchThumbnails,
     useHandleConnectionStatus,
     useManageEye,
