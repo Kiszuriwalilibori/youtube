@@ -44,8 +44,11 @@
         "searchByVoice": "Szukaj głosem"
     },
     "video": {
+        "noVideoSelected": "Nie wybrano filmu do odtworzenia",
         "noVideosFound": "Nie znaleziono filmów",
-        "selectVideo": "Wybierz film do oglądania"
+        "selectVideo": "Wybierz film do oglądania",
+        "loadError": "Podczas próby załadowania filmu wystąpił błąd",
+        "loadErrorDescription": "Wystąpił problem z ładowaniem filmu. Spróbuj ponownie"
     },
 
     "errors": {

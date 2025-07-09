@@ -52,7 +52,7 @@ const Slider = () => {
     const handleClickPrevious = useCallback(
         (e: SyntheticEvent) => {
             e.stopPropagation();
-            console.log("Previous clicked", { isFirst, pageTokens, token, fetchedVideos });
+
             if (!isFirst) {
                 showPrevious();
             } else {
@@ -72,7 +72,7 @@ const Slider = () => {
     );
 
     if (!visibleVideoThumbnails) return null;
-    console.log("Query from useSelector:", query);
+
     return (
         <aside className={sliderClass} ref={sliderRef}>
             <ButtonPrevious

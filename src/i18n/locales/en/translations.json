@@ -30,11 +30,12 @@
     },
     "video": {
         "noVideosFound": "No videos found",
-        "selectVideo": "Select a video to watch"
+        "selectVideo": "Select a video to watch",
+        "loadError": "An error occurred while trying to load the video",
+        "loadErrorDescription": "There was a problem loading the video. Please try again",
+        "noVideoSelected": "No video selected for playback"
     },
-    "params": {
-        "temp": "Temperature"
-    },
+
     "login": {
         "welcome": "Welcome to YouTube",
         "login_prompt": "Please log in",
@@ -65,6 +66,7 @@
             "timeoutDescription": "The server is taking too long to respond. Please try again later"
         },
         "video": {
+            "noVideoSelected": "No video selected",
             "unavailable": "This video is unavailable",
             "unavailableDescription": "The video you're trying to watch cannot be played. Try selecting another video or refresh the page",
             "loadError": "Failed to load video",

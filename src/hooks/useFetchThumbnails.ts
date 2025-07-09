@@ -23,10 +23,6 @@ function useFetchThumbnails(query: string) {
     });
 
     useEffect(() => {
-        console.log("Fetch Status:", { isFetching, isPreviousData, token, dataAvailable: !!data });
-    }, [isFetching, isPreviousData, token, data]);
-    console.log("QueryKey:", ["users", query, token]);
-    useEffect(() => {
         isFetching && startLoading();
     }, [isFetching, startLoading]);
 
@@ -49,7 +45,7 @@ function useFetchThumbnails(query: string) {
 
     const pageTokens = useMemo(() => {
         const tokens = { next: data?.nextPageToken || "", prev: data?.prevPageToken || "" };
-        console.log("PageTokens:", tokens, "Current Token:", token);
+
         return tokens;
     }, [data]);
 
