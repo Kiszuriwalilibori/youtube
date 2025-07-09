@@ -3,7 +3,6 @@ import { useTranslation } from "react-i18next";
 import Button from "@mui/material/Button";
 
 import Icons from "icons";
-import { BasicButton } from "components";
 import { ErrorType } from "functions/errorMessageService";
 import { useErrorMessageService } from "hooks";
 import { IconButton } from "@mui/material";
