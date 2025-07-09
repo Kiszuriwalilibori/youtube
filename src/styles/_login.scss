@@ -77,14 +77,48 @@
         }
     }
 
-    & .password-toggle-icon {
+    //     & .password-toggle-icon {
+    //         position: absolute;
+    //         width: 24px;
+    //         height: auto;
+    //         top: 50%;
+    //         right: 10px;
+    //         transform: translateY(-50%);
+    //         cursor: pointer;
+    //         z-index: 2;
+    //     }
+    // }
+
+    & .password-toggle-button {
         position: absolute;
         width: 24px;
-        height: auto;
+        height: 24px;
         top: 50%;
         right: 10px;
         transform: translateY(-50%);
         cursor: pointer;
         z-index: 2;
+        background: transparent;
+        border: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        outline: none;
+
+        &:focus {
+            outline: none;
+        }
+
+        &:focus-visible {
+            outline: 2px ridge #0ca4f6;
+            outline-offset: 1px;
+        }
+    }
+
+    & .password-toggle-icon {
+        width: 24px;
+        height: auto;
     }
 }

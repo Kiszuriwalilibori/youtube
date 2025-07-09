@@ -26,7 +26,9 @@
         "showHidden": "show hidden content",
         "createContent": "Create content",
         "notifications": "Enable notifications for the channel",
-        "searchByVoice": "Search by voice"
+        "searchByVoice": "Search by voice",
+        "listeningActive": "Listening active",
+        "listeningInactive": "Listening inactive"
     },
     "video": {
         "noVideosFound": "No videos found",

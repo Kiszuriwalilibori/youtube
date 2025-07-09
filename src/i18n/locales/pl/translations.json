@@ -41,7 +41,9 @@
         "showHidden": "pokaż ukrytą zawartość",
         "createContent": "Utwórz zawartość",
         "notifications": "Włącz powiadomienia dla kanału",
-        "searchByVoice": "Szukaj głosem"
+        "searchByVoice": "Wyszukiwanie głosowe",
+        "listeningActive": "Trwa nasłuch",
+        "listeningInactive": "Nie trwa nasłuch"
     },
     "video": {
         "noVideoSelected": "Nie wybrano filmu do odtworzenia",

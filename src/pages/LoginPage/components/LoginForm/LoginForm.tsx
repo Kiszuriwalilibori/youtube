@@ -17,7 +17,7 @@ interface Props {
 
 export const LogInForm = (props: Props) => {
     const refPassword = useRef<HTMLInputElement | null>(null);
-    const { toggleInputType } = useManageEye(refPassword);
+    const { toggleInputType, isPasswordVisible } = useManageEye(refPassword);
     const navigate = useNavigate();
     const { t } = useTranslation();
     const { setError, clearError } = props;
@@ -52,9 +52,12 @@ export const LogInForm = (props: Props) => {
 
     return (
         <form className="login__form" onSubmit={handleSubmit(onFormSubmit)}>
-            <label className="field">
-                <p className="field__label">{t("login.email")}</p>
+            <div className="field">
+                <label htmlFor="email-input" className="field__label">
+                    {t("login.email")}
+                </label>
                 <input
+                    id="email-input"
                     className="field__input"
                     autoComplete="email"
                     autoCorrect="off"
@@ -62,6 +65,8 @@ export const LogInForm = (props: Props) => {
                     type="text"
                     tabIndex={0}
                     placeholder={t("login.email_prompt")}
+                    aria-invalid={errors.email ? "true" : "false"}
+                    aria-describedby={errors.email ? "email-error" : undefined}
                     {...register("email", validators.email)}
                 />
                 {errors.email && errors.email.type === "required" && (
@@ -70,7 +75,7 @@ export const LogInForm = (props: Props) => {
                 {errors.email && errors.email.type === "pattern" && (
                     <span className="field__hint">{t("warnings.pattern")}</span>
                 )}
-            </label>
+            </div>
 
             <label className="field">
                 <p className="field__label">{t("login.password")}</p>
@@ -86,7 +91,16 @@ export const LogInForm = (props: Props) => {
                     type="password"
                     {...rest}
                 />
-                <Icons.Eye className="password-toggle-icon" onClick={toggleInputType} />
+                <button
+                    type="button"
+                    className="password-toggle-button"
+                    onClick={toggleInputType}
+                    aria-label={t("login.togglePasswordVisibility")}
+                    aria-pressed={isPasswordVisible}
+                    tabIndex={0}
+                >
+                    <Icons.Eye className="password-toggle-icon" aria-hidden="true" />
+                </button>
                 {errors.password && errors.password.type === "required" && (
                     <span className="field__hint">{t("warnings.required")}</span>
                 )}

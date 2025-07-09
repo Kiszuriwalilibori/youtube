@@ -141,10 +141,13 @@ const TopBar = () => {
                     className="with-tooltip"
                     data-tooltip={t("buttons.microphone")}
                     aria-label={t("topbar.searchByVoice")}
+                    aria-pressed={listening}
+                    aria-disabled={isMicrophoneDisabled}
                     disabled={isMicrophoneDisabled}
                     onClick={handleClickMicrophone}
                 >
-                    <Icons.Microphone />
+                    <Icons.Microphone aria-hidden="true" />
+                    {listening && <span className="sr-only">{t("topbar.listeningActive")}</span>}
                 </MicrophoneButton>
             </div>
             <End />
