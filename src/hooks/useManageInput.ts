@@ -42,7 +42,9 @@ export const useManageInput = (orientation: SliderOrientation, helper: Function)
     const updateInput = useCallback(
         (newContent: InputContent) => {
             const updatedInputContent = inputContent + " " + newContent;
-            inputRef.current!.value = updatedInputContent;
+            if (inputRef.current) {
+                inputRef.current.value = updatedInputContent;
+            }
         },
         [inputContent]
     );

@@ -1,16 +1,16 @@
 import { useState, useEffect, createContext, useContext, FC, ReactNode } from "react";
 import throttle from "lodash/throttle";
-import { ViewportSize } from "types";
-import { BRAKPOINT_MOBILE, BREAKPOINT_DESKTOP, BREAKPOINT_PHABLET, BREAKPOINT_TABLET, THROTTLE_GAP } from "config";
+import { ViewportSize, SliderOrientation } from "types";
+import { BREAKPOINT_MOBILE, BREAKPOINT_DESKTOP, BREAKPOINT_PHABLET, BREAKPOINT_TABLET, THROTTLE_GAP } from "config";
 
 type desktopSizes = "mobile" | "phablet" | "tablet" | "desktop" | "desktopHD";
 
-type Orientation = "vertical" | "horizontal";
+// type Orientation = "vertical" | "horizontal";
 
 const horizontal = new Set<string>(["mobile", "phablet"]);
 const vertical = new Set<string>(["tablet", "desktop", "desktopHD"]);
 
-const getSliderOrientation = (desktopSize: desktopSizes): Orientation => {
+const getSliderOrientation = (desktopSize: desktopSizes): SliderOrientation => {
     if (vertical.has(desktopSize)) return "vertical";
     if (horizontal.has(desktopSize)) return "horizontal";
     return "horizontal";
@@ -18,7 +18,7 @@ const getSliderOrientation = (desktopSize: desktopSizes): Orientation => {
 
 interface viewportContextInterface {
     point?: desktopSizes;
-    sliderOrientation: Orientation;
+    sliderOrientation: SliderOrientation;
     sliderClass?: string;
     viewportSize: ViewportSize;
 }
@@ -26,9 +26,9 @@ interface viewportContextInterface {
 const viewportContext = createContext({} as viewportContextInterface);
 
 const getDeviceConfig = (width: number): desktopSizes => {
-    if (width < BRAKPOINT_MOBILE) {
+    if (width < BREAKPOINT_MOBILE) {
         return "mobile";
-    } else if (width >= BRAKPOINT_MOBILE && width < BREAKPOINT_PHABLET) {
+    } else if (width >= BREAKPOINT_MOBILE && width < BREAKPOINT_PHABLET) {
         return "phablet";
     } else if (width >= BREAKPOINT_PHABLET && width < BREAKPOINT_TABLET) {
         return "tablet";
@@ -72,7 +72,7 @@ const ViewportProvider: FC<{ children: ReactNode }> = ({ children }) => {
             window.removeEventListener("resize", calcInnerWidth);
             window.removeEventListener("resize", calcInnerHeight);
         };
-    }, []);
+    }, []); // todo radzą dać sliderOrientation jako dependency?
 
     return (
         <viewportContext.Provider
