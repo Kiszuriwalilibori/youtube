@@ -69,6 +69,10 @@ improved WCAG
 react-speech-recognition replaced former package
 generally revised, cleared
 
+### 1.0.6
+
+redux updated
+
 ### Important
 
 The password is set to "MISIO"

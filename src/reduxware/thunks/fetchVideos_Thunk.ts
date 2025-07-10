@@ -1,5 +1,4 @@
-import { AnyAction } from "redux";
-import { ThunkAction } from "redux-thunk";
+import { AnyAction, ThunkAction } from "@reduxjs/toolkit";
 
 import { startLoading, completeLoading, showError, storeVideos, setPageToken } from "../actionCreators";
 import { RootStateType } from "types";

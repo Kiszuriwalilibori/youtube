@@ -1,4 +1,3 @@
-// Custom hook using native Web Speech API
 import { useState, useCallback, useEffect, useRef } from "react";
 
 export const useVoiceRecognition = (handleResult: (text: string) => void) => {
