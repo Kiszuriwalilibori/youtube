@@ -65,6 +65,10 @@ with Tanstack Query
 
 ### 1.0.5
 
+improved WCAG
+react-speech-recognition replaced former package
+generally revised, cleared
+
 ### Important
 
 The password is set to "MISIO"
