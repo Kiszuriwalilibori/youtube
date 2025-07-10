@@ -3,15 +3,15 @@ import { useDispatchAction } from "hooks";
 import { QueryClient } from "@tanstack/react-query";
 import React from "react";
 import { ReactNode } from "react";
-import { AxiosError } from "axios";
+import { ApiError } from "types/ApiError";
 
 export const TanstackQueryProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
     const { showError, completeLoading } = useDispatchAction();
 
     const queryErrorHandler = (err: unknown): void => {
-        const axiosError = err as AxiosError;
+        const error = err as Error;
         completeLoading();
-        showError({ isError: true, errorMessage: axiosError.message });
+        showError({ isError: true, errorMessage: error.message });
     };
     console.log("TanstackQueryProvider");
     const defaultQueryClientOptions = {
