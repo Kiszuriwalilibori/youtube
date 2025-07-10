@@ -6,7 +6,7 @@ import Icons from "icons";
 import keyb from "icons/keyboard.png";
 
 import { useBreakpoints } from "contexts/ViewPortProvider";
-import { useBoolean, useManageInput, useSanitizeInput, useVoice } from "hooks";
+import { useBoolean, useManageInput, useSanitizeInput, useVoiceRecognition as useVoice } from "hooks";
 import { SliderOrientation } from "types";
 import { BasicButton } from "components";
 import { Start, End } from "./components";
