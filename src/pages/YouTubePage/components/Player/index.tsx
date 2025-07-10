@@ -7,6 +7,7 @@ import type { YouTubeEvent } from "react-youtube";
 import { useDispatchAction } from "hooks";
 import { getPlayerFeed } from "reduxware/reducers/moviesReducer";
 import { PLAYER_OPTIONS } from "./config";
+import i18n from "i18n/config";
 
 export const Player = () => {
     const { videoId, title, description } = useSelector(getPlayerFeed, shallowEqual);
@@ -170,15 +171,23 @@ export const Player = () => {
         <section className="player" id="player-id">
             <YouTube
                 videoId={videoId}
-                opts={PLAYER_OPTIONS}
+                opts={{
+                    ...PLAYER_OPTIONS,
+                    playerVars: {
+                        ...PLAYER_OPTIONS.playerVars,
+                        cc_load_policy: 1,
+                        hl: i18n.language,
+                    },
+                }}
                 className={"youtube"}
                 id={"youtube-container"}
                 onError={handleError}
                 onReady={handleReady}
                 onStateChange={handleStateChange}
+                title={title || t("video.videoPlayer")}
             />
             {isLoading && (
-                <div className="player-loading" aria-live="polite">
+                <div className="player--loading" aria-live="polite">
                     {t("video.loading", "Loading video...")}
                 </div>
             )}

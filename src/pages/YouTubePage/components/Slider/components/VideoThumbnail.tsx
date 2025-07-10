@@ -17,12 +17,30 @@ const VideoThumbnail = (props: Props) => {
         [video, clickHandler]
     );
 
+    const handleKeyDown = useCallback(
+        (e: React.KeyboardEvent) => {
+            console.log("key pressed", e.key);
+            if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                clickHandler(video);
+            }
+        },
+        [video, clickHandler]
+    );
+
     if (!Boolean(video?.snippet?.title && video.id.videoId)) return null;
     const src = video?.snippet?.thumbnails?.medium?.url;
     const alt = video?.snippet?.title || "video";
 
     return (
-        <div className={isSelected ? "movie selected" : "movie"} role="button" tabIndex={0} onClick={handleClick}>
+        <div
+            className={isSelected ? "movie selected" : "movie"}
+            role="button"
+            tabIndex={0}
+            onClick={handleClick}
+            onKeyDown={handleKeyDown}
+            aria-pressed={isSelected}
+        >
             <div className="movie__picture">
                 <img src={src} alt={alt} />
             </div>
