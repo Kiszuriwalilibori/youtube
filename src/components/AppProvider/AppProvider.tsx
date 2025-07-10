@@ -21,6 +21,7 @@ import {
     onlineReducer,
     moviesReducer,
 } from "reduxware/reducers";
+import i18n from "i18n/config";
 
 const rootReducer = combineReducers({
     fetch: fetchReducer,
@@ -36,6 +37,7 @@ export const store = configureStore({
     middleware: getDefaultMiddleware => getDefaultMiddleware().concat(thunk),
 });
 register();
+document.documentElement.lang = i18n.language;
 const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
     return (
         <ViewportProvider>

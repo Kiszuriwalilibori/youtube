@@ -28,7 +28,7 @@ const Message = (props: Props): JSX.Element => {
 
     return ReactDOM.createPortal(
         <article className={`error error--${errorInfo?.severity || "error"}`}>
-            <div className="message">
+            <div className="message" role="alert" aria-live="assertive">
                 <p className="message__title">{displayTitle}</p>
                 <hr />
                 <div className="message__content">{displayMessage}</div>

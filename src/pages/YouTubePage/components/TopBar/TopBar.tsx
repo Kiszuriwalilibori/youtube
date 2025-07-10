@@ -79,7 +79,7 @@ const TopBar = () => {
     const { handleClickMicrophone, isMicrophoneDisabled, listening } = useVoice(updateInput);
 
     return (
-        <header className="TopBar">
+        <header className="TopBar" role="banner">
             {isStartVisible && <Start />}
             <div className="TopBar__center">
                 {isShowHiddenButtonVisible && (
@@ -92,7 +92,7 @@ const TopBar = () => {
                     </ShowHiddenButton>
                 )}
                 {!isFolded && (
-                    <div className="search">
+                    <div className="search" role="search">
                         <div className="search__buttons">
                             <BasicButton
                                 disabled={isOffline}
@@ -105,6 +105,7 @@ const TopBar = () => {
                         </div>
 
                         <input
+                            id="search-input"
                             className="search__input"
                             onMouseEnter={showKeyboard}
                             onKeyDown={handleSanitizedKeyDown}

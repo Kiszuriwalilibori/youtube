@@ -1,20 +1,48 @@
 @use "./variables";
 @use "./mixins";
 
-#root {
-    width: 100vw;
-    height: 100vh;
-    font-family: "Roboto", sans-serif;
-}
+// #root {
+//     width: 100vw;
+//     height: 100vh;
+//     font-family: "Roboto", sans-serif;
+// }
 
-.circular--square {
-    border-radius: 50%;
-    position: relative;
+// body {
+//     height: 100vh;
+//     width: 100vw;
+// }
+
+// .title {
+//     font-size: 14px;
+//     font-weight: 500;
+//     line-height: 20px;
+//     color: var(--text-color-primary);
+// }
+
+#root {
+    width: 100%;
+    min-height: 100vh;
+    font-family: "Roboto", sans-serif;
+    font-size: 16px; // Base font size
 }
 
 body {
-    height: 100vh;
-    width: 100vw;
+    min-height: 100vh;
+    width: 100%;
+    line-height: 1.5; // Improved line height for readability
+}
+
+// Support text resizing
+html {
+    font-size: 100%; // Allow user font size preferences
+}
+
+// Use relative units for text
+.title {
+    font-size: 1rem; // Use relative units instead of px
+    font-weight: 500;
+    line-height: 1.4;
+    color: var(--text-color-primary);
 }
 
 input,
@@ -41,12 +69,6 @@ textarea {
     box-sizing: border-box;
 }
 
-.title {
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 20px;
-    color: var(--text-color-primary);
-}
 .description {
     font-size: 12px;
     font-weight: 400;
@@ -111,4 +133,9 @@ textarea {
     outline: 2px ridge #0ca4f6;
     outline-offset: 1px;
     z-index: 2000;
+}
+
+.circular--square {
+    border-radius: 50%;
+    position: relative;
 }

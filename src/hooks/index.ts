@@ -13,7 +13,9 @@ import useQueryClient from "./useQueryClient";
 import useSanitizeInput from "./useSanitizeInput";
 import useSelectVideo from "./useSelectVideo";
 import useSetInitialConnectionStatus from "./useSetInitialConnectionStatus";
+import { useVideoState } from "./useVideoState";
 import useVoice from "./useVoice";
+import useYouTubeIdValidation from "./useYouTubeIdValidation";
 
 export {
     useBoolean,
@@ -31,5 +33,7 @@ export {
     useSanitizeInput,
     useSelectVideo,
     useSetInitialConnectionStatus,
+    useYouTubeIdValidation,
+    useVideoState,
     useVoice,
 };

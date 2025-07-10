@@ -1,25 +1,22 @@
 import YouTube from "react-youtube";
-import { useCallback, useState, useEffect } from "react";
+import { useCallback, useEffect } from "react";
 import { shallowEqual, useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 import type { YouTubeEvent } from "react-youtube";
 
-import { useDispatchAction } from "hooks";
+import { useDispatchAction, useVideoState, useYouTubeIdValidation } from "hooks";
 import { getPlayerFeed } from "reduxware/reducers/moviesReducer";
 import { PLAYER_OPTIONS } from "./config";
 import i18n from "i18n/config";
+import PlayerLoader from "./PlayerLoader";
 
 export const Player = () => {
     const { videoId, title, description } = useSelector(getPlayerFeed, shallowEqual);
     const { showError, clearPlayerFeed } = useDispatchAction();
-    const [hasError, setHasError] = useState(false);
-    const [isLoading, setIsLoading] = useState(false);
+    const { isValidVideoId } = useYouTubeIdValidation();
+
+    const { hasError, setHasError, isLoading, setIsLoading } = useVideoState(videoId);
     const { t } = useTranslation();
-    // const videoId = "invalid-video-id";
-    useEffect(() => {
-        setHasError(false);
-        setIsLoading(!!videoId);
-    }, [videoId]);
 
     const dispatchError = useCallback(() => {
         setHasError(true);
@@ -71,7 +68,6 @@ export const Player = () => {
 
     const handleError = useCallback(
         (error: any) => {
-            console.warn("YouTube player error:", error);
             dispatchError();
         },
         [dispatchError]
@@ -114,13 +110,10 @@ export const Player = () => {
                     }
                 }
 
-                // Check for error state (YouTube doesn't have a specific error state number)
-                // But we can detect issues through video data
                 if (event.data === 5) {
                     // Video cued
                     const videoData = player.getVideoData();
                     if (!videoData || videoData.title === "") {
-                        // Sometimes invalid videos get cued but have no title
                         setTimeout(() => {
                             const updatedData = player.getVideoData();
                             if (!updatedData || updatedData.title === "") {
@@ -130,19 +123,11 @@ export const Player = () => {
                     }
                 }
             } catch (error) {
-                console.warn("Error in state change handler:", error);
                 dispatchError();
             }
         },
         [videoId, dispatchError]
     );
-
-    const isValidVideoId = useCallback((id: string) => {
-        if (!id || typeof id !== "string") return false;
-
-        const videoIdRegex = /^[a-zA-Z0-9_-]{11}$/;
-        return videoIdRegex.test(id);
-    }, []);
 
     useEffect(() => {
         if (videoId && !isValidVideoId(videoId)) {
@@ -186,11 +171,8 @@ export const Player = () => {
                 onStateChange={handleStateChange}
                 title={title || t("video.videoPlayer")}
             />
-            {isLoading && (
-                <div className="player--loading" aria-live="polite">
-                    {t("video.loading", "Loading video...")}
-                </div>
-            )}
+            {isLoading && <PlayerLoader />}
+
             <p className="title">{title}</p>
             <p className="description">{description}</p>
         </section>
