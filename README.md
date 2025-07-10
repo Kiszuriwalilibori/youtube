@@ -1,84 +1,99 @@
-# Scheme - old recruitment task with some extra development
+# YouTube App
 
 [![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid)
 
 ## The objective
 
--   present my skills
+-   Present modern React development skills
+-   Demonstrate best practices in frontend architecture
 
 ## Features
 
--   This app imitates topbar of Youtube Page
+-   YouTube interface imitation with focus on the topbar functionality
+-   Search for YouTube videos using Google API
+-   Authentication with password protection
+-   Responsive design for various screen sizes
+-   Internationalization (i18n) with English and Polish language support
+-   Lazy loading for improved performance
+-   Offline detection and handling
+-   Voice search capability
 
 ## Technologies
 
--   HTML
--   SASS/SCSS
--   JS
--   REACT
--   REDUX
+-   TypeScript
+-   React 18
+-   Redux Toolkit for state management
+-   TanStack Query (React Query) for data fetching
+-   Material UI (MUI) for UI components
+-   SASS/SCSS for styling
+-   React Router for navigation
+-   i18next for internationalization
+-   React Hook Form for form handling
+-   Service workers for offline capabilities
 
 ## Installation
 
--   That site is hosted on GH Pages
--   Is available on https://kiszuriwalilibori.github.io/gogo/
+-   This application is hosted on GitHub Pages
+-   Available at: https://kiszuriwalilibori.github.io/youtube/
 
 ## Steps to create local copy:
 
-1. fetch/clone repo
-2. run npm install (note ready for yarn).
-3. Add .env file with content REACT_APP_API_KEY ={your Google key}.
-   4 add REACT_APP_PASSWORD ={your passwor here} key to .env file.
-4. run with npm run
-5. enjoy app
+1. Clone the repository
+2. Run `npm install` (not configured for yarn)
+3. Create a `.env` file with the following content:
+    ```
+    REACT_APP_API_KEY={your Google API key}
+    REACT_APP_PASSWORD=MISIO
+    ```
+4. Run `npm start` to start the development server
+5. Run `npm run build` to create a production build
 
 ## Browser Support
 
-Not for IE and Opera Mini
-However, it shows its best on Chrome. At least one feature is not visible on FF ( input gets blue border on focus)
+-   Supports modern browsers (Chrome, Firefox, Safari, Edge)
+-   Not compatible with Internet Explorer or Opera Mini
+-   Best experience on Chrome (some features like input focus styling may not be visible on Firefox)
 
-## Versions
+## Version History
 
 ### 1.0.0
 
-initial
+-   Initial release
 
 ### 1.0.1
 
-with lazy loading
+-   Added lazy loading for improved performance
 
 ### 1.0.2
 
-Simplified dependencies
-Version number in <head>
-new favicon
+-   Simplified dependencies
+-   Added version number in `<head>` meta tag
+-   New favicon
 
 ### 1.0.3
 
-Folder structure modified
-Many files and variables renamed
-Generally, getting ready to apply TanstackQuery
+-   Modified folder structure
+-   Renamed files and variables
+-   Prepared codebase for TanStack Query integration
 
-# 1.0.4
+### 1.0.4
 
-with Tanstack Query
+-   Integrated TanStack Query for data fetching
 
 ### 1.0.5
 
-improved WCAG
-react-speech-recognition replaced former package
-generally revised, cleared
+-   Improved WCAG accessibility
+-   Replaced speech recognition package
+-   General code revision and cleanup
 
 ### 1.0.6
 
-redux updated
+-   Updated Redux, TypeScript, i18n, and React Hook Form
+-   Removed unused dependencies
+-   Improved language detection and language switching
+-   Added automatic version synchronization between package.json and meta tag
 
-### Important
+## Important Notes
 
-The password is set to "MISIO"
-
-### TODO
-
-Jezęli nie znaleziono wideo niech wyświetla sie jakaś grafika z przekreślonym projektorem a nie tylko błąd
-
-isFetching zwraca true zawsze kiedy jest enable false, trzeba to objeść
+-   The default login password is "MISIO"
+-   The application requires a valid Google API key with YouTube Data API v3 enabled

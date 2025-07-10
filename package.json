@@ -1,7 +1,7 @@
 {
     "name": "you-tube-app",
     "homepage": "https://kiszuriwalilibori.github.io/youtube/",
-    "version": "1.0.5",
+    "version": "1.0.7",
     "private": true,
     "dependencies": {
         "@emotion/react": "^11.11.1",
@@ -23,7 +23,7 @@
         "react-hook-form": "^7.53.0",
         "react-i18next": "^14.0.0",
         "react-redux": "^8.0.5",
-        "react-resize-detector": "^7.1.2",
+        "react-resize-detector": "^11.0.1",
         "react-router-dom": "^6.4.5",
         "react-scripts": "^5.0.1",
         "react-uuid": "^2.0.0",
@@ -46,13 +46,14 @@
         "workbox-streams": "^5.1.4"
     },
     "scripts": {
-        "start": "react-scripts start",
-        "build": "react-scripts build",
+        "start": "node scripts/update-version.js && react-scripts start",
+        "build": "node scripts/update-version.js && react-scripts build",
         "test": "jest",
         "test:watch": "jest --watchAll",
         "eject": "react-scripts eject",
         "predeploy": "npm run build",
-        "deploy": "gh-pages -d build"
+        "deploy": "gh-pages -d build",
+        "update-version": "node scripts/update-version.js"
     },
     "devDependencies": {
         "@babel/preset-env": "^7.20.2",
@@ -63,7 +64,7 @@
         "@types/react-dom": "^18.3.0",
         "@types/react-router-dom": "^5.3.3",
         "@types/react-youtube": "^7.10.0",
-        "gh-pages": "^3.2.3"
+        "gh-pages": "^5.0.0"
     },
     "eslintConfig": {
         "extends": "react-app"
