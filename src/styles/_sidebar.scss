@@ -1,7 +1,6 @@
 .sidebar {
     position: relative;
     min-width: calc(var(--thumbnail-size) + 20px);
-    overflow-y: auto;
     overflow-y: hidden;
     display: grid;
     grid-row-gap: 40px;

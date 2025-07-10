@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 
-export const useYouTubeValidation = () => {
+export const useYouTubeIdValidation = () => {
     const isValidVideoId = useCallback((id: string) => {
         if (!id || typeof id !== "string") return false;
         const videoIdRegex = /^[a-zA-Z0-9_-]{11}$/;
@@ -9,4 +9,4 @@ export const useYouTubeValidation = () => {
 
     return { isValidVideoId };
 };
-export default useYouTubeValidation;
+export default useYouTubeIdValidation;

@@ -6,19 +6,13 @@
 
     & .button--keyboard {
         & svg {
-            fill: var(--ytd-keayboard-icon-color);
+            fill: var(--ytd-keyboard-icon-color);
         }
     }
     &__start {
         display: none;
         &.visible {
             @extend .flexbox-row-v-centered;
-        }
-
-        & .button--reverted {
-            & > svg {
-                width: var(--svg-larger);
-            }
         }
 
         & .button--youtube {

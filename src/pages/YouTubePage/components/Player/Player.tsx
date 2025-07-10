@@ -145,11 +145,7 @@ export const Player = () => {
 
     if (hasError) {
         console.log("Player error: ", t("errors.video.unavailableDescription"));
-        return (
-            <section className="player player--empty" aria-live="polite">
-                {/* <p>{t("errors.video.unavailableDescription")}</p> */}
-            </section>
-        );
+        return <section className="player player--empty" aria-live="polite"></section>;
     }
 
     return (
@@ -180,5 +176,3 @@ export const Player = () => {
 };
 
 export default Player;
-
-//bols spisał się nieźle

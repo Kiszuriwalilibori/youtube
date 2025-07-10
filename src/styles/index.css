@@ -161,7 +161,7 @@ root {
   --ytd-search-height: 40px;
   --ytd-searchbox-legacy-button-border-color: #d3d3d3;
   --ytd-searchbox-legacy-button-color: #f8f8f8;
-  --ytd-keayboard-icon-color: #323232;
+  --ytd-keyboard-icon-color: #323232;
   --yt-spec-touch-response: #e5e5e5;
   --ytd-searchbox-active-color: #13459a;
   --ytd-searchbox-active-color-hover: #2174cb;
@@ -206,7 +206,7 @@ root {
   --ytd-search-height: 40px;
   --ytd-searchbox-legacy-button-border-color: #d3d3d3;
   --ytd-searchbox-legacy-button-color: #f8f8f8;
-  --ytd-keayboard-icon-color: #323232;
+  --ytd-keyboard-icon-color: #323232;
   --yt-spec-touch-response: #e5e5e5;
   --ytd-searchbox-active-color: #13459a;
   --ytd-searchbox-active-color-hover: #2174cb;
@@ -251,7 +251,7 @@ root {
   --ytd-search-height: 40px;
   --ytd-searchbox-legacy-button-border-color: #d3d3d3;
   --ytd-searchbox-legacy-button-color: #f8f8f8;
-  --ytd-keayboard-icon-color: #323232;
+  --ytd-keyboard-icon-color: #323232;
   --yt-spec-touch-response: #e5e5e5;
   --ytd-searchbox-active-color: #13459a;
   --ytd-searchbox-active-color-hover: #2174cb;
@@ -402,13 +402,10 @@ textarea {
   justify-content: space-between;
 }
 .TopBar .button--keyboard svg {
-  fill: var(--ytd-keayboard-icon-color);
+  fill: var(--ytd-keyboard-icon-color);
 }
 .TopBar__start {
   display: none;
-}
-.TopBar__start .button--reverted > svg {
-  width: var(--svg-larger);
 }
 .TopBar__start .button--youtube {
   width: 110px;
@@ -534,7 +531,6 @@ textarea {
 .sidebar {
   position: relative;
   min-width: calc(var(--thumbnail-size) + 20px);
-  overflow-y: auto;
   overflow-y: hidden;
   display: grid;
   grid-row-gap: 40px;
