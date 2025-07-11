@@ -93,6 +93,18 @@
 -   Improved language detection and language switching
 -   Added automatic version synchronization between package.json and meta tag
 
+### 1.0.7
+
+-   Removed Axios dependency by creating custom error handling
+-   Improved documentation with more comprehensive project information
+-   Enhanced error handling in API requests
+
+### 1.0.8
+
+-   Further dependency optimization
+-   Code cleanup and performance improvements
+-   Updated documentation
+
 ## Important Notes
 
 -   The default login password is "MISIO"

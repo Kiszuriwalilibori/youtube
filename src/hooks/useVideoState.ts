@@ -16,3 +16,5 @@ export const useVideoState = (videoId: string) => {
         setIsLoading,
     };
 };
+
+export default useVideoState;

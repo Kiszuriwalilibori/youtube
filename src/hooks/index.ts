@@ -13,9 +13,8 @@ import useQueryClient from "./useQueryClient";
 import useSanitizeInput from "./useSanitizeInput";
 import useSelectVideo from "./useSelectVideo";
 import useSetInitialConnectionStatus from "./useSetInitialConnectionStatus";
-import { useVideoState } from "./useVideoState";
+import useVideoState from "./useVideoState";
 
-import useVoice from "./useVoice";
 import useVoiceRecognition from "./useVoiceRecognition";
 import useYouTubeIdValidation from "./useYouTubeIdValidation";
 
@@ -37,6 +36,5 @@ export {
     useSetInitialConnectionStatus,
     useYouTubeIdValidation,
     useVideoState,
-    useVoice,
     useVoiceRecognition,
 };
