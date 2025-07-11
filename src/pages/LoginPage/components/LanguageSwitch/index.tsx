@@ -1,9 +1,10 @@
+import moment from "moment";
 import { useCallback, useState } from "react";
 import { useTranslation } from "react-i18next";
-import moment from "moment";
 
 import "moment/locale/pl";
 import Stack from "@mui/material/Stack";
+
 import Switch from "./switch";
 
 const stackSx = { margin: "0 auto", width: "150px", alignItems: "center" };

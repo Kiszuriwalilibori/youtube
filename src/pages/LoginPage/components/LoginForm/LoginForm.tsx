@@ -1,13 +1,17 @@
 import { useCallback, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 
-import Icons from "icons";
-import paths from "routing";
+import { BasicButton } from "components";
 
 import { useDispatchAction, useManageEye } from "hooks";
-import { BasicButton } from "components";
+
+import Icons from "icons";
+
+import paths from "routing";
+
 import { validators } from "./utils";
 
 interface Props {

@@ -1,6 +1,5 @@
-import Icons from "icons";
-
 import { BasicButton } from "components";
+import Icons from "icons";
 import { SliderOrientation } from "types";
 
 interface Props {

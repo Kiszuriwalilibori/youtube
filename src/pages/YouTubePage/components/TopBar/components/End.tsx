@@ -1,9 +1,8 @@
-import Icons from "icons";
-
 import { IconButton, Stack, useMediaQuery } from "@mui/material";
+import Icons from "icons";
+import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { isOfflineSelector } from "reduxware/reducers/onlineReducer";
-import { useTranslation } from "react-i18next";
 
 const cameraButtonSx = {
     marginLeft: "4px",

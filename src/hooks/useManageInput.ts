@@ -1,8 +1,8 @@
 import { useState, useRef, useCallback, SyntheticEvent, useEffect, KeyboardEvent } from "react";
+import { SliderOrientation } from "types";
 
 import useDispatchAction from "./useDispatchAction";
 
-import { SliderOrientation } from "types";
 
 export type InputContent = string;
 const INITIAL_INPUT_CONTENT_VALUE = "";

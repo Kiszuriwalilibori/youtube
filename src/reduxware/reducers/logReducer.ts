@@ -1,7 +1,7 @@
 import { createReducer } from "@reduxjs/toolkit";
+import { RootStateType } from "types/types";
 
 import { logUser, logOutUser } from "../actionCreators";
-import { RootStateType } from "types/types";
 
 const initialState = {
     isLogged: false,

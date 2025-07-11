@@ -1,85 +1,90 @@
 {
-    "name": "you-tube-app",
-    "homepage": "https://kiszuriwalilibori.github.io/youtube/",
-    "version": "1.0.8",
-    "private": true,
-    "dependencies": {
-        "@emotion/react": "^11.11.1",
-        "@emotion/styled": "^11.11.0",
-        "@loadable/component": "^5.15.2",
-        "@mui/material": "^5.14.1",
-        "@reduxjs/toolkit": "^2.2.7",
-        "@tanstack/react-query": "^4.32.0",
-        "eslint-plugin-jest-dom": "^4.0.1",
-        "eslint-plugin-testing-library": "^5.0.3",
-        "i18next": "^23.7.16",
-        "i18next-browser-languagedetector": "^7.1.0",
-        "lodash": "^4.17.21",
-        "moment": "^2.30.1",
-        "notistack": "^3.0.1",
-        "react": "^18.3.1",
-        "react-dom": "^18.3.1",
-        "react-hook-form": "^7.53.0",
-        "react-i18next": "^14.0.0",
-        "react-redux": "^8.0.5",
-        "react-resize-detector": "^11.0.1",
-        "react-router-dom": "^6.4.5",
-        "react-scripts": "^5.0.1",
-        "react-uuid": "^2.0.0",
-        "react-youtube": "^10.0.0",
-        "throttle-debounce": "^2.3.0",
-        "ts-node": "^10.4.0",
-        "typescript": "~4.9.5",
-        "use-debounce": "^5.0.1",
-        "workbox-background-sync": "^5.1.4",
-        "workbox-broadcast-update": "^5.1.4",
-        "workbox-cacheable-response": "^5.1.4",
-        "workbox-core": "^5.1.4",
-        "workbox-expiration": "^5.1.4",
-        "workbox-google-analytics": "^5.1.4",
-        "workbox-navigation-preload": "^5.1.4",
-        "workbox-precaching": "^5.1.4",
-        "workbox-range-requests": "^5.1.4",
-        "workbox-routing": "^5.1.4",
-        "workbox-strategies": "^5.1.4",
-        "workbox-streams": "^5.1.4"
-    },
-    "scripts": {
-        "start": "node scripts/update-version.js && react-scripts start",
-        "build": "node scripts/update-version.js && react-scripts build",
-        "test": "jest",
-        "test:watch": "jest --watchAll",
-        "eject": "react-scripts eject",
-        "predeploy": "npm run build",
-        "deploy": "gh-pages -d build",
-        "update-version": "node scripts/update-version.js"
-    },
-    "devDependencies": {
-        "@babel/preset-env": "^7.20.2",
-        "@types/dom-speech-recognition": "^0.0.6",
-        "@types/loadable__component": "^5.13.4",
-        "@types/lodash": "^4.14.176",
-        "@types/react": "^18.3.1",
-        "@types/react-dom": "^18.3.0",
-        "@types/react-router-dom": "^5.3.3",
-        "@types/react-youtube": "^7.10.0",
-        "gh-pages": "^5.0.0"
-    },
-    "eslintConfig": {
-        "extends": "react-app"
-    },
-    "browserslist": {
-        "production": [
-            ">0.2%",
-            "not dead",
-            "not op_mini all",
-            "ie >= 11"
-        ],
-        "development": [
-            "last 1 chrome version",
-            "last 1 firefox version",
-            "last 1 safari version",
-            "ie >= 11"
-        ]
-    }
+  "name": "you-tube-app",
+  "homepage": "https://kiszuriwalilibori.github.io/youtube/",
+  "version": "1.0.8",
+  "private": true,
+  "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@loadable/component": "^5.15.2",
+    "@mui/material": "^5.14.1",
+    "@reduxjs/toolkit": "^2.2.7",
+    "@tanstack/react-query": "^4.32.0",
+    "eslint-plugin-jest-dom": "^4.0.1",
+    "eslint-plugin-testing-library": "^5.0.3",
+    "i18next": "^23.7.16",
+    "i18next-browser-languagedetector": "^7.1.0",
+    "lodash": "^4.17.21",
+    "moment": "^2.30.1",
+    "notistack": "^3.0.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-hook-form": "^7.53.0",
+    "react-i18next": "^14.0.0",
+    "react-redux": "^8.0.5",
+    "react-resize-detector": "^11.0.1",
+    "react-router-dom": "^6.4.5",
+    "react-scripts": "^5.0.1",
+    "react-uuid": "^2.0.0",
+    "react-youtube": "^10.0.0",
+    "throttle-debounce": "^2.3.0",
+    "ts-node": "^10.4.0",
+    "typescript": "~4.9.5",
+    "use-debounce": "^5.0.1",
+    "workbox-background-sync": "^5.1.4",
+    "workbox-broadcast-update": "^5.1.4",
+    "workbox-cacheable-response": "^5.1.4",
+    "workbox-core": "^5.1.4",
+    "workbox-expiration": "^5.1.4",
+    "workbox-google-analytics": "^5.1.4",
+    "workbox-navigation-preload": "^5.1.4",
+    "workbox-precaching": "^5.1.4",
+    "workbox-range-requests": "^5.1.4",
+    "workbox-routing": "^5.1.4",
+    "workbox-strategies": "^5.1.4",
+    "workbox-streams": "^5.1.4"
+  },
+  "scripts": {
+    "start": "node scripts/update-version.js && react-scripts start",
+    "build": "node scripts/update-version.js && react-scripts build",
+    "test": "jest",
+    "test:watch": "jest --watchAll",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "update-version": "node scripts/update-version.js"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.20.2",
+    "@types/dom-speech-recognition": "^0.0.6",
+    "@types/loadable__component": "^5.13.4",
+    "@types/lodash": "^4.14.176",
+    "@types/react": "^18.3.1",
+    "@types/react-dom": "^18.3.0",
+    "@types/react-router-dom": "^5.3.3",
+    "@types/react-youtube": "^7.10.0",
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-import": "^2.32.0",
+    "gh-pages": "^5.0.0",
+    "prettier": "^3.6.2"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "prettier"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
 }

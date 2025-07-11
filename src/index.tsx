@@ -1,16 +1,10 @@
 import { createRoot } from "react-dom/client";
-import { App, AppProvider, TanstackQueryProvider } from "./components";
+
+import { App, AppProvider, TanstackQueryProvider } from "components";
+
+import { breakWhenInternetExplorer } from "utils";
+
 import "styles/index.css";
-
-const breakWhenInternetExplorer = (): void => {
-    const FALLBACK_URL = "https://kiszuriwalilibori.github.io/IE/";
-    const ua = window.navigator.userAgent;
-    const isIE = /MSIE|Trident/.test(ua);
-
-    if (isIE) {
-        window.location.href = FALLBACK_URL;
-    }
-};
 
 breakWhenInternetExplorer();
 

@@ -1,8 +1,8 @@
 import { NOT_LOGGED_DELAY } from "config";
 import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import Paths from "routing";
-import { useTranslation } from "react-i18next";
 
 const NotLogged = () => {
     const navigate = useNavigate();

@@ -1,18 +1,17 @@
-import { useCallback, useEffect, useRef } from "react";
-import { useSelector } from "react-redux";
-import { useTranslation } from "react-i18next";
-
-import Icons from "icons";
-import keyb from "icons/keyboard.png";
-
+import { BasicButton } from "components";
 import { useBreakpoints } from "contexts/ViewPortProvider";
 import { useBoolean, useManageInput, useSanitizeInput, useVoiceRecognition as useVoice } from "hooks";
-import { SliderOrientation } from "types";
-import { BasicButton } from "components";
-import { Start, End } from "./components";
-import { isOfflineSelector } from "reduxware/reducers";
-import { listeningMicrophoneSx, ShowHiddenButton, MicrophoneButton } from "./TopBar.styles";
 import { TFunction } from "i18next";
+import Icons from "icons";
+import keyb from "icons/keyboard.png";
+import { useCallback, useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
+import { useSelector } from "react-redux";
+import { isOfflineSelector } from "reduxware/reducers";
+import { SliderOrientation } from "types";
+
+import { End, Start } from "./components";
+import { listeningMicrophoneSx, MicrophoneButton, ShowHiddenButton } from "./TopBar.styles";
 
 type LastSize = "large" | "small" | undefined;
 const SEARCH_INPUT_MAX_LENGTH = 100;

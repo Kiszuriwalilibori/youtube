@@ -1,8 +1,7 @@
 import { createReducer } from "@reduxjs/toolkit";
-
-import { setPlayerFeed, clearPlayerFeed } from "../actionCreators";
-
 import { PlayerFeed, RootStateType } from "types";
+
+import { clearPlayerFeed, setPlayerFeed } from "../actionCreators";
 
 const initialState = {
     playerFeed: {} as PlayerFeed,

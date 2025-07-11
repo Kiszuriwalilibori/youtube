@@ -1,7 +1,7 @@
 import { AnyAction, ThunkAction } from "@reduxjs/toolkit";
+import { RootStateType } from "types";
 
 import { startLoading, completeLoading, showError, storeVideos, setPageToken } from "../actionCreators";
-import { RootStateType } from "types";
 
 const thunkFetchVideos = (URL: string): ThunkAction<void, RootStateType, unknown, AnyAction> => {
     return async (dispatch, getState) => {

@@ -1,7 +1,10 @@
-import { useState, useEffect, createContext, useContext, FC, ReactNode } from "react";
+import { createContext, FC, ReactNode, useContext, useEffect, useState } from "react";
+
 import throttle from "lodash/throttle";
-import { ViewportSize, SliderOrientation } from "types";
-import { BREAKPOINT_MOBILE, BREAKPOINT_DESKTOP, BREAKPOINT_PHABLET, BREAKPOINT_TABLET, THROTTLE_GAP } from "config";
+
+import { BREAKPOINT_DESKTOP, BREAKPOINT_MOBILE, BREAKPOINT_PHABLET, BREAKPOINT_TABLET, THROTTLE_GAP } from "config";
+
+import { SliderOrientation, ViewportSize } from "types";
 
 type desktopSizes = "mobile" | "phablet" | "tablet" | "desktop" | "desktopHD";
 

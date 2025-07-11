@@ -1,7 +1,7 @@
+import { BasicButton } from "components";
+import Icons from "icons";
 import ReactDOM from "react-dom";
 import { useTranslation } from "react-i18next";
-import Icons from "icons";
-import { BasicButton } from "components";
 
 interface Props {
     message: string;

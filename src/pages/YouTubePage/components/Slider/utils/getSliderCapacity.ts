@@ -1,4 +1,5 @@
 import { SliderOrientation, ViewportSize } from "types/index";
+
 import getRoundedNumber from "./getRoundedNumber";
 import { THUMBNAIL_SIZE, VIEWPORT_SIZE_OFFSET } from "../constans/constans";
 

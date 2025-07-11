@@ -1,9 +1,11 @@
-import { HiddenH1 } from "components";
-import { useCheckApiKey, useDispatchAction } from "hooks";
 import { useSelector } from "react-redux";
-import { getErrorMessage, getErrorStatus } from "reduxware/reducers";
 
+import { useCheckApiKey, useDispatchAction } from "hooks";
+
+import { HiddenH1 } from "components";
 import { ContentWrapper, Loader, Message, Player, Slider, TopBar } from "./components";
+
+import { getErrorMessage, getErrorStatus } from "reduxware/reducers";
 
 const YouTubePage = () => {
     const isError = useSelector(getErrorStatus);

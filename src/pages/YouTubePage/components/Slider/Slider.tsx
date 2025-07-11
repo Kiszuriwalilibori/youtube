@@ -1,15 +1,14 @@
-import uuid from "react-uuid";
-import isEqual from "lodash/isEqual";
-
-import { SyntheticEvent, useCallback, useMemo, useRef } from "react";
-import { useSelector, shallowEqual } from "react-redux";
-
-import { getQuery } from "reduxware/reducers/queryReducer";
 import { useBreakpoints } from "contexts/ViewPortProvider";
 import { useFetchThumbnails, useManageThumbnails, useSelectVideo } from "hooks";
+import isEqual from "lodash/isEqual";
+import { SyntheticEvent, useCallback, useMemo, useRef } from "react";
+import { useSelector, shallowEqual } from "react-redux";
+import uuid from "react-uuid";
+import { getQuery } from "reduxware/reducers/queryReducer";
+import { Video } from "types";
+
 import { ButtonPrevious, VideoThumbnail, ButtonNext } from "./components";
 import { getSliderCapacity } from "./utils";
-import { Video } from "types";
 
 const Slider = () => {
     const query = useSelector(getQuery, shallowEqual);

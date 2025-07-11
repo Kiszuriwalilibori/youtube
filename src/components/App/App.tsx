@@ -1,14 +1,13 @@
 import loadable from "@loadable/component";
+import { Route, Routes } from "react-router-dom";
 
-import { Route } from "react-router-dom";
-import { Routes } from "react-router-dom";
-
-import Paths from "routing";
-import ProtectedRoute from "components/ProtectedRoute";
-
-import { LoginPage } from "pages/index";
 import useHandleConnectionStatus from "hooks/useHandleConnectionStatus";
 import useSetInitialConnectionStatus from "hooks/useSetInitialConnectionStatus";
+
+import ProtectedRoute from "components/ProtectedRoute";
+import { LoginPage } from "pages";
+
+import Paths from "routing";
 
 const YouTubePage = loadable(() => import("pages/YouTubePage"));
 const NoPage = loadable(() => import("pages/NoPage"));

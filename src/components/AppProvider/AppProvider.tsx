@@ -1,25 +1,28 @@
-import React, { ReactNode, useEffect } from "react";
+import React, { ReactNode } from "react";
 
-import { ThemeProvider, StyledEngineProvider } from "@mui/material";
+import { StyledEngineProvider, ThemeProvider } from "@mui/material";
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import { SnackbarProvider } from "notistack";
 import { Provider } from "react-redux";
 import { HashRouter as Router } from "react-router-dom";
-import { SnackbarProvider } from "notistack";
-import { register } from "serviceWorkerRegistration";
-import { ViewportProvider } from "contexts/ViewPortProvider";
 
-import theme from "themes/theme";
-import "i18n/config";
+import { ViewportProvider } from "contexts/ViewPortProvider";
 
 import {
     fetchReducer,
     logReducer,
+    moviesReducer,
+    onlineReducer,
     pageTokenReducer,
     queryReducer,
-    onlineReducer,
-    moviesReducer,
 } from "reduxware/reducers";
+
 import i18n from "i18n/config";
+import { register } from "serviceWorkerRegistration";
+
+import theme from "themes/theme";
+
+import "i18n/config";
 
 const rootReducer = combineReducers({
     fetch: fetchReducer,

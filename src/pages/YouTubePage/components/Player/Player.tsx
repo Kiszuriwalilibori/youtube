@@ -1,13 +1,13 @@
-import YouTube from "react-youtube";
-import { useCallback, useEffect } from "react";
-import { shallowEqual, useSelector } from "react-redux";
-import { useTranslation } from "react-i18next";
-import type { YouTubeEvent } from "react-youtube";
-
 import { useDispatchAction, useVideoState, useYouTubeIdValidation } from "hooks";
-import { getPlayerFeed } from "reduxware/reducers/moviesReducer";
-import { PLAYER_OPTIONS } from "./config";
 import i18n from "i18n/config";
+import { useCallback, useEffect } from "react";
+import { useTranslation } from "react-i18next";
+import { shallowEqual, useSelector } from "react-redux";
+import YouTube from "react-youtube";
+import type { YouTubeEvent } from "react-youtube";
+import { getPlayerFeed } from "reduxware/reducers/moviesReducer";
+
+import { PLAYER_OPTIONS } from "./config";
 import PlayerLoader from "./PlayerLoader";
 
 export const Player = () => {

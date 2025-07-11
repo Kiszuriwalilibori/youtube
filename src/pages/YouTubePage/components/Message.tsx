@@ -1,11 +1,10 @@
+import { IconButton } from "@mui/material";
+import Button from "@mui/material/Button";
+import { useErrorMessageService } from "hooks";
+import Icons from "icons";
 import ReactDOM from "react-dom";
 import { useTranslation } from "react-i18next";
-import Button from "@mui/material/Button";
 
-import Icons from "icons";
-
-import { useErrorMessageService } from "hooks";
-import { IconButton } from "@mui/material";
 
 interface Props {
     message: string;

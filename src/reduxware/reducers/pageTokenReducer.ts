@@ -1,7 +1,7 @@
 import { createReducer } from "@reduxjs/toolkit";
+import { PageToken } from "types/types";
 
 import { setPageToken, clearPageToken } from "../actionCreators";
-import { PageToken } from "types/types";
 
 const initialState: PageToken = {
     prev: undefined,

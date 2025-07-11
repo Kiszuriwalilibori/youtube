@@ -1,8 +1,9 @@
-import { QueryClientProvider } from "@tanstack/react-query";
+import React, { ReactNode } from "react";
+
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
 import { useDispatchAction } from "hooks";
-import { QueryClient } from "@tanstack/react-query";
-import React from "react";
-import { ReactNode } from "react";
+
 import { ApiError } from "types/ApiError";
 
 export const TanstackQueryProvider: React.FC<{ children: ReactNode }> = ({ children }) => {

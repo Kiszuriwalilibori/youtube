@@ -1,13 +1,11 @@
 import { CircularProgress, Modal } from "@mui/material";
-
 import useDelayedCondition from "hooks/useDelayedCondition";
+import { useSelector } from "react-redux";
+import { getLoadingStatus } from "reduxware/reducers";
 
 import { circularProgressSx } from "./Loader.styles";
-import { RootStateType } from "types/types";
-import { useSelector } from "react-redux";
-
 export const Loader = () => {
-    const isLoading = useSelector((state: RootStateType) => state.fetch.isLoading);
+    const isLoading = useSelector(getLoadingStatus);
     const shouldRender = useDelayedCondition(isLoading);
     return (
         <Modal open={shouldRender} aria-label="Loading">
