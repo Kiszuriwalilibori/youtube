@@ -50,3 +50,5 @@ const VideoThumbnail = (props: Props) => {
 };
 
 export default VideoThumbnail;
+
+// proawdopodobnie handlekeydown powinno być racz4ej jakoś w Sliderze uzyte bo tak nie działa

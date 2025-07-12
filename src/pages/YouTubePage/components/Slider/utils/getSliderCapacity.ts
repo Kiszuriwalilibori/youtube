@@ -1,7 +1,7 @@
-import { SliderOrientation, ViewportSize } from "types/index";
+import { SliderOrientation, ViewportSize } from "types";
 
 import getRoundedNumber from "./getRoundedNumber";
-import { THUMBNAIL_SIZE, VIEWPORT_SIZE_OFFSET } from "../constans/constans";
+import { THUMBNAIL_SIZE, VIEWPORT_SIZE_OFFSET } from "config";
 
 export function getSliderCapacity(orientation: SliderOrientation, viewportSize: ViewportSize) {
     let result = 0;
