@@ -6,7 +6,7 @@ import { SnackbarProvider } from "notistack";
 import { Provider } from "react-redux";
 import { HashRouter as Router } from "react-router-dom";
 
-import { ViewportProvider } from "contexts/ViewPortProvider";
+import { ViewportProvider } from "contexts/ViewportProvider";
 
 import {
     fetchReducer,
@@ -21,8 +21,6 @@ import i18n from "i18n/config";
 import { register } from "serviceWorkerRegistration";
 
 import theme from "themes/theme";
-
-import "i18n/config";
 
 const rootReducer = combineReducers({
     fetch: fetchReducer,

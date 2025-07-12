@@ -1,5 +1,5 @@
 import { createReducer } from "@reduxjs/toolkit";
-import { RootStateType } from "types/types";
+import { RootStateType } from "types";
 
 import { setQuery, resetQuery } from "../actionCreators";
 

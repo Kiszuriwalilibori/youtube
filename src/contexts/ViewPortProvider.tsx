@@ -6,29 +6,29 @@ import { BREAKPOINT_DESKTOP, BREAKPOINT_MOBILE, BREAKPOINT_PHABLET, BREAKPOINT_T
 
 import { SliderOrientation, ViewportSize } from "types";
 
-type desktopSizes = "mobile" | "phablet" | "tablet" | "desktop" | "desktopHD";
+type DesktopSizes = "mobile" | "phablet" | "tablet" | "desktop" | "desktopHD";
 
 // type Orientation = "vertical" | "horizontal";
 
 const horizontal = new Set<string>(["mobile", "phablet"]);
 const vertical = new Set<string>(["tablet", "desktop", "desktopHD"]);
 
-const getSliderOrientation = (desktopSize: desktopSizes): SliderOrientation => {
+const getSliderOrientation = (desktopSize: DesktopSizes): SliderOrientation => {
     if (vertical.has(desktopSize)) return "vertical";
     if (horizontal.has(desktopSize)) return "horizontal";
     return "horizontal";
 };
 
-interface viewportContextInterface {
-    point?: desktopSizes;
+interface ViewportContextInterface {
+    point?: DesktopSizes;
     sliderOrientation: SliderOrientation;
     sliderClass?: string;
     viewportSize: ViewportSize;
 }
 
-const viewportContext = createContext({} as viewportContextInterface);
+const viewportContext = createContext({} as ViewportContextInterface);
 
-const getDeviceConfig = (width: number): desktopSizes => {
+const getDeviceConfig = (width: number): DesktopSizes => {
     if (width < BREAKPOINT_MOBILE) {
         return "mobile";
     } else if (width >= BREAKPOINT_MOBILE && width < BREAKPOINT_PHABLET) {

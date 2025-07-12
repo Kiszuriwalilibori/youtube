@@ -1,12 +1,12 @@
 import * as React from "react";
-interface isVisible {
-  isVisible?: boolean;
+interface Props {
+    isVisible?: boolean;
 }
-function renderWhenIsVisible<T>(Component: React.ComponentType<T | Omit<T & isVisible, keyof isVisible>>) {
-  return function (props: T & isVisible) {
-    const { isVisible = true, ...newProps } = props;
-    return isVisible ? <Component {...newProps} /> : null;
-  };
+function renderWhenIsVisible<T>(Component: React.ComponentType<T | Omit<T & Props, keyof Props>>) {
+    return function (props: T & Props) {
+        const { isVisible = true, ...newProps } = props;
+        return isVisible ? <Component {...newProps} /> : null;
+    };
 }
 
 export default renderWhenIsVisible;

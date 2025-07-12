@@ -1,4 +1,4 @@
-import { useBreakpoints } from "contexts/ViewPortProvider";
+import { useBreakpoints } from "contexts/ViewportProvider";
 import { useFetchThumbnails, useManageThumbnails, useSelectVideo } from "hooks";
 import isEqual from "lodash/isEqual";
 import { SyntheticEvent, useCallback, useMemo, useRef } from "react";

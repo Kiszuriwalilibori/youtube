@@ -1,5 +1,5 @@
 import { BasicButton } from "components";
-import { useBreakpoints } from "contexts/ViewPortProvider";
+import { useBreakpoints } from "contexts/ViewportProvider";
 import { useBoolean, useManageInput, useSanitizeInput, useVoiceRecognition as useVoice } from "hooks";
 import { TFunction } from "i18next";
 import Icons from "icons";

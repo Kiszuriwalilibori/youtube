@@ -1,9 +1,9 @@
-interface renderCondition {
+interface Props {
     renderCondition?: boolean;
 }
 
-function renderConditionally<T>(Component: React.ComponentType<T | Omit<T & renderCondition, keyof renderCondition>>) {
-    return function (props: T & renderCondition) {
+function renderConditionally<T>(Component: React.ComponentType<T | Omit<T & Props, keyof Props>>) {
+    return function (props: T & Props) {
         let { renderCondition, ...newProps } = props;
         return renderCondition ? <Component {...newProps} /> : null;
     };

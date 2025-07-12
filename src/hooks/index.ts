@@ -3,7 +3,7 @@ import useCheckApiKey from "./useCheckApiKey";
 import useDelayedCondition from "./useDelayedCondition";
 import useDispatchAction from "./useDispatchAction";
 import useErrorMessageService from "./useErrorMessageService";
-import useFetchThumbnails from "./useFetchThumbnails";
+import { useFetchThumbnails } from "./useFetchThumbnails";
 import useHandleConnectionStatus from "./useHandleConnectionStatus";
 import useManageEye from "./useManageEye";
 import useManageInput from "./useManageInput";
