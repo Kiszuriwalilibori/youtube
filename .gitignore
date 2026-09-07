@@ -25,3 +25,5 @@ yarn-error.log*
 debug.log
 todo.md
 *.zip
+
+/audyty/
