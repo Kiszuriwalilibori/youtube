@@ -7,6 +7,12 @@
     margin-left: var(--sidebar-margin-left);
     grid-template-columns: 1fr;
 
+    &.sidebar--vertical {
+        padding-top: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
     &.sidebar--horizontal {
         margin: 0;
         display: flex;

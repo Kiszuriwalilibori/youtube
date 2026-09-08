@@ -44,6 +44,9 @@ const VideoThumbnail = forwardRef<HTMLButtonElement, Props>(function VideoThumbn
                 textAlign: "inherit",
                 cursor: "pointer",
                 borderRadius: "12px",
+                "&:focus": {
+                    zIndex: 0,
+                },
             }}
         >
             <div className="movie__picture">

@@ -537,6 +537,12 @@ textarea {
   margin-left: var(--sidebar-margin-left);
   grid-template-columns: 1fr;
 }
+.sidebar.sidebar--vertical {
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .sidebar.sidebar--horizontal {
   margin: 0;
   display: flex;
