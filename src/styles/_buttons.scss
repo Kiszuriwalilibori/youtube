@@ -69,15 +69,29 @@
     top: 50px;
 }
 
+// .button--slider {
+//     @extend .btn;
+//     border: none;
+//     border-radius: var(--ytd-search-height);
+//     cursor: pointer;
+//     height: 40px;
+//     height: var(--ytd-search-height);
+//     width: 40px;
+//     width: var(--ytd-search-height);
+//     margin: 5px;
+//     background-color: var(--ytd-alarm-color);
+//     z-index: 10;
+//     &:disabled {
+//         background-color: var(--yt-spec-touch-response);
+//     }
+// }
 .button--slider {
     @extend .btn;
     border: none;
     border-radius: var(--ytd-search-height);
     cursor: pointer;
-    height: 40px;
-    height: var(--ytd-search-height);
-    width: 40px;
-    width: var(--ytd-search-height);
+    height: 44px;
+    width: 44px;
     margin: 5px;
     background-color: var(--ytd-alarm-color);
     z-index: 10;

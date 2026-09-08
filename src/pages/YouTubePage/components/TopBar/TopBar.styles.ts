@@ -11,8 +11,8 @@ export const ShowHiddenButton = styled(IconButton)(({ theme }) => ({
     "&.Mui-disabled": {
         opacity: 0.3,
     },
-    height: "40px",
-    width: "40px",
+    height: "44px",
+    width: "44px",
     transition: "backgroundColor 0.3s",
     "&:hover": { backgroundColor: HIDDEN_BTN_HOVER_COLOR },
     padding: theme.spacing(0.5),
