@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { getErrorMessage, getErrorStatus } from "reduxware/reducers";
 
-import { ContentWrapper, Loader, Player, Slider, TopBar } from "./components";
+import { ContentWrapper, Loader, Message, Player, Slider, TopBar } from "./components";
 
 const YouTubePage = () => {
     const isError = useSelector(getErrorStatus);
