@@ -74,10 +74,8 @@
 //     border: none;
 //     border-radius: var(--ytd-search-height);
 //     cursor: pointer;
-//     height: 40px;
-//     height: var(--ytd-search-height);
-//     width: 40px;
-//     width: var(--ytd-search-height);
+//     height: 44px;
+//     width: 44px;
 //     margin: 5px;
 //     background-color: var(--ytd-alarm-color);
 //     z-index: 10;
@@ -87,19 +85,24 @@
 // }
 .button--slider {
     @extend .btn;
+    position: absolute;
     border: none;
     border-radius: var(--ytd-search-height);
-    cursor: pointer;
+    padding: 0;
+    margin: 5px;
     height: 44px;
     width: 44px;
-    margin: 5px;
     background-color: var(--ytd-alarm-color);
     z-index: 10;
+
     &:disabled {
         background-color: var(--yt-spec-touch-response);
     }
-}
 
+    & svg {
+        pointer-events: none;
+    }
+}
 .button--neutral {
     @extend .btn;
     border: none;

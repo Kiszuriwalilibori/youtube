@@ -1,4 +1,4 @@
-import { BasicButton } from "components";
+import IconButton from "@mui/material/IconButton";
 import Icons from "icons";
 import { SliderOrientation } from "types";
 
@@ -12,7 +12,7 @@ const ButtonNext = (props: Props) => {
     const { handleClick, disabled, sliderOrientation } = props;
 
     return (
-        <BasicButton
+        <IconButton
             id="next"
             aria-label="Show next thumb"
             className={
@@ -20,9 +20,10 @@ const ButtonNext = (props: Props) => {
             }
             onClick={handleClick}
             disabled={disabled}
+            disableRipple
         >
             <Icons.Right />
-        </BasicButton>
+        </IconButton>
     );
 };
 

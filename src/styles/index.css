@@ -652,17 +652,21 @@ textarea {
 }
 
 .button--slider {
+  position: absolute;
   border: none;
   border-radius: var(--ytd-search-height);
-  cursor: pointer;
+  padding: 0;
+  margin: 5px;
   height: 44px;
   width: 44px;
-  margin: 5px;
   background-color: var(--ytd-alarm-color);
   z-index: 10;
 }
 .button--slider:disabled {
   background-color: var(--yt-spec-touch-response);
+}
+.button--slider svg {
+  pointer-events: none;
 }
 
 .button--neutral {
