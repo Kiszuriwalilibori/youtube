@@ -105,9 +105,17 @@
 - Code cleanup and performance improvements
 - Updated documentation
 
-###
+### 1.0.9
 
 - better focus management on slider
+
+### 1.0.10
+
+- fix(login): improve submission and offline feedback
+
+### 1.0.11
+
+- fix(player): improve screen reader support for video states
 
 ## Important Notes
 

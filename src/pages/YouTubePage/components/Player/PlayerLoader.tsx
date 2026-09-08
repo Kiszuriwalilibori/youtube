@@ -5,7 +5,7 @@ export const PlayerLoader = () => {
     const { t } = useTranslation();
     return (
         <>
-            <div className="player--loading" aria-live="polite">
+            <div className="player--loading" aria-live="polite" role="status">
                 {t("video.loading", "Loading video...")}
                 <CircularProgress />
             </div>

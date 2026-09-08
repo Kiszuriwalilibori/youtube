@@ -149,7 +149,7 @@ export const Player = () => {
     }
 
     return (
-        <section className="player" id="player-id">
+        <section className="player" id="player-id" aria-label={title || t("video.videoPlayer")}>
             <YouTube
                 videoId={videoId}
                 opts={{
