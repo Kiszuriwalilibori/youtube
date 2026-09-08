@@ -40,7 +40,7 @@ const ButtonPrevious = (props: Props) => {
                     pointerEvents: "none",
                 },
                 "@media (min-width: 751px)": {
-                    top: isHorizontal ? "auto" : "40px",
+                    top: isHorizontal ? "auto" : "50px",
                     left: "120px",
                     bottom: isHorizontal ? 0 : "auto",
                 },
