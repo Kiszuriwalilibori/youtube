@@ -1,6 +1,5 @@
 import { HiddenH1 } from "components";
-import { useCheckApiKey, useDispatchAction, useMessage } from "hooks";
-import { useEffect } from "react";
+import { useCheckApiKey, useDispatchAction } from "hooks";
 import { useSelector } from "react-redux";
 import { getErrorMessage, getErrorStatus } from "reduxware/reducers";
 
@@ -11,13 +10,6 @@ const YouTubePage = () => {
     const errorMessage = useSelector(getErrorMessage);
     const { clearError } = useDispatchAction();
     const isAPIKeyAvailable = useCheckApiKey();
-    const { error } = useMessage();
-
-    useEffect(() => {
-        if (!isAPIKeyAvailable) {
-            error(errorMessage || "No API key found");
-        }
-    }, [isAPIKeyAvailable, errorMessage, error]);
 
     return (
         <div>
@@ -29,6 +21,7 @@ const YouTubePage = () => {
             </ContentWrapper>
             <Loader />
             {isError && <Message message={errorMessage ? errorMessage : ""} handleClear={() => clearError()} />}
+            {!isAPIKeyAvailable && <Message message={errorMessage ? errorMessage : ""} />}
         </div>
     );
 };
