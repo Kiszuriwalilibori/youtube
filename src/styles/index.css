@@ -573,9 +573,6 @@ textarea {
   filter: none;
   transform: scale(0.95);
 }
-.sidebar .movie.selected {
-  filter: sepia(1);
-}
 .sidebar .movie__picture {
   filter: grayscale(0.7);
   transition: transform 0.4s ease-in-out;

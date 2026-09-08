@@ -1,9 +1,9 @@
 import { useBreakpoints } from "contexts/ViewportProvider";
 import { useFetchThumbnails, useManageThumbnails, useSelectVideo } from "hooks";
 import isEqual from "lodash/isEqual";
-import { SyntheticEvent, useCallback, useMemo, useRef } from "react";
+import { SyntheticEvent, useCallback, useMemo, useRef, useEffect } from "react";
 import { useSelector, shallowEqual } from "react-redux";
-import uuid from "react-uuid";
+// import uuid from "react-uuid";
 import { getQuery } from "reduxware/reducers/queryReducer";
 import { Video } from "types";
 
@@ -15,6 +15,7 @@ const Slider = () => {
     const { sliderOrientation, sliderClass, viewportSize } = useBreakpoints();
     const sliderRef = useRef<HTMLBaseElement>(null);
     const { selectedVideo, selectVideo } = useSelectVideo();
+    const thumbnailRefs = useRef<Record<string, HTMLButtonElement | null>>({});
     const { setToken, pageTokens, lengthOfVideosArray, fetchedVideos, token } = useFetchThumbnails(query); //
 
     const sliderCapacity = useMemo(
@@ -34,6 +35,18 @@ const Slider = () => {
         sliderCapacity,
         fetchedVideos,
     });
+
+    useEffect(() => {
+        const videoId = selectedVideo?.id?.videoId;
+
+        if (!videoId) return;
+
+        const frame = requestAnimationFrame(() => {
+            thumbnailRefs.current[videoId]?.focus();
+        });
+
+        return () => cancelAnimationFrame(frame);
+    }, [selectedVideo]);
 
     const handleClickNext = useCallback(
         (e: SyntheticEvent) => {
@@ -80,10 +93,27 @@ const Slider = () => {
                 disabled={isFirst && !pageTokens.prev} //
             />
 
-            {visibleVideoThumbnails.map((video: Video) => {
+            {/* {visibleVideoThumbnails.map((video: Video) => {
                 return (
                     <VideoThumbnail
-                        key={uuid()}
+                        // key={uuid()}
+                        key={video.id.videoId}
+                        clickHandler={selectVideo}
+                        video={video}
+                        isSelected={isEqual(video, selectedVideo)}
+                    />
+                );
+            })} */}
+
+            {visibleVideoThumbnails.map((video: Video) => {
+                const videoId = video.id.videoId;
+
+                return (
+                    <VideoThumbnail
+                        key={videoId}
+                        ref={element => {
+                            thumbnailRefs.current[videoId] = element;
+                        }}
                         clickHandler={selectVideo}
                         video={video}
                         isSelected={isEqual(video, selectedVideo)}

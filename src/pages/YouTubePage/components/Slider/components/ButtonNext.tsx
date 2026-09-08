@@ -14,7 +14,7 @@ const ButtonNext = (props: Props) => {
     return (
         <BasicButton
             id="next"
-            aria-label="Show previous thumb"
+            aria-label="Show next thumb"
             className={
                 sliderOrientation === "horizontal" ? "button--slider button--right" : "button--slider button--upwards"
             }

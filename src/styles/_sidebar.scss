@@ -43,10 +43,6 @@
             }
         }
 
-        &.selected {
-            filter: sepia(1);
-        }
-
         &__picture {
             filter: grayscale(0.7);
             transition: transform 0.4s ease-in-out;
