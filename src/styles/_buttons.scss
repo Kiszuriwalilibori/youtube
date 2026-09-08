@@ -13,6 +13,11 @@
     border: none;
     box-shadow: 1px 1px 5px -1px rgba(66, 68, 90, 1);
     color: var(--main-bg-color);
+    &:disabled {
+        opacity: 0.45;
+        cursor: not-allowed;
+        box-shadow: none;
+    }
     &[type="submit"] {
         background-color: var(--ytd-searchbox-active-color);
         &:hover {

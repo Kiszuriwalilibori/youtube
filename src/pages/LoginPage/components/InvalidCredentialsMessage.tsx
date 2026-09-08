@@ -11,7 +11,9 @@ export const InvalidCredentialsMessage = (props: Props) => {
     const { t } = useTranslation();
     return (
         <Fade in={isError}>
-            <p className="login__invalid-credentials">{t("warnings.credentials")}</p>
+            <p className="login__invalid-credentials" role="alert">
+                {t("warnings.credentials")}{" "}
+            </p>
         </Fade>
     );
 };

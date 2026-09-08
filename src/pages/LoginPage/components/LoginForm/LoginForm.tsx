@@ -1,5 +1,5 @@
-import { useCallback, useRef } from "react";
-
+import { useCallback, useRef, useState } from "react";
+import CircularProgress from "@mui/material/CircularProgress";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
@@ -17,6 +17,7 @@ import { validators } from "./utils";
 interface Props {
     setError: () => void;
     clearError: () => void;
+    isOnline: boolean;
 }
 
 export const LogInForm = (props: Props) => {
@@ -24,10 +25,12 @@ export const LogInForm = (props: Props) => {
     const { toggleInputType, isPasswordVisible } = useManageEye(refPassword);
     const navigate = useNavigate();
     const { t } = useTranslation();
-    const { setError, clearError } = props;
+    const { setError, clearError, isOnline } = props;
     const { logUser, clearVideos } = useDispatchAction();
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     const onFormSubmit = useCallback(() => {
+        setIsSubmitting(true);
         const password = refPassword.current!.value;
         if (password === process.env.REACT_APP_PASSWORD) {
             logUser();
@@ -35,6 +38,7 @@ export const LogInForm = (props: Props) => {
             navigate(paths.youtube);
         } else {
             setError();
+            setIsSubmitting(false);
         }
         //eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
@@ -55,7 +59,7 @@ export const LogInForm = (props: Props) => {
     }, []);
 
     return (
-        <form className="login__form" onSubmit={handleSubmit(onFormSubmit)}>
+        <form className="login__form" onSubmit={handleSubmit(onFormSubmit)} aria-busy={isSubmitting}>
             <div className="field">
                 <label htmlFor="email-input" className="field__label">
                     {t("login.email")}
@@ -84,6 +88,7 @@ export const LogInForm = (props: Props) => {
             <label className="field">
                 <p className="field__label">{t("login.password")}</p>
                 <input
+                    disabled={!isOnline || isSubmitting}
                     className="field__input"
                     autoComplete="current-password"
                     tabIndex={0}
@@ -110,12 +115,20 @@ export const LogInForm = (props: Props) => {
                 )}
             </label>
 
-            <BasicButton className="button--login" type="submit" aria-label="submit" children={t("buttons.submit")} />
-
+            {/* <BasicButton className="button--login" type="submit" aria-label="submit" children={t("buttons.submit")} /> */}
+            <BasicButton
+                className="button--login"
+                type="submit"
+                aria-label="submit"
+                disabled={isSubmitting || !isOnline}
+            >
+                {isSubmitting ? <CircularProgress size={18} aria-hidden="true" /> : t("buttons.submit")}
+            </BasicButton>
             <BasicButton
                 className="button--login"
                 type="reset"
                 aria-label="reset"
+                disabled={isSubmitting}
                 onClick={handleClickReset}
                 children={t("buttons.reset")}
             />

@@ -1,25 +1,20 @@
 import { useEffect } from "react";
 
-import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 
-import { useBoolean, useDispatchAction, useMessage } from "hooks";
+import { useBoolean, useDispatchAction } from "hooks";
 
 import { isOnlineSelector } from "reduxware/reducers/onlineReducer";
 
 import { InvalidCredentialsMessage, LanguageSwitch, LoginForm, LoginPrompt, Welcome } from "./components";
 const Login = () => {
     const isOnline = useSelector(isOnlineSelector);
-    const showMessage = useMessage();
     const { logOutUser } = useDispatchAction();
     const [isError, setError, clearError] = useBoolean(false);
-    const { t } = useTranslation();
 
     useEffect(() => {
         logOutUser();
     }, [logOutUser]);
-
-    !isOnline && showMessage.warning(t("errors.network.noConnectionDescription"));
 
     return (
         <section className="page--login">
@@ -27,7 +22,7 @@ const Login = () => {
                 <InvalidCredentialsMessage isError={isError} />
                 <Welcome />
                 {isOnline && <LoginPrompt />}
-                {isOnline && <LoginForm setError={setError} clearError={clearError} />}
+                <LoginForm setError={setError} clearError={clearError} isOnline={isOnline} />
                 <LanguageSwitch />
             </div>
         </section>

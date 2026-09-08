@@ -599,6 +599,11 @@ textarea {
   box-shadow: 1px 1px 5px -1px rgb(66, 68, 90);
   color: var(--main-bg-color);
 }
+.button--login:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  box-shadow: none;
+}
 .button--login[type=submit] {
   background-color: var(--ytd-searchbox-active-color);
 }
@@ -818,6 +823,10 @@ textarea {
   height: auto;
   outline: none;
   color: var(--ytd-searchbox-text-color);
+}
+.login__form .field__input:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
 }
 .login__form .field__hint {
   position: absolute;
