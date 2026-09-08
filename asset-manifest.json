@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/youtube/static/css/main.5b04859f.css",
-    "main.js": "/youtube/static/js/main.90aeaf97.js",
+    "main.css": "/youtube/static/css/main.de2862ce.css",
+    "main.js": "/youtube/static/js/main.ff4dc8a4.js",
     "static/js/547.48fa8b5e.chunk.js": "/youtube/static/js/547.48fa8b5e.chunk.js",
     "static/media/nomovies.jpg": "/youtube/static/media/nomovies.4d853e961ce3b863b1c1.jpg",
     "service-worker.js": "/youtube/service-worker.js",
@@ -36,12 +36,12 @@
     "static/media/information.svg": "/youtube/static/media/information.522971a05f65decdf323796073f3c027.svg",
     "static/media/refresh.svg": "/youtube/static/media/refresh.10e175130535ec63cb8916f6df7b3238.svg",
     "static/media/hamburger.svg": "/youtube/static/media/hamburger.dee697bdafd287bc1ba802d5ac87ef29.svg",
-    "main.5b04859f.css.map": "/youtube/static/css/main.5b04859f.css.map",
-    "main.90aeaf97.js.map": "/youtube/static/js/main.90aeaf97.js.map",
+    "main.de2862ce.css.map": "/youtube/static/css/main.de2862ce.css.map",
+    "main.ff4dc8a4.js.map": "/youtube/static/js/main.ff4dc8a4.js.map",
     "547.48fa8b5e.chunk.js.map": "/youtube/static/js/547.48fa8b5e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5b04859f.css",
-    "static/js/main.90aeaf97.js"
+    "static/css/main.de2862ce.css",
+    "static/js/main.ff4dc8a4.js"
   ]
 }
