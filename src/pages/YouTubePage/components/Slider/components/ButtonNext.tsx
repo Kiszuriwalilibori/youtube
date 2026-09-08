@@ -22,10 +22,8 @@ const ButtonNext = (props: Props) => {
             disableRipple
             sx={{
                 position: "absolute",
-                top: isHorizontal ? "40px" : 0,
-                right: isHorizontal ? 0 : "auto",
-                left: isHorizontal ? "auto" : "120px",
-                bottom: isHorizontal ? "auto" : 0,
+                top: "40px",
+                right: 0,
                 border: "none",
                 borderRadius: "var(--ytd-search-height)",
                 padding: 0,
@@ -34,21 +32,19 @@ const ButtonNext = (props: Props) => {
                 width: "44px",
                 backgroundColor: "var(--ytd-alarm-color)",
                 zIndex: 10,
+                transform: isHorizontal ? "none" : "rotate(180deg)",
                 "&:disabled": {
                     backgroundColor: "var(--yt-spec-touch-response)",
                 },
                 "& svg": {
                     pointerEvents: "none",
                 },
-                ...(isHorizontal ? {} : { transform: "rotate(180deg)" }),
-                "@media (min-width: 1200px)": isHorizontal
-                    ? {
-                          top: 0,
-                          right: "auto",
-                          left: "120px",
-                          bottom: "auto",
-                      }
-                    : {},
+                "@media (min-width: 751px)": {
+                    top: isHorizontal ? "auto" : 0,
+                    right: isHorizontal ? "auto" : 0,
+                    left: "120px",
+                    bottom: isHorizontal ? 0 : "auto",
+                },
             }}
         >
             <Icons.Right />
